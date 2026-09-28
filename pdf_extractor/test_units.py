@@ -373,6 +373,15 @@ def test_corrections_diff_and_mining():
 
     mined = mine_patterns(diffs)
     check("substitution pattern mined", ("Q", "O") in [s for s, _ in mined["substitutions"]], True)
+    check("a substitution comes with a token-pair example, not a whole name",
+          mined["substitution_examples"][("Q", "O")], "QKAFOR -> OKAFOR")
+
+    # 35 different one-letter confusions: the on-screen default stops at 30, but anything
+    # that stores the patterns needs all of them (a cut-off would make the rest look gone)
+    many = [{"field": "name", "before": f"K{a}Z", "after": f"K{b}Z"}
+            for a, b in [(x, y) for x in "ABCDEFGH" for y in "ABCDEFGH" if x != y][:35]]
+    check("report default keeps the top 30", len(mine_patterns(many)["substitutions"]), 30)
+    check("None lifts the limit", len(mine_patterns(many, limit_substitutions=None)["substitutions"]), 35)
 
 
 def test_review_rows_flag_and_carry_image_path():

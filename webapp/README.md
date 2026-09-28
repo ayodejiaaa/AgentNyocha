@@ -82,8 +82,8 @@ docker compose exec api python -m webapp.api.seed_users add jane@akowe.example "
 Once DES have been correcting flagged rows for a while:
 
 ```bash
-docker compose exec api python -m webapp.api.mine_corrections
-docker compose exec api python -m webapp.api.mine_corrections --since 2026-10-01
+docker compose exec api python -m webapp.api.mine_corrections                     # report only
+docker compose exec api python -m webapp.api.mine_corrections --since 2026-10-01  # report over a window
 ```
 
 Reports recurring OCR-confusion substitutions and names the tool didn't
@@ -91,6 +91,32 @@ recognize but DES confirmed were real - candidates to fold into
 `pdf_extractor/parser.py` and `pdf_extractor/classify.py` deliberately (see
 that script's docstring for why this is a candidate list, not an
 auto-apply).
+
+**Keeping what it learns.** The report alone forgets everything; these keep it
+in the database (the `mined_patterns` table, created automatically the next
+time the API or this script starts - no migration to run):
+
+```bash
+docker compose exec api python -m webapp.api.mine_corrections --save     # mine every correction, keep the result
+docker compose exec api python -m webapp.api.mine_corrections --list     # what's waiting for a decision
+docker compose exec api python -m webapp.api.mine_corrections --mark 12 accepted --by jane@akowe.example
+docker compose exec api python -m webapp.api.mine_corrections --mark 13 rejected
+```
+
+- `--save` is safe to repeat: counts are recomputed from the corrections as
+  they stand, not added to, and nobody's accept/reject decision is ever
+  overwritten. It refuses `--job` / `--since`, because a partial count would
+  overwrite the stored totals.
+- `--list` shows undecided patterns, most evidence first (`--status all`,
+  `--kind`, `--min-count` narrow it). A name token that later shows up in the
+  vocabulary is closed out automatically as `in_vocabulary`.
+- Accepting a pattern records the decision only. Editing `parser.py` /
+  `classify.py` / the vocabulary is still a deliberate human change.
+- Nothing runs `--save` by itself. To keep the list current, schedule it
+  (a Railway cron job, or `cron` on the box) - weekly is plenty at this volume.
+- What's stored is a character pair, a name token, a count and one token-level
+  example ("OSUNNUB -> OSUNNUBI"), never a full name beyond what the `records`
+  table already holds.
 
 ## Frontend: on Vercel
 

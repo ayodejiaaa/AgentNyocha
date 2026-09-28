@@ -10,7 +10,7 @@ Runs unchanged against SQLite (local dev, zero setup) or Postgres
 from datetime import datetime, timezone
 
 from sqlalchemy import (JSON, Boolean, Column, DateTime, ForeignKey, Integer,
-                         MetaData, String, Table, Text, create_engine)
+                         MetaData, String, Table, Text, UniqueConstraint, create_engine)
 
 from . import config
 
@@ -85,6 +85,36 @@ records = Table(
     Column("reviewed", Boolean, nullable=False, default=False),
     Column("updated_by", Integer, ForeignKey("users.id"), nullable=True),
     Column("updated_at", DateTime, nullable=True),
+)
+
+# What correction-mining has learned so far, kept across runs so the list of
+# candidates has a memory: a person decides once whether a pattern is worth
+# folding into the tool, and it stays decided. One row per pattern -
+#   kind "substitution": key is JSON ["Q", "O"] (OCR read Q where O was meant;
+#                        "" on either side for a dropped/added character)
+#   kind "vocabulary":   key is a name token DES confirmed that the tool's
+#                        name vocabulary didn't know
+# "count" is the evidence right now, recomputed from the records' current
+# corrections on every run (so re-running never double counts, and a
+# correction a DES later reverts stops counting); "peak_count" is the most it
+# has ever been, so evidence isn't lost if the source records are purged.
+# "status" is candidate -> accepted / rejected by a person, or in_vocabulary
+# when a token later appeared in the vocabulary by itself. Nothing here is
+# ever applied to the tool automatically.
+mined_patterns = Table(
+    "mined_patterns", metadata,
+    Column("id", Integer, primary_key=True),
+    Column("kind", String, nullable=False),
+    Column("key", String, nullable=False),
+    Column("count", Integer, nullable=False, default=0),
+    Column("peak_count", Integer, nullable=False, default=0),
+    Column("example", String, nullable=False, default=""),   # one token pair, never a full name
+    Column("status", String, nullable=False, default="candidate"),
+    Column("decided_by", Integer, ForeignKey("users.id"), nullable=True),
+    Column("decided_at", DateTime, nullable=True),
+    Column("first_seen", DateTime, default=_now),
+    Column("last_seen", DateTime, default=_now),
+    UniqueConstraint("kind", "key", name="uq_mined_patterns_kind_key"),
 )
 
 engine = create_engine(config.DATABASE_URL, connect_args=(

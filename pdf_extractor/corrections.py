@@ -102,24 +102,51 @@ def _char_substitutions(before: str, after: str) -> list[tuple[str, str]]:
     return out
 
 
-def mine_patterns(diffs: list[dict]) -> dict:
+def _substitution_example(before: str, after: str, old: str, new: str) -> str:
+    """The single token pair behind a substitution ("OSUNNUB -> OSUNNUBI"),
+    not the whole name: enough for a reviewer to see the confusion, without
+    copying a full person's name into whatever stores the pattern. Empty when
+    the two names split into different numbers of tokens (a word was added or
+    removed, so there's no honest one-token pair to show)."""
+    b_tokens, a_tokens = before.split(), after.split()
+    if len(b_tokens) != len(a_tokens):
+        return ""
+    for bt, at in zip(b_tokens, a_tokens):
+        if bt != at and (old, new) in _char_substitutions(bt, at):
+            return f"{bt} -> {at}"
+    return ""
+
+
+def mine_patterns(diffs: list[dict], limit_substitutions: int | None = 30,
+                  limit_names: int | None = 50) -> dict:
     """Two candidate lists for a human to review before wiring into the
     tool - this never edits parser.py/classify.py itself, since a
     pattern's real frequency across corrections matters more than one
     edit, and a wrong OCR-confusion rule (unlike a flag) actively
-    corrupts future output."""
+    corrupts future output.
+
+    The limits keep an on-screen report readable; pass None for the full
+    lists (what anything that stores the patterns needs - a truncated list
+    would make every pattern past the cutoff look like it had vanished).
+    "substitution_examples" maps each substitution to one token pair."""
     subs = Counter()
     new_names = Counter()
+    examples: dict[tuple[str, str], str] = {}
     for d in diffs:
         if d["field"] != "name" or not d["before"] or not d["after"]:
             continue
-        for old, new in _char_substitutions(d["before"].upper(), d["after"].upper()):
+        before, after = d["before"].upper(), d["after"].upper()
+        for old, new in _char_substitutions(before, after):
             subs[(old, new)] += 1
-        for tok in d["after"].upper().split():
+            if not examples.get((old, new)):
+                examples[(old, new)] = _substitution_example(before, after, old, new)
+        for tok in after.split():
             tok = "".join(c for c in tok if c.isalpha())
             if len(tok) >= 3 and tok not in _NAME_WORDS:
                 new_names[tok] += 1
-    return {"substitutions": subs.most_common(30), "new_vocabulary": new_names.most_common(50)}
+    return {"substitutions": subs.most_common(limit_substitutions),
+            "new_vocabulary": new_names.most_common(limit_names),
+            "substitution_examples": examples}
 
 
 def main():
