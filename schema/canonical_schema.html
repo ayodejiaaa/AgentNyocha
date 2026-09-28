@@ -1,0 +1,486 @@
+<title>Canonical Training Schema</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#F6F4EE;
+    --surface:#FFFFFF;
+    --surface-2:#FBF9F2;
+    --ink:#1E2430;
+    --ink-muted:#5B6472;
+    --ink-faint:#8B93A0;
+    --border:#E2DDCB;
+    --border-strong:#CFC8AF;
+    --accent:#2F5D50;
+    --accent-ink:#F3F7F4;
+    --accent-2:#9C6B25;
+    --danger:#A3402C;
+    --danger-bg:#F6E9E4;
+    --amber-bg:#F5EEDD;
+    --ok-bg:#E9F1EC;
+    --mono-bg:#F0ECDD;
+    --shadow: 0 1px 2px rgba(30,36,48,.06), 0 6px 20px -12px rgba(30,36,48,.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#14181C;
+      --surface:#1B2027;
+      --surface-2:#1F252C;
+      --ink:#E9E6DD;
+      --ink-muted:#9AA3AD;
+      --ink-faint:#6F7883;
+      --border:#2A3038;
+      --border-strong:#39414B;
+      --accent:#5FA98D;
+      --accent-ink:#0E1613;
+      --accent-2:#D1A85C;
+      --danger:#D9705C;
+      --danger-bg:#2E1E1C;
+      --amber-bg:#2A2416;
+      --ok-bg:#182420;
+      --mono-bg:#20262D;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px -14px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#14181C;
+    --surface:#1B2027;
+    --surface-2:#1F252C;
+    --ink:#E9E6DD;
+    --ink-muted:#9AA3AD;
+    --ink-faint:#6F7883;
+    --border:#2A3038;
+    --border-strong:#39414B;
+    --accent:#5FA98D;
+    --accent-ink:#0E1613;
+    --accent-2:#D1A85C;
+    --danger:#D9705C;
+    --danger-bg:#2E1E1C;
+    --amber-bg:#2A2416;
+    --ok-bg:#182420;
+    --mono-bg:#20262D;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px -14px rgba(0,0,0,.5);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    padding-inline:20px;
+    padding-block:48px 96px;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, 'Times New Roman', serif;
+    font-weight:600;
+    text-wrap:balance;
+    color:var(--ink);
+  }
+  .wrap{max-width:980px; margin-inline:auto;}
+  .prose{max-width:720px;}
+  a{color:var(--accent);}
+  code, .mono{
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    font-size:.88em;
+  }
+  .mono-chip{
+    display:inline-block;
+    background:var(--mono-bg);
+    border:1px solid var(--border);
+    border-radius:4px;
+    padding:.05em .45em;
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    font-size:.85em;
+    color:var(--ink);
+  }
+
+  /* ---------- header ---------- */
+  header.masthead{
+    padding-block-end:40px;
+    border-bottom:1px solid var(--border);
+    margin-bottom:40px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:500;
+    margin-bottom:14px;
+  }
+  h1.title{
+    font-size:clamp(32px, 5vw, 46px);
+    line-height:1.08;
+    margin:0 0 14px;
+    letter-spacing:-.01em;
+  }
+  .subtitle{
+    max-width:640px;
+    color:var(--ink-muted);
+    font-size:17px;
+    margin:0 0 18px;
+  }
+  .meta-row{
+    display:flex; gap:18px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--ink-faint);
+  }
+  .meta-row span b{color:var(--ink-muted); font-weight:500;}
+
+  /* ---------- stat tiles ---------- */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+    gap:1px;
+    background:var(--border);
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:56px;
+    box-shadow:var(--shadow);
+  }
+  .stat{
+    background:var(--surface);
+    padding:20px 18px;
+  }
+  .stat .num{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:28px;
+    font-variant-numeric:tabular-nums;
+    color:var(--ink);
+    letter-spacing:-.01em;
+  }
+  .stat .num.accent{color:var(--accent);}
+  .stat .num.danger{color:var(--danger);}
+  .stat .lbl{
+    font-size:12.5px;
+    color:var(--ink-muted);
+    margin-top:4px;
+    line-height:1.35;
+  }
+
+  /* ---------- section nav ---------- */
+  nav.toc{
+    display:flex; flex-wrap:wrap; gap:6px 4px;
+    margin-bottom:52px;
+    padding:10px 12px;
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:8px;
+  }
+  nav.toc a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-muted);
+    text-decoration:none;
+    padding:5px 10px;
+    border-radius:5px;
+  }
+  nav.toc a:hover{background:var(--mono-bg); color:var(--ink);}
+
+  /* ---------- sections ---------- */
+  section{margin-bottom:64px; scroll-margin-top:20px;}
+  .section-head{
+    display:flex; align-items:baseline; gap:14px;
+    margin-bottom:8px;
+  }
+  .section-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--accent-2);
+    font-weight:500;
+  }
+  h2{font-size:26px; margin:0;}
+  .section-dek{color:var(--ink-muted); max-width:680px; margin:10px 0 26px; font-size:15.5px;}
+
+  /* ---------- schema table ---------- */
+  .tablewrap{overflow-x:auto; border:1px solid var(--border); border-radius:10px; box-shadow:var(--shadow);}
+  table{width:100%; border-collapse:collapse; background:var(--surface); font-size:14.5px;}
+  thead th{
+    text-align:left;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    font-weight:500;
+    padding:12px 16px;
+    border-bottom:1px solid var(--border-strong);
+    background:var(--surface-2);
+    white-space:nowrap;
+  }
+  tbody td{
+    padding:13px 16px;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:var(--surface-2);}
+  td.field{font-family:'IBM Plex Mono', monospace; font-weight:500; color:var(--accent); white-space:nowrap;}
+  td.desc{color:var(--ink-muted); max-width:280px;}
+  td.from{color:var(--ink-faint); font-size:13px;}
+  td.from code{background:var(--mono-bg); border-radius:3px; padding:0 4px;}
+  .num-cell{font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap;}
+
+  .tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    padding:2px 7px;
+    border-radius:99px;
+    font-weight:500;
+  }
+  .tag.new{background:var(--ok-bg); color:var(--accent);}
+  .tag.dropped{background:var(--danger-bg); color:var(--danger);}
+  .tag.kept{background:var(--amber-bg); color:var(--accent-2);}
+
+  /* ---------- distribution bars ---------- */
+  .distbar-row{display:grid; grid-template-columns:230px 1fr 90px; gap:14px; align-items:center; padding:7px 0;}
+  .distbar-row .name{font-size:14px; color:var(--ink);}
+  .distbar-track{height:10px; background:var(--surface-2); border:1px solid var(--border); border-radius:5px; overflow:hidden;}
+  .distbar-fill{height:100%; background:var(--accent); border-radius:5px 0 0 5px;}
+  .distbar-row .count{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-muted); text-align:right; font-variant-numeric:tabular-nums;}
+
+  /* ---------- rule callouts ---------- */
+  .rule-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .rule-list li{
+    display:flex; gap:12px;
+    padding:14px 16px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    font-size:14.5px;
+  }
+  .rule-list li .k{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--accent); padding-top:2px; white-space:nowrap;}
+
+  /* ---------- example pairs ---------- */
+  .example{
+    display:flex; align-items:center; gap:10px;
+    font-size:13.5px; padding:6px 0;
+    border-bottom:1px dashed var(--border);
+  }
+  .example:last-child{border-bottom:none;}
+  .example .raw{font-family:'IBM Plex Mono', monospace; color:var(--ink-faint); flex:1; word-break:break-word;}
+  .example .arrow{color:var(--ink-faint);}
+  .example .canon{font-family:'IBM Plex Mono', monospace; color:var(--accent); flex:1; word-break:break-word;}
+
+  /* ---------- punch list ---------- */
+  .punch{
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .punch-item{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-left:3px solid var(--danger);
+    border-radius:0 8px 8px 0;
+    padding:16px 18px;
+    box-shadow:var(--shadow);
+  }
+  .punch-item.amber{border-left-color:var(--accent-2);}
+  .punch-item.minor{border-left-color:var(--ink-faint);}
+  .punch-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap;}
+  .punch-title{font-weight:600; font-size:15.5px;}
+  .punch-count{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--ink-muted); font-variant-numeric:tabular-nums;}
+  .punch-body{color:var(--ink-muted); font-size:14px; margin-top:6px;}
+  .punch-fix{
+    margin-top:10px; font-size:13px;
+    color:var(--ink);
+    background:var(--surface-2);
+    border-radius:6px;
+    padding:9px 12px;
+  }
+  .punch-fix b{color:var(--accent); font-weight:600; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.04em; text-transform:uppercase; display:block; margin-bottom:3px;}
+
+  footer{
+    margin-top:80px; padding-top:24px; border-top:1px solid var(--border);
+    color:var(--ink-faint); font-size:13px;
+  }
+
+  @media (max-width:640px){
+    .distbar-row{grid-template-columns:1fr; gap:4px;}
+    .distbar-row .count{text-align:left;}
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">Akowe Verify &nbsp;·&nbsp; Data Engineering</div>
+    <h1 class="title">Canonical Training Schema</h1>
+    <p class="subtitle">A single target shape for the 57 spreadsheets behind Akowe Verify, built from a full field-by-field audit of all 539,182 rows &mdash; and the normalization rules that resolve grade and academic-session values to it.</p>
+    <div class="meta-row">
+      <span>Version <b>1.0</b></span>
+      <span>14 September 2026</span>
+      <span>11 institutions &middot; 57 source files</span>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="num">539,182</div><div class="lbl">rows audited across every source file</div></div>
+    <div class="stat"><div class="num accent">100.00%</div><div class="lbl">grade values resolved to 13 categories</div></div>
+    <div class="stat"><div class="num accent">99.65%</div><div class="lbl">year values resolved to a clean session</div></div>
+    <div class="stat"><div class="num">708</div><div class="lbl">exact duplicate rows to drop</div></div>
+    <div class="stat"><div class="num danger">1,661</div><div class="lbl">rows needing a manual source re&#8209;check</div></div>
+  </div>
+
+  <nav class="toc">
+    <a href="#schema">01 &nbsp;Canonical schema</a>
+    <a href="#grade">02 &nbsp;Grade normalization</a>
+    <a href="#year">03 &nbsp;Year normalization</a>
+    <a href="#dedup">04 &nbsp;Deduplication</a>
+    <a href="#punch">05 &nbsp;Outstanding punch list</a>
+  </nav>
+
+  <section id="schema">
+    <div class="section-head"><span class="section-num">01</span><h2>Canonical schema</h2></div>
+    <p class="section-dek">Thirteen fields, British spelling throughout. Two are new &mdash; split out of overloaded "grade" and "year" cells rather than discarded. One existing field (<span class="mono-chip">key</span>) is dropped: it appeared in the UI files only, and was blank in every row sampled.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>#</th><th>Field</th><th>Type</th><th>Description</th><th>Replaces / maps from</th><th></th></tr></thead>
+        <tbody>
+          <tr><td class="num-cell">1</td><td class="field">name</td><td class="from">text</td><td class="desc">Surname, given names as printed in the booklet.</td><td class="from">unchanged</td><td></td></tr>
+          <tr><td class="num-cell">2</td><td class="field">faculty</td><td class="from">text</td><td class="desc">Faculty or college of study.</td><td class="from"><code>faculty</code>, Covenant's <code>college</code></td><td></td></tr>
+          <tr><td class="num-cell">3</td><td class="field">department</td><td class="from">text</td><td class="desc">Department within the faculty.</td><td class="from"><code>department</code>, <code>departemnt</code>, <code>departement</code></td><td></td></tr>
+          <tr><td class="num-cell">4</td><td class="field">course</td><td class="from">text</td><td class="desc">Named course of study.</td><td class="from">unchanged</td><td></td></tr>
+          <tr><td class="num-cell">5</td><td class="field">degree</td><td class="from">text</td><td class="desc">Degree awarded, e.g. <code>B.Sc. Economics</code>.</td><td class="from">unchanged</td><td></td></tr>
+          <tr><td class="num-cell">6</td><td class="field">grade</td><td class="from">enum</td><td class="desc">One of 13 canonical classifications &mdash; see &sect;02.</td><td class="from">379 raw spellings</td><td></td></tr>
+          <tr><td class="num-cell">7</td><td class="field">distinction_notes</td><td class="from">text</td><td class="desc">Subject-specific distinctions (Veterinary, Pharmacy, Physiotherapy programmes), semicolon&#8209;joined.</td><td class="from">split out of <code>grade</code></td><td><span class="tag new">new</span></td></tr>
+          <tr><td class="num-cell">8</td><td class="field">year</td><td class="from">text</td><td class="desc">Academic session, <span class="mono-chip">YYYY/YYYY</span>, or a bare <span class="mono-chip">YYYY</span> where the source gives no range.</td><td class="from">811 raw spellings</td><td></td></tr>
+          <tr><td class="num-cell">9</td><td class="field">year_note</td><td class="from">text</td><td class="desc">Semester qualifier when the source states one &mdash; Rain / Harmattan.</td><td class="from">split out of <code>year</code></td><td><span class="tag new">new</span></td></tr>
+          <tr><td class="num-cell">10</td><td class="field">page</td><td class="from">integer</td><td class="desc">Source booklet page. Load&#8209;bearing &mdash; drives the client report's page&nbsp;3. Never inferred, only copied.</td><td class="from">unchanged</td><td></td></tr>
+          <tr><td class="num-cell">11</td><td class="field">programme</td><td class="from">text</td><td class="desc">Mode of study &mdash; Full&#8209;Time, Part&#8209;Time, Distance Learning.</td><td class="from"><code>program</code>, <code>progam</code></td><td></td></tr>
+          <tr><td class="num-cell">12</td><td class="field">affiliated_institution</td><td class="from">text</td><td class="desc">Named when the degree is issued through an affiliated college.</td><td class="from">6 header spellings, incl. the <code>affiliated program</code> mislabel in UI 2018</td><td></td></tr>
+          <tr><td class="num-cell">13</td><td class="field">country</td><td class="from">text</td><td class="desc">Reserved for a future non&#8209;Nigerian institution. Blank in every row seen to date.</td><td class="from">unchanged</td><td><span class="tag kept">kept, unused</span></td></tr>
+          <tr><td class="num-cell">&mdash;</td><td class="field" style="color:var(--ink-faint); text-decoration:line-through;">key</td><td class="from">&mdash;</td><td class="desc" style="text-decoration:line-through;">Always blank across every file sampled.</td><td class="from">&mdash;</td><td><span class="tag dropped">dropped</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="grade">
+    <div class="section-head"><span class="section-num">02</span><h2>Grade normalization</h2></div>
+    <p class="section-dek">379 raw spellings collapse to 13 categories by detecting classification keywords (FIRST/SECOND/THIRD, UPPER/LOWER, PASS, DISTINCTION, MERIT, CREDIT) after correcting known OCR substitutions &mdash; <span class="mono-chip">DIVISON&rarr;DIVISION</span>, <span class="mono-chip">HONORS&rarr;HONOURS</span>, <span class="mono-chip">2ND&rarr;SECOND</span> among them. Subject-specific "Distinction in &hellip;" footnotes, common on Veterinary, Pharmacy and Physiotherapy pages, are extracted into <span class="mono-chip">distinction_notes</span> rather than dropped.</p>
+
+    <div class="tablewrap" style="margin-bottom:28px;">
+      <table>
+        <tbody id="grade-dist">
+          <tr><td colspan="1" style="padding:18px 20px 8px;">
+            <div class="distbar-row"><div class="name">Second Class Honours (Lower Division)</div><div class="distbar-track"><div class="distbar-fill" style="width:100%"></div></div><div class="count">213,945</div></div>
+            <div class="distbar-row"><div class="name">N/A &mdash; not classified in source</div><div class="distbar-track"><div class="distbar-fill" style="width:52.2%"></div></div><div class="count">111,725</div></div>
+            <div class="distbar-row"><div class="name">Second Class Honours (Upper Division)</div><div class="distbar-track"><div class="distbar-fill" style="width:44.3%"></div></div><div class="count">94,871</div></div>
+            <div class="distbar-row"><div class="name">Third Class Honours</div><div class="distbar-track"><div class="distbar-fill" style="width:26.5%"></div></div><div class="count">56,625</div></div>
+            <div class="distbar-row"><div class="name">Pass</div><div class="distbar-track"><div class="distbar-fill" style="width:16.4%"></div></div><div class="count">35,145</div></div>
+            <div class="distbar-row"><div class="name">First Class Honours</div><div class="distbar-track"><div class="distbar-fill" style="width:4.0%"></div></div><div class="count">8,614</div></div>
+            <div class="distbar-row"><div class="name">Lower Credit</div><div class="distbar-track"><div class="distbar-fill" style="width:2.1%"></div></div><div class="count">4,399</div></div>
+            <div class="distbar-row"><div class="name">Upper Credit</div><div class="distbar-track"><div class="distbar-fill" style="width:1.5%"></div></div><div class="count">3,180</div></div>
+            <div class="distbar-row"><div class="name">Merit</div><div class="distbar-track"><div class="distbar-fill" style="width:1.4%"></div></div><div class="count">2,908</div></div>
+            <div class="distbar-row"><div class="name">Distinction</div><div class="distbar-track"><div class="distbar-fill" style="width:1.1%"></div></div><div class="count">2,254</div></div>
+            <div class="distbar-row"><div class="name">Credit</div><div class="distbar-track"><div class="distbar-fill" style="width:0.9%"></div></div><div class="count">1,983</div></div>
+            <div class="distbar-row"><div class="name">Second Class Honours (division unspecified)</div><div class="distbar-track"><div class="distbar-fill" style="width:0.1%"></div></div><div class="count">177</div></div>
+            <div class="distbar-row"><div class="name">Aegrotat</div><div class="distbar-track"><div class="distbar-fill" style="width:0.01%"></div></div><div class="count">2</div></div>
+          </td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size:14px; color:var(--ink-muted); margin-bottom:10px;"><strong style="color:var(--ink);">Sample of raw &rarr; canonical mappings:</strong></p>
+    <div class="tablewrap" style="padding:16px 20px; margin-bottom:20px;">
+      <div class="example"><span class="raw">SECOND CLASS (Hons.) LOWER DIVISION</span><span class="arrow">&rarr;</span><span class="canon">Second Class Honours (Lower Division)</span></div>
+      <div class="example"><span class="raw">SECOND CLASS HONOURS(LOW ER DIVISION)</span><span class="arrow">&rarr;</span><span class="canon">Second Class Honours (Lower Division)</span></div>
+      <div class="example"><span class="raw">2ND CLASS HONOURS (UPPER DIVISION)</span><span class="arrow">&rarr;</span><span class="canon">Second Class Honours (Upper Division)</span></div>
+      <div class="example"><span class="raw">THRID CLASS HONOURS</span><span class="arrow">&rarr;</span><span class="canon">Third Class Honours</span></div>
+      <div class="example"><span class="raw">SECOND CLASS HONOURS (UPPER DIVISION), Distinction in Cardiorespiratory</span><span class="arrow">&rarr;</span><span class="canon">Second Class Honours (Upper Division) <span style="color:var(--ink-faint);">+ note: Cardiorespiratory</span></span></div>
+      <div class="example"><span class="raw">(MB;BS) DEGREE</span><span class="arrow">&rarr;</span><span class="canon">N/A <span style="color:var(--ink-faint);">(professional degree, not classified)</span></span></div>
+    </div>
+
+    <ul class="rule-list">
+      <li><span class="k">1&nbsp;value&nbsp;left</span> Exactly one raw value, the bare word <span class="mono-chip">HONOURS</span> (1 row), is genuinely ambiguous &mdash; no class is stated. Needs the source page.</li>
+      <li><span class="k">17&nbsp;rows&nbsp;garbage</span> Leaked Excel artefacts with no grade content at all &mdash; a bare <span class="mono-chip">-2146826259</span> (an overflowed error code) and six rows of stray symbols (<span class="mono-chip">$</span>, <span class="mono-chip">@$#*</span>). Map to blank, flagged.</li>
+    </ul>
+  </section>
+
+  <section id="year">
+    <div class="section-head"><span class="section-num">03</span><h2>Year normalization</h2></div>
+    <p class="section-dek">Target format is <span class="mono-chip">YYYY/YYYY</span> for an academic session, or a bare <span class="mono-chip">YYYY</span> when the source states only a publication year. A session gap of two years is accepted as genuine &mdash; Nigerian universities have held convocations covering two sessions at once after strike or COVID disruption &mdash; <span class="mono-chip">2019/2021</span> alone accounts for 3,437 rows.</p>
+
+    <div class="tablewrap" style="margin-bottom:28px;">
+      <table>
+        <tbody>
+          <tr><td style="padding:18px 20px 8px;">
+            <div class="distbar-row"><div class="name">2018/2019</div><div class="distbar-track"><div class="distbar-fill" style="width:100%"></div></div><div class="count">44,728</div></div>
+            <div class="distbar-row"><div class="name">2019/2020</div><div class="distbar-track"><div class="distbar-fill" style="width:94.7%"></div></div><div class="count">42,366</div></div>
+            <div class="distbar-row"><div class="name">2021/2022</div><div class="distbar-track"><div class="distbar-fill" style="width:77.1%"></div></div><div class="count">34,491</div></div>
+            <div class="distbar-row"><div class="name">2017/2018</div><div class="distbar-track"><div class="distbar-fill" style="width:73.0%"></div></div><div class="count">32,656</div></div>
+            <div class="distbar-row"><div class="name">2020/2021</div><div class="distbar-track"><div class="distbar-fill" style="width:65.2%"></div></div><div class="count">29,141</div></div>
+            <div class="distbar-row"><div class="name">2016/2017</div><div class="distbar-track"><div class="distbar-fill" style="width:58.3%"></div></div><div class="count">26,097</div></div>
+            <div class="distbar-row"><div class="name">2019/2021 <span style="color:var(--ink-faint);">(combined session)</span></div><div class="distbar-track"><div class="distbar-fill" style="width:56.9%; background:var(--accent-2);"></div></div><div class="count">3,437</div></div>
+          </td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="rule-list">
+      <li><span class="k">OCR&nbsp;digit&nbsp;fix</span> Letter <span class="mono-chip">O</span> used for digit <span class="mono-chip">0</span> is corrected before parsing &mdash; <span class="mono-chip">2O22/2O23</span> &rarr; <span class="mono-chip">2022/2023</span>.</li>
+      <li><span class="k">2&#8209;digit&nbsp;pairs</span> Shorthand like <span class="mono-chip">18/19 SESSION</span> expands to <span class="mono-chip">2018/2019</span>.</li>
+      <li><span class="k">Semester&nbsp;notes</span> <span class="mono-chip">Rain Semester</span> (10,292 rows) and <span class="mono-chip">Harmattan Semester</span> (1,188 rows) move to <span class="mono-chip">year_note</span>, session stays clean.</li>
+      <li><span class="k">Gap&nbsp;&gt;2&nbsp;years</span> Treated as corruption, not a real combined session &mdash; flagged rather than accepted silently.</li>
+    </ul>
+  </section>
+
+  <section id="dedup">
+    <div class="section-head"><span class="section-num">04</span><h2>Deduplication</h2></div>
+    <p class="section-dek">Rule: within each source file, where every field of a row is identical to an earlier row, keep the first occurrence and drop the rest.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Source</th><th>Rows</th><th>Exact duplicates</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td>Main data sheets, all 57 files</td><td class="num-cell">536,058</td><td class="num-cell">708 (0.13%)</td><td><span class="tag new">de&#8209;duplicate</span></td></tr>
+          <tr><td>FUTA 2021 &mdash; <code>Sheet3</code> (unmerged raw extraction)</td><td class="num-cell">2,145</td><td class="num-cell">822</td><td><span class="tag dropped">drop sheet</span></td></tr>
+          <tr><td>OAU 2024 &mdash; <code>Sheet2</code> (empty leftover)</td><td class="num-cell">979</td><td class="num-cell">978</td><td><span class="tag dropped">drop sheet</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="punch">
+    <div class="section-head"><span class="section-num">05</span><h2>Outstanding punch list</h2></div>
+    <p class="section-dek">Everything below needs a human back at the source page &mdash; none of it is safe to infer. Each is precisely located via the file and the <span class="mono-chip">page</span> column, so fixing it is a lookup, not a search.</p>
+
+    <div class="punch">
+      <div class="punch-item">
+        <div class="punch-head"><div class="punch-title">Corrupted date-serials in the year column</div><div class="punch-count">1,500 rows</div></div>
+        <div class="punch-body">Concentrated in the University of Ibadan files (2003, 2004, 2014, 2019, 2021). A year cell was auto&#8209;converted by Excel into a date at entry time; the original session is gone from the spreadsheet &mdash; opening one of these cells shows things like <span class="mono-chip">Oct-02</span> or <span class="mono-chip">13-May</span>, not a session.</div>
+        <div class="punch-fix"><b>Fix</b>Re-derive the session from the booklet page via the row's <span class="mono-chip">page</span> value &mdash; the text itself can't be recovered.</div>
+      </div>
+      <div class="punch-item amber">
+        <div class="punch-head"><div class="punch-title">"2014/20xx" autofill cluster</div><div class="punch-count">84 rows, 83 distinct values</div></div>
+        <div class="punch-body">Every value starts at 2014 and ends anywhere from 2018 to 2099, each appearing exactly once &mdash; the signature of a dragged Excel fill formula rather than 83 real sessions.</div>
+        <div class="punch-fix"><b>Fix</b>Very likely a single constant session (probably <span class="mono-chip">2014/2015</span>) that a fill&#8209;down corrupted. Confirm against source pages, then flat-fix the whole cluster.</div>
+      </div>
+      <div class="punch-item minor">
+        <div class="punch-head"><div class="punch-title">Grade text leaked into the year column</div><div class="punch-count">28 rows</div></div>
+        <div class="punch-body">A handful of rows carry values like <span class="mono-chip">THIRD CLASS (HONS)</span> or <span class="mono-chip">PASS DEGREE</span> in the year field &mdash; a column-alignment slip during transcription for those specific rows.</div>
+        <div class="punch-fix"><b>Fix</b>Re-check against the source page; likely both grade and year need re-entry for these rows.</div>
+      </div>
+      <div class="punch-item minor">
+        <div class="punch-head"><div class="punch-title">Reversed or implausible year pairs</div><div class="punch-count">133 rows, 104 distinct values</div></div>
+        <div class="punch-body">E.g. <span class="mono-chip">2017/2013</span> (reversed) or <span class="mono-chip">2006/2017</span> (an 11-year gap) &mdash; almost certainly a single mis-typed or mis-OCR'd digit each.</div>
+        <div class="punch-fix"><b>Fix</b>Low volume, spread thin &mdash; worth a quick manual pass rather than an automated rule.</div>
+      </div>
+      <div class="punch-item minor">
+        <div class="punch-title" style="margin-bottom:6px;">Also carried over from the full-dataset audit</div>
+        <div class="punch-body">708 exact-duplicate rows (see &sect;04) &middot; 17 garbage grade values (see &sect;02) &middot; 1 ambiguous grade value (<span class="mono-chip">HONOURS</span> alone).</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Built from a full field-level audit of 539,182 rows across 57 files (11 institutions). Normalization logic lives in <code>normalize_grades.js</code> and <code>normalize_years.js</code> alongside this document &mdash; both are deterministic and re-runnable against the raw value lists.
+  </footer>
+
+</div>

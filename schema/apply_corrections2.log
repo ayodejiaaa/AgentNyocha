@@ -1,0 +1,326 @@
+Files to correct: 18
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2014.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...badan-2014.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2014.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 509 corrections to UI\university-of-ibadan-2014.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2003.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...badan-2003.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2003.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 246 corrections to UI\university-of-ibadan-2003.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2004.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...badan-2004.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2004.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 250 corrections to UI\university-of-ibadan-2004.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2016.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...badan-2016.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2016.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 86 corrections to UI\university-of-ibadan-2016.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2019.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...badan-2019.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2019.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 306 corrections to UI\university-of-ibadan-2019.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2021.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...badan-2021.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2021.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 180 corrections to UI\university-of-ibadan-2021.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2017.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...badan-2017.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2017.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 1 corrections to UI\university-of-ibadan-2017.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2022.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...badan-2022.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev 
+Projects\Extractor\schema\corrected\UI\university-of-ibadan-2022.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 1 corrections to UI\university-of-ibadan-2022.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\UNILAG - 
+Undergraduate\unilag-2022.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...nilag-2022.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\UNILAG - 
+Undergraduate\unilag-2022.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 35 corrections to UNILAG - Undergraduate\unilag-2022.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\UNILAG - 
+Undergraduate\unilag-2018.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...nilag-2018.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\UNILAG - 
+Undergraduate\unilag-2018.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 13 corrections to UNILAG - Undergraduate\unilag-2018.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\UNILAG - 
+Undergraduate\unilag-2021.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...nilag-2021.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\UNILAG - 
+Undergraduate\unilag-2021.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 1 corrections to UNILAG - Undergraduate\unilag-2021.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\UNILAG - 
+Undergraduate\unilag-2024.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...nilag-2024.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\UNILAG - 
+Undergraduate\unilag-2024.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 1 corrections to UNILAG - Undergraduate\unilag-2024.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\LASU\lasu-2012.xlsx' is 
+denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...\lasu-2012.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\LASU\lasu-2012.xlsx' is 
+denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 21 corrections to LASU\lasu-2012.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\LASU\lasu-2013.xlsx' is 
+denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...\lasu-2013.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\LASU\lasu-2013.xlsx' is 
+denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 21 corrections to LASU\lasu-2013.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\LASU\lasu-2018.xlsx' is 
+denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...\lasu-2018.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\LASU\lasu-2018.xlsx' is 
+denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 3 corrections to LASU\lasu-2018.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\LASU\lasu-2019.xlsx' is 
+denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...\lasu-2019.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\LASU\lasu-2019.xlsx' is 
+denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 1 corrections to LASU\lasu-2019.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\LASU\lasu-2020.xlsx' is 
+denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...\lasu-2020.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\LASU\lasu-2020.xlsx' is 
+denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 4 corrections to LASU\lasu-2020.xlsx
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\OOU\OOU - 
+Postgraduate\oou-pgs-2020.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (C:\Users\User1\...u-pgs-2020.xlsx:FileInfo) [Copy-Item], Unauthorized 
+   AccessException
+    + FullyQualifiedErrorId : CopyFileInfoItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Copy-Item : Access to the path 'C:\Users\User1\Desktop\Dev Projects\Extractor\schema\corrected\OOU\OOU - 
+Postgraduate\oou-pgs-2020.xlsx' is denied.
+At C:\Users\User1\Desktop\Dev Projects\Extractor\schema\apply_corrections.ps1:33 char:5
++     Copy-Item -Path $srcPath -Destination $destPath -Force
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+Applied 2 corrections to OOU\OOU - Postgraduate\oou-pgs-2020.xlsx
+TOTAL applied: 1681

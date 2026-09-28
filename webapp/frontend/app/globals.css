@@ -1,0 +1,105 @@
+* { box-sizing: border-box; }
+html, body { padding: 0; margin: 0; }
+body {
+  font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+  background: #f4f5f7;
+  color: #1c1e21;
+}
+a { color: inherit; }
+button, input, select { font-family: inherit; font-size: inherit; }
+
+.topbar {
+  position: sticky; top: 0; z-index: 10;
+  background: #fff; border-bottom: 1px solid #ddd;
+  padding: 12px 20px; display: flex; align-items: center; gap: 16px;
+}
+.topbar .brand { font-weight: 700; font-size: 15px; margin-right: auto; }
+.topbar .who { font-size: 13px; color: #666; }
+.topbar button.link {
+  background: none; border: none; color: #666; font-size: 13px; cursor: pointer; text-decoration: underline;
+  padding: 0;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 24px 20px 60px; }
+
+.card {
+  background: #fff; border: 1px solid #e3e4e7; border-radius: 8px; padding: 20px; margin-bottom: 16px;
+}
+
+.btn {
+  display: inline-block; border: 1px solid #1c1e21; background: #1c1e21; color: #fff;
+  border-radius: 6px; padding: 9px 16px; font-size: 14px; cursor: pointer; text-decoration: none;
+}
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn.secondary { background: #fff; color: #1c1e21; }
+
+.field { margin-bottom: 14px; }
+.field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; }
+.field input, .field select {
+  width: 100%; padding: 9px 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;
+}
+
+.error { color: #b02a2a; font-size: 13px; margin-top: 10px; }
+
+table.jobs { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.jobs th { text-align: left; color: #888; font-weight: 600; padding: 8px 10px; border-bottom: 1px solid #eee; }
+table.jobs td { padding: 10px; border-bottom: 1px solid #f1f1f1; vertical-align: middle; }
+table.jobs tr:hover td { background: #fafafa; }
+table.jobs a.job-link { font-weight: 600; text-decoration: none; }
+table.jobs a.job-link:hover { text-decoration: underline; }
+
+.status-pill {
+  display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 10px;
+  text-transform: uppercase; letter-spacing: .03em;
+}
+.status-pill.queued, .status-pill.processing { background: #eef1ff; color: #3a4ba0; }
+.status-pill.ready { background: #e6f4ea; color: #1e7e34; }
+.status-pill.failed { background: #fde8e8; color: #b02a2a; }
+
+.counts { font-size: 12px; color: #888; }
+.counts b.low { color: #b02a2a; }
+.counts b.medium { color: #a15c00; }
+
+/* --- review page (matches pdf_extractor/review.py's local HTML preview) --- */
+.filters button {
+  border: 1px solid #ccc; background: #fff; border-radius: 16px; padding: 6px 14px;
+  font-size: 13px; cursor: pointer; margin-right: 6px;
+}
+.filters button.active { background: #1c1e21; color: #fff; border-color: #1c1e21; }
+.review-row {
+  background: #fff; border: 1px solid #e3e4e7; border-radius: 8px; margin-bottom: 10px;
+  padding: 12px 14px; display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start;
+}
+.review-row .idx { color: #999; font-size: 11px; width: 42px; flex: none; padding-top: 3px; }
+.review-row .fields { flex: 3 1 340px; min-width: 240px; }
+.review-row .fields input { width: 100%; border: 1px solid #ddd; border-radius: 4px; padding: 5px 7px; font-size: 13px; margin-bottom: 5px; }
+.review-row .fields label { font-size: 10px; color: #999; display: block; margin: 6px 0 2px; text-transform: uppercase; }
+.badge {
+  display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px;
+  text-transform: uppercase; letter-spacing: .03em; margin-bottom: 4px;
+}
+.badge.high { background: #e6f4ea; color: #1e7e34; }
+.badge.medium { background: #fff4e0; color: #a15c00; }
+.badge.low { background: #fde8e8; color: #b02a2a; }
+.reason { font-size: 11px; color: #888; margin-left: 6px; }
+.snap { flex: 2 1 320px; max-width: 420px; min-width: 240px; }
+.snap img { width: 100%; border: 1px solid #ddd; border-radius: 6px; cursor: zoom-in; display: block; }
+.snap .none { color: #bbb; font-size: 12px; padding: 30px 0; text-align: center; border: 1px dashed #ddd; border-radius: 6px; }
+.save-status { min-height: 16px; font-size: 11px; margin-top: 3px; }
+.save-status .hint { color: #aaa; }
+.save-status .ok { color: #1e7e34; font-weight: 600; }
+
+.reviewed-toggle {
+  display: flex; align-items: flex-start; gap: 8px; margin-top: 10px; padding: 8px 10px;
+  background: #f7f8fa; border: 1px solid #e6e7ea; border-radius: 6px; cursor: pointer;
+}
+.reviewed-toggle input { margin-top: 3px; flex: none; }
+.reviewed-toggle b { font-size: 12px; }
+.reviewed-hint { font-size: 11px; color: #888; line-height: 1.4; }
+
+#lightbox {
+  position: fixed; inset: 0; background: rgba(0,0,0,.85); display: none;
+  align-items: center; justify-content: center; z-index: 20; cursor: zoom-out; padding: 30px;
+}
+#lightbox.open { display: flex; }
+#lightbox img { max-width: 95%; max-height: 95%; border-radius: 4px; }

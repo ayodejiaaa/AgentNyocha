@@ -1,0 +1,408 @@
+{
+ "totalIn": 536058,
+ "totalOut": 535288,
+ "totalDupRemoved": 767,
+ "perFileReport": [
+  {
+   "relPath": "COVENANT\\covenant-university-2018.xlsx",
+   "university": "COVENANT",
+   "inRows": 1909,
+   "outRows": 1909,
+   "dupRemoved": 0
+  },
+  {
+   "relPath": "COVENANT\\covenant-university-2019.xlsx",
+   "university": "COVENANT",
+   "inRows": 1579,
+   "outRows": 1579,
+   "dupRemoved": 0
+  },
+  {
+   "relPath": "COVENANT\\covenant-university-2021.xlsx",
+   "university": "COVENANT",
+   "inRows": 1917,
+   "outRows": 1917,
+   "dupRemoved": 0
+  },
+  {
+   "relPath": "COVENANT\\covenant-university-2022.xlsx",
+   "university": "COVENANT",
+   "inRows": 1934,
+   "outRows": 1934,
+   "dupRemoved": 0
+  },
+  {
+   "relPath": "COVENANT\\covenant-university-2023.xlsx",
+   "university": "COVENANT",
+   "inRows": 1380,
+   "outRows": 1380,
+   "dupRemoved": 0
+  },
+  {
+   "relPath": "COVENANT\\covenant-university-2024.xlsx",
+   "university": "COVENANT",
+   "inRows": 1607,
+   "outRows": 1607,
+   "dupRemoved": 0
+  },
+  {
+   "relPath": "FUTA\\futa-2021.xlsx",
+   "university": "FUTA",
+   "inRows": 5003,
+   "outRows": 5003,
+   "dupRemoved": 0
+  },
+  {
+   "relPath": "FUTA\\futa-2024.xlsx",
+   "university": "FUTA",
+   "inRows": 7582,
+   "outRows": 7576,
+   "dupRemoved": 6
+  },
+  {
+   "relPath": "LASU\\lasu-2005-b.sc.xlsx",
+   "university": "LASU",
+   "inRows": 4687,
+   "outRows": 4610,
+   "dupRemoved": 77
+  },
+  {
+   "relPath": "LASU\\lasu-2007.xlsx",
+   "university": "LASU",
+   "inRows": 9798,
+   "outRows": 9783,
+   "dupRemoved": 15
+  },
+  {
+   "relPath": "LASU\\lasu-2009.xlsx",
+   "university": "LASU",
+   "inRows": 10535,
+   "outRows": 10527,
+   "dupRemoved": 8
+  },
+  {
+   "relPath": "LASU\\lasu-2012.xlsx",
+   "university": "LASU",
+   "inRows": 27339,
+   "outRows": 27194,
+   "dupRemoved": 145
+  },
+  {
+   "relPath": "LASU\\lasu-2013.xlsx",
+   "university": "LASU",
+   "inRows": 12846,
+   "outRows": 12802,
+   "dupRemoved": 44
+  },
+  {
+   "relPath": "LASU\\lasu-2016.xlsx",
+   "university": "LASU",
+   "inRows": 15470,
+   "outRows": 15378,
+   "dupRemoved": 92
+  },
+  {
+   "relPath": "LASU\\lasu-2018.xlsx",
+   "university": "LASU",
+   "inRows": 22053,
+   "outRows": 21974,
+   "dupRemoved": 79
+  },
+  {
+   "relPath": "LASU\\lasu-2019.xlsx",
+   "university": "LASU",
+   "inRows": 24825,
+   "outRows": 24785,
+   "dupRemoved": 40
+  },
+  {
+   "relPath": "LASU\\lasu-2020.xlsx",
+   "university": "LASU",
+   "inRows": 7213,
+   "outRows": 7195,
+   "dupRemoved": 18
+  },
+  {
+   "relPath": "LASU\\lasu-2022.xlsx",
+   "university": "LASU",
+   "inRows": 7224,
+   "outRows": 7201,
+   "dupRemoved": 23
+  },
+  {
+   "relPath": "LASU\\lasu-2023.xlsx",
+   "university": "LASU",
+   "inRows": 13536,
+   "outRows": 13535,
+   "dupRemoved": 1
+  },
+  {
+   "relPath": "LASU\\lasu-2024.xlsx",
+   "university": "LASU",
+   "inRows": 11278,
+   "outRows": 11260,
+   "dupRemoved": 18
+  },
+  {
+   "relPath": "OAU\\oau-2019.xlsx",
+   "university": "OAU",
+   "inRows": 6977,
+   "outRows": 6974,
+   "dupRemoved": 3
+  },
+  {
+   "relPath": "OAU\\oau-2023.xlsx",
+   "university": "OAU",
+   "inRows": 7119,
+   "outRows": 7109,
+   "dupRemoved": 10
+  },
+  {
+   "relPath": "OAU\\oau-2024.xlsx",
+   "university": "OAU",
+   "inRows": 8063,
+   "outRows": 8048,
+   "dupRemoved": 15
+  },
+  {
+   "relPath": "OOU\\OOU - Postgraduate\\oou-pgs-2020.xlsx",
+   "university": "OOU",
+   "inRows": 1076,
+   "outRows": 1076,
+   "dupRemoved": 0
+  },
+  {
+   "relPath": "OOU\\OOU - Postgraduate\\oou-pgs-2022.xlsx",
+   "university": "OOU",
+   "inRows": 631,
+   "outRows": 631,
+   "dupRemoved": 0
+  },
+  {
+   "relPath": "OOU\\OOU - Undergraduate\\oou-b.sc-2020.xlsx",
+   "university": "OOU",
+   "inRows": 9877,
+   "outRows": 9875,
+   "dupRemoved": 2
+  },
+  {
+   "relPath": "OOU\\OOU - Undergraduate\\oou-b.sc-2022.xlsx",
+   "university": "OOU",
+   "inRows": 12880,
+   "outRows": 12870,
+   "dupRemoved": 10
+  },
+  {
+   "relPath": "OOU\\oou-2024.xlsx",
+   "university": "OOU",
+   "inRows": 15253,
+   "outRows": 15244,
+   "dupRemoved": 9
+  },
+  {
+   "relPath": "UI\\university-of-ibadan-2003.xlsx",
+   "university": "UI",
+   "inRows": 9626,
+   "outRows": 9620,
+   "dupRemoved": 6
+  },
+  {
+   "relPath": "UI\\university-of-ibadan-2004.xlsx",
+   "university": "UI",
+   "inRows": 8901,
+   "outRows": 8884,
+   "dupRemoved": 17
+  },
+  {
+   "relPath": "UI\\university-of-ibadan-2012.xlsx",
+   "university": "UI",
+   "inRows": 4770,
+   "outRows": 4767,
+   "dupRemoved": 3
+  },
+  {
+   "relPath": "UI\\university-of-ibadan-2014.xlsx",
+   "university": "UI",
+   "inRows": 14597,
+   "outRows": 14593,
+   "dupRemoved": 4
+  },
+  {
+   "relPath": "UI\\university-of-ibadan-2015.xlsx",
+   "university": "UI",
+   "inRows": 9597,
+   "outRows": 9593,
+   "dupRemoved": 4
+  },
+  {
+   "relPath": "UI\\university-of-ibadan-2016.xlsx",
+   "university": "UI",
+   "inRows": 9504,
+   "outRows": 9504,
+   "dupRemoved": 0
+  },
+  {
+   "relPath": "UI\\university-of-ibadan-2017.xlsx",
+   "university": "UI",
+   "inRows": 9296,
+   "outRows": 9294,
+   "dupRemoved": 2
+  },
+  {
+   "relPath": "UI\\university-of-ibadan-2018.xlsx",
+   "university": "UI",
+   "inRows": 12405,
+   "outRows": 12394,
+   "dupRemoved": 11
+  },
+  {
+   "relPath": "UI\\university-of-ibadan-2019.xlsx",
+   "university": "UI",
+   "inRows": 11089,
+   "outRows": 11078,
+   "dupRemoved": 11
+  },
+  {
+   "relPath": "UI\\university-of-ibadan-2021.xlsx",
+   "university": "UI",
+   "inRows": 13671,
+   "outRows": 13670,
+   "dupRemoved": 1
+  },
+  {
+   "relPath": "UI\\university-of-ibadan-2022.xlsx",
+   "university": "UI",
+   "inRows": 5703,
+   "outRows": 5696,
+   "dupRemoved": 4
+  },
+  {
+   "relPath": "UNILAG - Postgraduate\\unilag-2019-postgraduate.xlsx",
+   "university": "UNILAG - Postgraduate",
+   "inRows": 5240,
+   "outRows": 5220,
+   "dupRemoved": 20
+  },
+  {
+   "relPath": "UNILAG - Postgraduate\\unilag-2021-postgraduate.xlsx",
+   "university": "UNILAG - Postgraduate",
+   "inRows": 7949,
+   "outRows": 7949,
+   "dupRemoved": 0
+  },
+  {
+   "relPath": "UNILAG - Postgraduate\\unilag-2022-postgraduate.xlsx",
+   "university": "UNILAG - Postgraduate",
+   "inRows": 4289,
+   "outRows": 4289,
+   "dupRemoved": 0
+  },
+  {
+   "relPath": "UNILAG - Postgraduate\\unilag-2023-postgraduate.xlsx",
+   "university": "UNILAG - Postgraduate",
+   "inRows": 2184,
+   "outRows": 2182,
+   "dupRemoved": 2
+  },
+  {
+   "relPath": "UNILAG - Undergraduate\\unilag-2018.xlsx",
+   "university": "UNILAG - Undergraduate",
+   "inRows": 15222,
+   "outRows": 15220,
+   "dupRemoved": 2
+  },
+  {
+   "relPath": "UNILAG - Undergraduate\\unilag-2019.xlsx",
+   "university": "UNILAG - Undergraduate",
+   "inRows": 9331,
+   "outRows": 9326,
+   "dupRemoved": 5
+  },
+  {
+   "relPath": "UNILAG - Undergraduate\\unilag-2021.xlsx",
+   "university": "UNILAG - Undergraduate",
+   "inRows": 9417,
+   "outRows": 9416,
+   "dupRemoved": 1
+  },
+  {
+   "relPath": "UNILAG - Undergraduate\\unilag-2022.xlsx",
+   "university": "UNILAG - Undergraduate",
+   "inRows": 8368,
+   "outRows": 8368,
+   "dupRemoved": 0
+  },
+  {
+   "relPath": "UNILAG - Undergraduate\\unilag-2024.xlsx",
+   "university": "UNILAG - Undergraduate",
+   "inRows": 10797,
+   "outRows": 10796,
+   "dupRemoved": 1
+  },
+  {
+   "relPath": "UNILAG - Undergraduate\\unilag-2025.xlsx",
+   "university": "UNILAG - Undergraduate",
+   "inRows": 10245,
+   "outRows": 10245,
+   "dupRemoved": 0
+  },
+  {
+   "relPath": "UNILORIN\\unilorin-2015.xlsx",
+   "university": "UNILORIN",
+   "inRows": 6711,
+   "outRows": 6711,
+   "dupRemoved": 0
+  },
+  {
+   "relPath": "UNILORIN\\unilorin-2016.xlsx",
+   "university": "UNILORIN",
+   "inRows": 7840,
+   "outRows": 7838,
+   "dupRemoved": 2
+  },
+  {
+   "relPath": "UNILORIN\\unilorin-2017.xlsx",
+   "university": "UNILORIN",
+   "inRows": 8798,
+   "outRows": 8788,
+   "dupRemoved": 10
+  },
+  {
+   "relPath": "UNILORIN\\unilorin-2018.xlsx",
+   "university": "UNILORIN",
+   "inRows": 12450,
+   "outRows": 12447,
+   "dupRemoved": 3
+  },
+  {
+   "relPath": "UNILORIN\\unilorin-2019.xlsx",
+   "university": "UNILORIN",
+   "inRows": 12186,
+   "outRows": 12183,
+   "dupRemoved": 3
+  },
+  {
+   "relPath": "UNILORIN\\unilorin-2021.xlsx",
+   "university": "UNILORIN",
+   "inRows": 13802,
+   "outRows": 13797,
+   "dupRemoved": 5
+  },
+  {
+   "relPath": "UNILORIN\\unilorin-2022.xlsx",
+   "university": "UNILORIN",
+   "inRows": 17415,
+   "outRows": 17397,
+   "dupRemoved": 18
+  },
+  {
+   "relPath": "UNILORIN\\unilorin-2023.xlsx",
+   "university": "UNILORIN",
+   "inRows": 13064,
+   "outRows": 13047,
+   "dupRemoved": 17
+  }
+ ],
+ "unresolvedGrade": [],
+ "unresolvedYear": []
+}

@@ -1,0 +1,5679 @@
+[
+  {
+    "raw": "2018/2019 SESSION",
+    "count": 24105,
+    "canonical": "2018/2019",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2021/2022 Session",
+    "count": 20759,
+    "canonical": "2021/2022",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017/2018",
+    "count": 19334,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2020/2021 SESSION",
+    "count": 18884,
+    "canonical": "2020/2021",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2019/2020",
+    "count": 17614,
+    "canonical": "2019/2020",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2016/2017 SESSION",
+    "count": 15965,
+    "canonical": "2016/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2015/2016",
+    "count": 15800,
+    "canonical": "2015/2016",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2018/2019",
+    "count": 15283,
+    "canonical": "2018/2019",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2008/2009 ACADEMIC SESSION",
+    "count": 13637,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2015 ACADEMIC SESSION",
+    "count": 13151,
+    "canonical": "2014/2015",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2007/2008 ACADEMIC SESSION",
+    "count": 12545,
+    "canonical": "2007/2008",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2023/2024",
+    "count": 9845,
+    "canonical": "2023/2024",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2022/2023 SESSION",
+    "count": 9815,
+    "canonical": "2022/2023",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2010/2011 ACADEMIC SESSION",
+    "count": 9803,
+    "canonical": "2010/2011",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2019 / 2020",
+    "count": 9338,
+    "canonical": "2019/2020",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2009/2010 ACADEMIC SESSION",
+    "count": 9313,
+    "canonical": "2009/2010",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017/2018 SESSION",
+    "count": 9310,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2012/2013",
+    "count": 8903,
+    "canonical": "2012/2013",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2019/2020 SESSION",
+    "count": 8488,
+    "canonical": "2019/2020",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2016/2017",
+    "count": 7885,
+    "canonical": "2016/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2022/2023 ACADEMIC SESSION",
+    "count": 6925,
+    "canonical": "2022/2023",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2005/2006 ACADEMIC SESSION",
+    "count": 6851,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "UNILAG 2024 YEARBOOK",
+    "count": 6819,
+    "canonical": "2024",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2013/2014 ACADEMIC SESSION",
+    "count": 6789,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "OAU 2019 YEARBOOK",
+    "count": 6734,
+    "canonical": "2019",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2019/2020 ACADEMIC SESSION",
+    "count": 6290,
+    "canonical": "2019/2020",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2021/2022 ACADEMIC SESSION",
+    "count": 5780,
+    "canonical": "2021/2022",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2001/2002",
+    "count": 5756,
+    "canonical": "2001/2002",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2012/2013 ACADEMIC SESSION",
+    "count": 5717,
+    "canonical": "2012/2013",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2011/2012",
+    "count": 5676,
+    "canonical": "2011/2012",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "UNILAG 2022 YEARBOOK",
+    "count": 5525,
+    "canonical": "2022",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "UNILAG 2019 YEARBOOK",
+    "count": 5488,
+    "canonical": "2019",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2023/2024 SESSION",
+    "count": 5326,
+    "canonical": "2023/2024",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2020/2021 ACADEMIC SESSION",
+    "count": 5300,
+    "canonical": "2020/2021",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2013/2014",
+    "count": 5187,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2015",
+    "count": 5149,
+    "canonical": "2014/2015",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2015/2016 SESSION",
+    "count": 5065,
+    "canonical": "2015/2016",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "UI 2015 YEARBOOK",
+    "count": 5053,
+    "canonical": "2015",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2018/2019 ACADEMIC SESSION",
+    "count": 4947,
+    "canonical": "2018/2019",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2020/2021",
+    "count": 4792,
+    "canonical": "2020/2021",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2018 UNILAG YEARBOOK",
+    "count": 4771,
+    "canonical": "2018",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2002/2003",
+    "count": 4715,
+    "canonical": "2002/2003",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "UI 2018 YEARBOOK",
+    "count": 4607,
+    "canonical": "2018",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "UI 2021 YEARBOOK",
+    "count": 4506,
+    "canonical": "2021",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "LASU 2013 YEARBOOK",
+    "count": 4395,
+    "canonical": "2013",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2O22/2O23 Rain Semester",
+    "count": 4288,
+    "canonical": "2022/2023",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2004/2005 ACADEMIC SESSION",
+    "count": 4168,
+    "canonical": "2004/2005",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2021/2022 Rain Semester",
+    "count": 4156,
+    "canonical": "2021/2022",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "UI 2003 YEARBOOK",
+    "count": 4095,
+    "canonical": "2003",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2003/2004",
+    "count": 4092,
+    "canonical": "2003/2004",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "UI 2019 YEARBOOK",
+    "count": 3810,
+    "canonical": "2019",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "UI 2016 YEARBOOK",
+    "count": 3802,
+    "canonical": "2016",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2017/2018 ACADEMIC SESSION",
+    "count": 3554,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2019/2021",
+    "count": 3437,
+    "canonical": "2019/2021",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "UI 2017 YEARBOOK",
+    "count": 3417,
+    "canonical": "2017",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2003/2004 ACADEMIC SESSION",
+    "count": 3235,
+    "canonical": "2003/2004",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2015/2016 ACADEMIC SESSION",
+    "count": 3066,
+    "canonical": "2015/2016",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2004/2005",
+    "count": 3016,
+    "canonical": "2004/2005",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2021/2022",
+    "count": 2851,
+    "canonical": "2021/2022",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "UI 2012 YEARBOOK",
+    "count": 2791,
+    "canonical": "2012",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "South West States' Student, 2022",
+    "count": 2676,
+    "canonical": "2022",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "UI 2004 YEARBOOK",
+    "count": 2513,
+    "canonical": "2004",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2000/2001",
+    "count": 2359,
+    "canonical": "2000/2001",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2022",
+    "count": 2299,
+    "canonical": "2022",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "UNILAG 2021 YEARBOOK",
+    "count": 2035,
+    "canonical": "2021",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2007/2008 SESSION",
+    "count": 1931,
+    "canonical": "2007/2008",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2016/2017 ACADEMIC SESSION",
+    "count": 1929,
+    "canonical": "2016/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2022/2023",
+    "count": 1910,
+    "canonical": "2022/2023",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2015 SESSION",
+    "count": 1823,
+    "canonical": "2014/2015",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2011 ACADEMIC SESSION",
+    "count": 1689,
+    "canonical": "2011",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2005/2006 SESSION",
+    "count": 1595,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2010/2011",
+    "count": 1567,
+    "canonical": "2010/2011",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2010 ACADEMIC SESSION",
+    "count": 1344,
+    "canonical": "2010",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2012 ACADEMIC SESSION",
+    "count": 1262,
+    "canonical": "2012",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2022 MODULAR YEAR",
+    "count": 1229,
+    "canonical": "2022",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "OAU 2023 YEARBOOK",
+    "count": 1224,
+    "canonical": "2023",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2007/2008",
+    "count": 1215,
+    "canonical": "2007/2008",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2006/2007 SESSION",
+    "count": 1193,
+    "canonical": "2006/2007",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2001/2002 ACADEMIC SESSION",
+    "count": 1174,
+    "canonical": "2001/2002",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2013/2014 SESSION",
+    "count": 1170,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "OAU 2024 YEARBOOK",
+    "count": 1162,
+    "canonical": "2024",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2013 ACADEMIC SESSION",
+    "count": 1131,
+    "canonical": "2013",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2002 ACADEMIC YEAR",
+    "count": 1122,
+    "canonical": "2002",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2005 ACADEMIC SESSION",
+    "count": 1094,
+    "canonical": "2005",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2008/2009",
+    "count": 1072,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014 ACADEMIC SESSION",
+    "count": 1031,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2001/2002 SESSION",
+    "count": 1021,
+    "canonical": "2001/2002",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2022/2023 Rain Semester",
+    "count": 915,
+    "canonical": "2022/2023",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2004/2005 SESSION",
+    "count": 881,
+    "canonical": "2004/2005",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2021 MODULAR YEAR",
+    "count": 870,
+    "canonical": "2021",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2011/2012 ACADEMIC SESSION",
+    "count": 793,
+    "canonical": "2011/2012",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2011/2012 SESSION",
+    "count": 768,
+    "canonical": "2011/2012",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2007 ACADEMIC SESSION",
+    "count": 723,
+    "canonical": "2007",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "UI 2022 YEARBOOK",
+    "count": 722,
+    "canonical": "2022",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2008/2009 SESSION",
+    "count": 672,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2004 ACADEMIC SESSION",
+    "count": 660,
+    "canonical": "2004",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2003/2004 SESSION",
+    "count": 635,
+    "canonical": "2003/2004",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2012/2013 SESSION",
+    "count": 608,
+    "canonical": "2012/2013",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2020 MODULAR YEAR",
+    "count": 573,
+    "canonical": "2020",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2015 MODULAR YEAR",
+    "count": 516,
+    "canonical": "2015",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2O22/2O23 Harmattan Semester",
+    "count": 512,
+    "canonical": "2022/2023",
+    "note": "Harmattan Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2008 ACADEMIC SESSION",
+    "count": 511,
+    "canonical": "2008",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2000/2001 ACADEMIC SESSION",
+    "count": 500,
+    "canonical": "2000/2001",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2021/2022 Harmattan Semester",
+    "count": 499,
+    "canonical": "2021/2022",
+    "note": "Harmattan Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2010/2011 SESSION",
+    "count": 476,
+    "canonical": "2010/2011",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2009 ACADEMIC SESSION",
+    "count": 430,
+    "canonical": "2009",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2015 ACADEMIC SESSION",
+    "count": 415,
+    "canonical": "2015",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014 MODULAR YEAR",
+    "count": 404,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2001/2002 SE SSION",
+    "count": 387,
+    "canonical": "2001/2002",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2019/2020 Rain Semester",
+    "count": 379,
+    "canonical": "2019/2020",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2003 ACADEMIC SESSION",
+    "count": 376,
+    "canonical": "2003",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2009/2010 SESSION",
+    "count": 372,
+    "canonical": "2009/2010",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "99/2000",
+    "count": 365,
+    "canonical": "2000",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "/2009ACADEMIC SESSION",
+    "count": 361,
+    "canonical": "2009",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2O22/2O23 Session",
+    "count": 342,
+    "canonical": "2022/2023",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1999/2000",
+    "count": 336,
+    "canonical": "1999/2000",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2009/2010",
+    "count": 336,
+    "canonical": "2009/2010",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2O21/2O22 Rain Semester",
+    "count": 333,
+    "canonical": "2021/2022",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2023 MODULAR YEAR",
+    "count": 328,
+    "canonical": "2023",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2006 ACADEMIC SESSION",
+    "count": 266,
+    "canonical": "2006",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2001 ACADEMIC YEAR",
+    "count": 245,
+    "canonical": "2001",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "37530",
+    "count": 223,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2013/ 2014",
+    "count": 208,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017/2018 ACADEMIC SESSSION",
+    "count": 208,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "38231",
+    "count": 206,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2000/2001 SESSION",
+    "count": 205,
+    "canonical": "2000/2001",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2005/2006",
+    "count": 204,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2002 GRADUANDS",
+    "count": 203,
+    "canonical": "2002",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "LASU 2024 YEARBOOK",
+    "count": 195,
+    "canonical": "2024",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2008/2009 SESSION.",
+    "count": 194,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2010/2011 ACCADEMIC SESSION",
+    "count": 189,
+    "canonical": "2010/2011",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2006/2007",
+    "count": 179,
+    "canonical": "2006/2007",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "AUGUST, 2015",
+    "count": 175,
+    "canonical": "2015",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2001/2002SESSIONS",
+    "count": 172,
+    "canonical": "2001/2002",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2007/2008 & 2008/2009 ACADEMIC SESSION",
+    "count": 167,
+    "canonical": "2007/2008",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2001 /2002",
+    "count": 166,
+    "canonical": "2001/2002",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2013 MODULAR YEAR",
+    "count": 159,
+    "canonical": "2013",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2015 MID-STREAM",
+    "count": 157,
+    "canonical": "2014/2015",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "AUGUST, 2018",
+    "count": 153,
+    "canonical": "2018",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2013/2014 SESSION (SUPPLEMENTARY)",
+    "count": 139,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SEPTEMBER, 2002",
+    "count": 139,
+    "canonical": "2002",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2012 MODULAR YEAR",
+    "count": 138,
+    "canonical": "2012",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1998/99",
+    "count": 137,
+    "canonical": "1998",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "AUGUST, 2016",
+    "count": 136,
+    "canonical": "2016",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1997/98",
+    "count": 136,
+    "canonical": "1997",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "45457",
+    "count": 136,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2012/2013 (AUGUST 2013)",
+    "count": 134,
+    "canonical": "2012/2013",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2019 MODULAR YEAR",
+    "count": 131,
+    "canonical": "2019",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2001/2002 MID-STREAM",
+    "count": 130,
+    "canonical": "2001/2002",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "JANUARY, 2013",
+    "count": 128,
+    "canonical": "2013",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "DECEMBER, 2016",
+    "count": 126,
+    "canonical": "2016",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "MARCH, 2004",
+    "count": 126,
+    "canonical": "2004",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "OCTOBER, 2017",
+    "count": 124,
+    "canonical": "2017",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2001/2002 SESSION MID-STREAM",
+    "count": 122,
+    "canonical": "2001/2002",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2001",
+    "count": 120,
+    "canonical": "2001",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2003/ 2004",
+    "count": 120,
+    "canonical": "2003/2004",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2018/2019 ACADEMIC SESSION --",
+    "count": 117,
+    "canonical": "2018/2019",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "FEBRUARY, 2018",
+    "count": 111,
+    "canonical": "2018",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "45494",
+    "count": 110,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "45608",
+    "count": 109,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2013/2014 MID-STREAM",
+    "count": 107,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017",
+    "count": 106,
+    "canonical": "2017",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "45401",
+    "count": 105,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "DECEMBER, 2011",
+    "count": 105,
+    "canonical": "2011",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "45492",
+    "count": 101,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2002 ACADEMIC SESSION",
+    "count": 100,
+    "canonical": "2002",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1999/2000 ACADEMIC SESSION",
+    "count": 99,
+    "canonical": "1999/2000",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1998/1999",
+    "count": 97,
+    "canonical": "1998/1999",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2015/2016 MID-STREAM",
+    "count": 95,
+    "canonical": "2015/2016",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2012 YEAR BOOK",
+    "count": 95,
+    "canonical": "2012",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "45396",
+    "count": 94,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2009/2010 ACCADEMIC SESSION",
+    "count": 92,
+    "canonical": "2009/2010",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2011 MODULAR YEAR",
+    "count": 92,
+    "canonical": "2011",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2016/2017 ACADEMIC SESSSION",
+    "count": 89,
+    "canonical": "2016/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2018/2019 ACADEMIC SESSSION",
+    "count": 89,
+    "canonical": "2018/2019",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2002/2003 MID-STREAM",
+    "count": 88,
+    "canonical": "2002/2003",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "JANUARY, 2022",
+    "count": 87,
+    "canonical": "2022",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2012/2013 MID STREAM",
+    "count": 85,
+    "canonical": "2012/2013",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2016/2017 MID-STREAM",
+    "count": 85,
+    "canonical": "2016/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2001/2002 MIDSTREAM",
+    "count": 82,
+    "canonical": "2001/2002",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2003/2004 ACADEMIC SESSIONS",
+    "count": 80,
+    "canonical": "2003/2004",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "LASU 2016 YEARBOOK",
+    "count": 79,
+    "canonical": "2016",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "LASU 2018 Yearbook",
+    "count": 79,
+    "canonical": "2018",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2006/2007 ACADEMIC SESSION",
+    "count": 79,
+    "canonical": "2006/2007",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2007 SESSION",
+    "count": 76,
+    "canonical": "2007",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "MARCH/APRIL 2003",
+    "count": 75,
+    "canonical": "2003",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2O19/2O2O Rain Semester",
+    "count": 75,
+    "canonical": "2019/2020",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "LASU 2023 YEAR BOOK",
+    "count": 74,
+    "canonical": "2023",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "LASU 2020 YEAR BOOK",
+    "count": 73,
+    "canonical": "2020",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2020/2021 MID-STREAM",
+    "count": 72,
+    "canonical": "2020/2021",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017 MODULAR YEAR",
+    "count": 72,
+    "canonical": "2017",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "45614",
+    "count": 71,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2008-2009",
+    "count": 70,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "December, 2020",
+    "count": 70,
+    "canonical": "2020",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "45304",
+    "count": 68,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2019-2020 ACADEMIC SESSION",
+    "count": 68,
+    "canonical": "2019/2020",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2023 UNILAG YEARBOOK",
+    "count": 67,
+    "canonical": "2023",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "NOVEMBER, 2016",
+    "count": 67,
+    "canonical": "2016",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2022/2023 Harmattan Semester",
+    "count": 67,
+    "canonical": "2022/2023",
+    "note": "Harmattan Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2000 / 2001",
+    "count": 66,
+    "canonical": "2000/2001",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "LASU 2022 YEARBOOK",
+    "count": 66,
+    "canonical": "2022",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2016",
+    "count": 65,
+    "canonical": "2016",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2024 MODULAR YEAR",
+    "count": 65,
+    "canonical": "2024",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "45549",
+    "count": 62,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "LASU 2005 YEARBOOK",
+    "count": 61,
+    "canonical": "2005",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2001 ACADEMIC SESSION",
+    "count": 60,
+    "canonical": "2001",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2017/2018 MID-STREAM",
+    "count": 59,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2008 SESSION",
+    "count": 58,
+    "canonical": "2008",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2003 / 2004",
+    "count": 56,
+    "canonical": "2003/2004",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2002/2003 (MARCH, 2004)",
+    "count": 55,
+    "canonical": "2002/2003",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "APRIL, 2012",
+    "count": 55,
+    "canonical": "2012",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2005 ACADEMIC SEESION",
+    "count": 54,
+    "canonical": "2005",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1999",
+    "count": 54,
+    "canonical": "1999",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2016 MODULAR YEAR",
+    "count": 52,
+    "canonical": "2016",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2020-2021 ACADEMIC SESSION",
+    "count": 50,
+    "canonical": "2020/2021",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "UNILORIN 2023 YEAR BOOK",
+    "count": 49,
+    "canonical": "2023",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2003/2004 ACADEMIC SESSSION",
+    "count": 49,
+    "canonical": "2003/2004",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2O17/2O18 Rain Semester",
+    "count": 49,
+    "canonical": "2017/2018",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "FEBRUARY, 2015",
+    "count": 49,
+    "canonical": "2015",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "OCTOBER, 2002",
+    "count": 49,
+    "canonical": "2002",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2005/2006 ACADEMIC SESSSION",
+    "count": 49,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2007/2008 & 2004/2005ACADEMIC SESSION",
+    "count": 48,
+    "canonical": "2007/2008",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1996/1997 SESSION",
+    "count": 48,
+    "canonical": "1996/1997",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2000",
+    "count": 48,
+    "canonical": "2000",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2016-2017 ACADEMIC SESSION",
+    "count": 47,
+    "canonical": "2016/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "JANUARY/FEBRUARY, 2004",
+    "count": 46,
+    "canonical": "2004",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "SUPPLEMENTARY 2019",
+    "count": 46,
+    "canonical": "2019",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2005/2006 AND 2007/2008 SESSIONS",
+    "count": 46,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "DECEMBER, 2015",
+    "count": 46,
+    "canonical": "2015",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2018/2019 Second Contact (Rain) Semester",
+    "count": 45,
+    "canonical": "2018/2019",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "JANUARY, 2016",
+    "count": 44,
+    "canonical": "2016",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "UNILORIN 2021 YEAR BOOK",
+    "count": 44,
+    "canonical": "2021",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2007/2008ACADEMIC SESSION",
+    "count": 43,
+    "canonical": "2007/2008",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2007/2008 ACADEMIC SESSSION",
+    "count": 43,
+    "canonical": "2007/2008",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2018/2019 Rain Semester",
+    "count": 43,
+    "canonical": "2018/2019",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2008/2009 ACADEMICS SESSION",
+    "count": 42,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "MAY, 2004",
+    "count": 42,
+    "canonical": "2004",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2004/2005 ACADEMIC SESSSION",
+    "count": 41,
+    "canonical": "2004/2005",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2011/2012 MID-STREAM",
+    "count": 41,
+    "canonical": "2011/2012",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2007/2008 & 2008/2009ACADEMIC SESSION",
+    "count": 40,
+    "canonical": "2007/2008",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2000 ACADEMIC SESSION",
+    "count": 40,
+    "canonical": "2000",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "FEBRUARY 6, 2015",
+    "count": 40,
+    "canonical": "2015",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2O23/2O24 Session",
+    "count": 39,
+    "canonical": "2023/2024",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2019/2020 ACADEMIC",
+    "count": 39,
+    "canonical": "2019/2020",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2016/ 2017",
+    "count": 38,
+    "canonical": "2016/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2019/2020 Harmattan Semester",
+    "count": 38,
+    "canonical": "2019/2020",
+    "note": "Harmattan Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2O21/2O22 Harmattan Semester",
+    "count": 38,
+    "canonical": "2021/2022",
+    "note": "Harmattan Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "JULY, 2015",
+    "count": 37,
+    "canonical": "2015",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2007/2008 ACCADEMIC SESSION",
+    "count": 37,
+    "canonical": "2007/2008",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2020",
+    "count": 36,
+    "canonical": "2020",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1998/99 SESSION",
+    "count": 36,
+    "canonical": "1998",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2010/2011 ACADEMIC SESSSION",
+    "count": 36,
+    "canonical": "2010/2011",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2012/2013 MID-STREAM",
+    "count": 35,
+    "canonical": "2012/2013",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2001/2002 YEAR",
+    "count": 35,
+    "canonical": "2001/2002",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2015/2016, AUGUST 2016",
+    "count": 35,
+    "canonical": "2015/2016",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2021/2022 Rain",
+    "count": 34,
+    "canonical": "2021/2022",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2015/2016, JULY, 2016",
+    "count": 33,
+    "canonical": "2015/2016",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "45464",
+    "count": 33,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2002",
+    "count": 32,
+    "canonical": "2002",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "FEBRUARY, 2017",
+    "count": 31,
+    "canonical": "2017",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "45342",
+    "count": 31,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2010 MODULAR YEAR",
+    "count": 30,
+    "canonical": "2010",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2008/2009 ACCADEMIC SESSION",
+    "count": 30,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "APRIL, 2015",
+    "count": 29,
+    "canonical": "2015",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2005/2006 ACCADEMIC SESSION",
+    "count": 29,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2022/2023 ACADEMIC",
+    "count": 29,
+    "canonical": "2022/2023",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2007-2008",
+    "count": 29,
+    "canonical": "2007/2008",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2012/2013 ACADEMIC SESSSION",
+    "count": 28,
+    "canonical": "2012/2013",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2011 ACADEMIC SESSION)",
+    "count": 28,
+    "canonical": "2011",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2005/2006 ACEDEMIC SESSION",
+    "count": 28,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2006-2007",
+    "count": 28,
+    "canonical": "2006/2007",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2007/ 2008 ACADEMIC SESSION",
+    "count": 28,
+    "canonical": "2007/2008",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2009 SESSION",
+    "count": 27,
+    "canonical": "2009",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2005/2006 & 2007/2008 ACADEMIC SESSION",
+    "count": 27,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2020/2021 ACADEMIC",
+    "count": 26,
+    "canonical": "2020/2021",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "FEBRUARY, 2012",
+    "count": 25,
+    "canonical": "2012",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2004/2005ACADEMIC SESSION",
+    "count": 25,
+    "canonical": "2004/2005",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017/2018, AUGUST 2018",
+    "count": 25,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2009/23010 Academic Session",
+    "count": 25,
+    "canonical": "2009",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2003 ACADEMIC SEESION",
+    "count": 24,
+    "canonical": "2003",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2001/2002 ACADEMIC SESSSION",
+    "count": 24,
+    "canonical": "2001/2002",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1998/1999 SESSION",
+    "count": 24,
+    "canonical": "1998/1999",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017/2018 Second Contact (Rain) Semester",
+    "count": 24,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2O18/2O19 Rain Semester",
+    "count": 23,
+    "canonical": "2018/2019",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2018-2019 ACADEMIC SESSION",
+    "count": 23,
+    "canonical": "2018/2019",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2020/2022 ACADEMIC SESSION",
+    "count": 23,
+    "canonical": "2020/2022",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "37653",
+    "count": 23,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2O21/2O22 Session",
+    "count": 23,
+    "canonical": "2021/2022",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "45525",
+    "count": 23,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2005ACADEMIC SESSION",
+    "count": 22,
+    "canonical": "2005",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "APRIL 14, 2015",
+    "count": 22,
+    "canonical": "2015",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2013/2014 (AUGUST, 2014)",
+    "count": 22,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2003-2004",
+    "count": 22,
+    "canonical": "2003/2004",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2013/2014 ACADEMIC SESSI ON",
+    "count": 22,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2001/ 2002",
+    "count": 22,
+    "canonical": "2001/2002",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "DECEMBER, 2001",
+    "count": 21,
+    "canonical": "2001",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1996/97",
+    "count": 21,
+    "canonical": "1996",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2005-2006",
+    "count": 21,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2009/20010 ACADEMIC SESSION",
+    "count": 21,
+    "canonical": "2009/2001",
+    "note": "",
+    "flag": "NEEDS_REVIEW_REVERSED"
+  },
+  {
+    "raw": "MARCH, 2016",
+    "count": 21,
+    "canonical": "2016",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1999/2000 SESSION",
+    "count": 21,
+    "canonical": "1999/2000",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2004/2005 SESION",
+    "count": 21,
+    "canonical": "2004/2005",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2016/2017, JULY, 2017",
+    "count": 21,
+    "canonical": "2016/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2016/2017 MID STREAM",
+    "count": 20,
+    "canonical": "2016/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2009/2010 ACADEMIC SESSSION",
+    "count": 20,
+    "canonical": "2009/2010",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2004ACADEMIC SESSION",
+    "count": 19,
+    "canonical": "2004",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "OCTOBER, 2021",
+    "count": 19,
+    "canonical": "2021",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2007ACADEMIC SESSION",
+    "count": 19,
+    "canonical": "2007",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "45425",
+    "count": 19,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "1997/1998 ACADEMIC SESSION",
+    "count": 18,
+    "canonical": "1997/1998",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "MAY, 2002",
+    "count": 18,
+    "canonical": "2002",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "SEPTEMBER, 2021",
+    "count": 18,
+    "canonical": "2021",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2013/2014 SET",
+    "count": 18,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2008/2009ACADEMIC SESSION",
+    "count": 17,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "DECEMBER, 2002",
+    "count": 17,
+    "canonical": "2002",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1999 ACADEMIC SESSION",
+    "count": 17,
+    "canonical": "1999",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "JUNE, 2003",
+    "count": 17,
+    "canonical": "2003",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2004-2005",
+    "count": 17,
+    "canonical": "2004/2005",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "APRIL, 2018",
+    "count": 17,
+    "canonical": "2018",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "37196",
+    "count": 17,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "1995/96",
+    "count": 16,
+    "canonical": "1995",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "45462",
+    "count": 16,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2005 SESSION",
+    "count": 16,
+    "canonical": "2005",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "MARCH, 2017",
+    "count": 16,
+    "canonical": "2017",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "FEBRUARY, 2016",
+    "count": 15,
+    "canonical": "2016",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2018/2019 ACADEMIC SESSIONS",
+    "count": 15,
+    "canonical": "2018/2019",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014",
+    "count": 15,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2010 /2011",
+    "count": 15,
+    "canonical": "2010/2011",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "January, 2018",
+    "count": 15,
+    "canonical": "2018",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2018",
+    "count": 14,
+    "canonical": "2018",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2004/2005 ACCADEMIC SESSION",
+    "count": 14,
+    "canonical": "2004/2005",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2008/2009 ACADEMIC SESSSION",
+    "count": 14,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2010/2011 ACAEDMIC SESSION",
+    "count": 14,
+    "canonical": "2010/2011",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "20001 /2002",
+    "count": 14,
+    "canonical": "2000",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2006ACADEMIC SESSION",
+    "count": 14,
+    "canonical": "2006",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2017/2018 Final Degree Examinations",
+    "count": 14,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017/2018 Session (Part-Time)",
+    "count": 14,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2019/2020 Rain Smester",
+    "count": 13,
+    "canonical": "2019/2020",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2015 MID STREAM",
+    "count": 13,
+    "canonical": "2014/2015",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2001/2002 SESSIONS",
+    "count": 13,
+    "canonical": "2001/2002",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1998/1999 ACADEMIC SESSION",
+    "count": 13,
+    "canonical": "1998/1999",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "20001/2002 SESSION",
+    "count": 12,
+    "canonical": "2000",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2005/2006 SESION",
+    "count": 12,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2002/2003 ACADEMIC SESSION",
+    "count": 12,
+    "canonical": "2002/2003",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "FEBRUARY, 2022",
+    "count": 12,
+    "canonical": "2022",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1996/1997 Academic Session",
+    "count": 12,
+    "canonical": "1996/1997",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1993/1994",
+    "count": 12,
+    "canonical": "1993/1994",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2O19/2O2O Harmattan Semester",
+    "count": 12,
+    "canonical": "2019/2020",
+    "note": "Harmattan Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2000/2001 SESSIONS",
+    "count": 11,
+    "canonical": "2000/2001",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2000/ 2001",
+    "count": 11,
+    "canonical": "2000/2001",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2000/2001 SESSION MID-STREAM",
+    "count": 11,
+    "canonical": "2000/2001",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017/2018 Session (Full-Time)",
+    "count": 11,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2011/2012 Session Session",
+    "count": 11,
+    "canonical": "2011/2012",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "45644",
+    "count": 11,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "DECEMBER, 2003",
+    "count": 11,
+    "canonical": "2003",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2011/2012 MID STREAM",
+    "count": 11,
+    "canonical": "2011/2012",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "ACADEMIC SESSIION 2005/2006",
+    "count": 11,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2013/2014 ACADEMIC SESSSION",
+    "count": 10,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017/2018 ACADEMIC SESSIONS",
+    "count": 10,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "18/19 SESSION",
+    "count": 10,
+    "canonical": "2018/2019",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2018/2019  SESSION",
+    "count": 10,
+    "canonical": "2018/2019",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2004 SESSION",
+    "count": 10,
+    "canonical": "2004",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2021 MODULAR",
+    "count": 10,
+    "canonical": "2021",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1999/2000,2000/2001, & 2001/2002 ACADEMIC SESSION",
+    "count": 10,
+    "canonical": "1999/2000",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2009/2O10",
+    "count": 10,
+    "canonical": "2009/2010",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS (HONS)",
+    "count": 10,
+    "canonical": "",
+    "note": "",
+    "flag": "NO_YEAR_IN_SOURCE"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) LOWER DIVISION",
+    "count": 9,
+    "canonical": "",
+    "note": "",
+    "flag": "NO_YEAR_IN_SOURCE"
+  },
+  {
+    "raw": "/2008ACADEMICSESSION",
+    "count": 9,
+    "canonical": "2008",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2016/2017 Session (Part-Time)",
+    "count": 9,
+    "canonical": "2016/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2005 MODULAR YEAR",
+    "count": 9,
+    "canonical": "2005",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "37773",
+    "count": 9,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2O18/2O19 Harmattan Semester",
+    "count": 9,
+    "canonical": "2018/2019",
+    "note": "Harmattan Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2008 / 2009",
+    "count": 9,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2010/2012",
+    "count": 9,
+    "canonical": "2010/2012",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "JULY, 2017",
+    "count": 9,
+    "canonical": "2017",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2O22/2O23 Harmmatan Semester",
+    "count": 9,
+    "canonical": "2022/2023",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "45335",
+    "count": 9,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2008 MODULAR YEAR",
+    "count": 9,
+    "canonical": "2008",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2013/2014ACADEMIC SESSION",
+    "count": 9,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017/2018 MID STREAM",
+    "count": 9,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017-2018 ACADEMIC SESSION",
+    "count": 8,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2016 ACADEMIC SESSION",
+    "count": 8,
+    "canonical": "2016",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2017/2018 (EXTRA YEAR)",
+    "count": 8,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017/2018 Rain Semester",
+    "count": 8,
+    "canonical": "2017/2018",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017 ACADEMIC SESSION",
+    "count": 8,
+    "canonical": "2017",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2021/2022 ACADEMIC",
+    "count": 8,
+    "canonical": "2021/2022",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2002/2003 SESSION",
+    "count": 8,
+    "canonical": "2002/2003",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2004 ACADEMIC SEESION",
+    "count": 8,
+    "canonical": "2004",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2006 MODULAR YEAR",
+    "count": 8,
+    "canonical": "2006",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2016/21017 SESSION",
+    "count": 8,
+    "canonical": "2016",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2013-2014 Academic Session",
+    "count": 8,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2012/2013 (APRIL 2014)",
+    "count": 7,
+    "canonical": "2012/2013",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2005/2006, 2007/2008 AND 2008/2009 SESSION",
+    "count": 7,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2011/ 2012 ACADEMIC SESSION",
+    "count": 7,
+    "canonical": "2011/2012",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2000/2001 MID-STREAM",
+    "count": 7,
+    "canonical": "2000/2001",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2006/2017",
+    "count": 7,
+    "canonical": "2006/2017",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2019 ACADEMIC SESSION",
+    "count": 7,
+    "canonical": "2019",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "April, 2017",
+    "count": 7,
+    "canonical": "2017",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2009 MODULAR YEAR",
+    "count": 6,
+    "canonical": "2009",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "OCTOBER, 2014",
+    "count": 6,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2015",
+    "count": 6,
+    "canonical": "2015",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2015/2016 ACADEMIC SESSSION",
+    "count": 6,
+    "canonical": "2015/2016",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2002 MODULAR YEAR",
+    "count": 6,
+    "canonical": "2002",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2018 ACADEMIC SESSION",
+    "count": 6,
+    "canonical": "2018",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2000/2001,2002/2003 & 2005/2006 ACADEMIC SESSION",
+    "count": 6,
+    "canonical": "2000/2001",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "STUDIES 2004 ACADEMIC SESSION",
+    "count": 6,
+    "canonical": "2004",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "MARCH, 2018",
+    "count": 6,
+    "canonical": "2018",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2002/2003 & 2004/2005 ACADEMIC SESSION",
+    "count": 6,
+    "canonical": "2002/2003",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "37500",
+    "count": 6,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2013/2014 MID STREAM",
+    "count": 6,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2018/2019 Harmattan Semester",
+    "count": 6,
+    "canonical": "2018/2019",
+    "note": "Harmattan Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2012/2013 MIDSTREAM",
+    "count": 6,
+    "canonical": "2012/2013",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "APRIL, 2002",
+    "count": 6,
+    "canonical": "2002",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2006 SESSION",
+    "count": 6,
+    "canonical": "2006",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "NOVEMBER, 2021",
+    "count": 6,
+    "canonical": "2021",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2011/2013 ACADEMIC SESSION",
+    "count": 6,
+    "canonical": "2011/2013",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1998/99 SESSION: AUGUST, 2001",
+    "count": 6,
+    "canonical": "1998",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2012-2013 ACADEMIC SESSION",
+    "count": 5,
+    "canonical": "2012/2013",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2007 MODULAR YEAR",
+    "count": 5,
+    "canonical": "2007",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2007/2008 SESSIONS",
+    "count": 5,
+    "canonical": "2007/2008",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2020/2021 ACADEMY SE SSION",
+    "count": 5,
+    "canonical": "2020/2021",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2001 SESSION",
+    "count": 5,
+    "canonical": "2001",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2007/2008 SESION",
+    "count": 5,
+    "canonical": "2007/2008",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1998 ACADEMIC SESSION",
+    "count": 5,
+    "canonical": "1998",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "37895",
+    "count": 5,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2015/2016 MIDSTREAM",
+    "count": 5,
+    "canonical": "2015/2016",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2011/2012 MIDSTREAM",
+    "count": 5,
+    "canonical": "2011/2012",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2021/2022 Harmattan",
+    "count": 5,
+    "canonical": "2021/2022",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2000/2001 AND 2003/2004 ACADEMIC SESSION",
+    "count": 5,
+    "canonical": "2000/2001",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1994/95",
+    "count": 5,
+    "canonical": "1994",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2O17/2O18 Rain",
+    "count": 5,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2020/2021 Rain Semester",
+    "count": 5,
+    "canonical": "2020/2021",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "37681",
+    "count": 4,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "1992/1993",
+    "count": 4,
+    "canonical": "1992/1993",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "JULY, 2004",
+    "count": 4,
+    "canonical": "2004",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2020 ACADEMIC SESSION",
+    "count": 4,
+    "canonical": "2020",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2012/ 2013",
+    "count": 4,
+    "canonical": "2012/2013",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2002 SESSION",
+    "count": 4,
+    "canonical": "2002",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2021/2022ACADEMIC SESSION",
+    "count": 4,
+    "canonical": "2021/2022",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2003 MODULAR YEAR",
+    "count": 4,
+    "canonical": "2003",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2004/2005ACADEMIC       SESSION",
+    "count": 4,
+    "canonical": "2004/2005",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2O22/2O23 (Rain Semester)",
+    "count": 4,
+    "canonical": "2022/2023",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2004/2005 ACADEMIC SESSIION",
+    "count": 4,
+    "canonical": "2004/2005",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2020/2021 MIDSTREAM",
+    "count": 4,
+    "canonical": "2020/2021",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1998/99 SESSION: SEPTEMBER, 2002",
+    "count": 4,
+    "canonical": "1998",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2019/2020 (28TH SEP, 2021)",
+    "count": 4,
+    "canonical": "2019/2020",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1991/1992",
+    "count": 4,
+    "canonical": "1991/1992",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "10/11 SESSION",
+    "count": 4,
+    "canonical": "2010/2011",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2003/3004 ACADEMIC SESSION",
+    "count": 4,
+    "canonical": "2003",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2005/2006ACADEMIC SESSION",
+    "count": 3,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1997/98 SESSION",
+    "count": 3,
+    "canonical": "1997",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2016",
+    "count": 3,
+    "canonical": "2014/2016",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1992/93",
+    "count": 3,
+    "canonical": "1992",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2003/2004ACADEMIC SESSION",
+    "count": 3,
+    "canonical": "2003/2004",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1997/1998",
+    "count": 3,
+    "canonical": "1997/1998",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2011/2013",
+    "count": 3,
+    "canonical": "2011/2013",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2011/2012 ACADEMIC SESSSION",
+    "count": 3,
+    "canonical": "2011/2012",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "N/A",
+    "count": 3,
+    "canonical": "N/A",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2013/2014 (JANUARY, 2015)",
+    "count": 3,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2021 ACADEMIC SESSION",
+    "count": 3,
+    "canonical": "2021",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "THIRD CLASS (HONS.)",
+    "count": 3,
+    "canonical": "",
+    "note": "",
+    "flag": "NO_YEAR_IN_SOURCE"
+  },
+  {
+    "raw": "2009/2011",
+    "count": 3,
+    "canonical": "2009/2011",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2002/2003: FEBRUARY, 2004",
+    "count": 3,
+    "canonical": "2002/2003",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2019/2020 Harmattan",
+    "count": 3,
+    "canonical": "2019/2020",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2000/2001 & 2001/2002 ACADEMIC SESSION",
+    "count": 3,
+    "canonical": "2000/2001",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2019/2020 AND 2020/2021 ACADEMIC SESSIONS",
+    "count": 3,
+    "canonical": "2019/2020",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "45554",
+    "count": 3,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2012/2014",
+    "count": 3,
+    "canonical": "2012/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2013",
+    "count": 3,
+    "canonical": "2013",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "15/16 SESSION",
+    "count": 3,
+    "canonical": "2015/2016",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2022 ACADEMIC SESSION",
+    "count": 3,
+    "canonical": "2022",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "05/06 SESSION",
+    "count": 3,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017/ 2018 Session",
+    "count": 3,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2046 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2046",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2026 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2026",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2034 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2034",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "98/99 SESSION",
+    "count": 2,
+    "canonical": "1998/1999",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2016/2017 SESSION MIDSTREAM",
+    "count": 2,
+    "canonical": "2016/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "09/10 SESSION",
+    "count": 2,
+    "canonical": "2009/2010",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2040 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2040",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2015/2016 Rain Semester",
+    "count": 2,
+    "canonical": "2015/2016",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2012/ 2013 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2012/2013",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "/2008ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2008",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2005/ 2006 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1996/1997",
+    "count": 2,
+    "canonical": "1996/1997",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2021/2021",
+    "count": 2,
+    "canonical": "2021/2021",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2015/2017",
+    "count": 2,
+    "canonical": "2015/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1995/1996 MID STREAM",
+    "count": 2,
+    "canonical": "1995/1996",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2006/ 2007 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2006/2007",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2008/2009 Acadecmi Session",
+    "count": 2,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2037 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2037",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2015/2016 (SUPPLEMENTARY)",
+    "count": 2,
+    "canonical": "2015/2016",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2044 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2044",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2O15/2O16 Rain Semester",
+    "count": 2,
+    "canonical": "2015/2016",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "11/12 SESSION",
+    "count": 2,
+    "canonical": "2011/2012",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2015/2019",
+    "count": 2,
+    "canonical": "2015/2019",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "ACADEMIC SESSIION 2001/2002",
+    "count": 2,
+    "canonical": "2001/2002",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2005 / 2006",
+    "count": 2,
+    "canonical": "2005/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2048 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2048",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2029 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2029",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "OOU 2020 YEARBOOK",
+    "count": 2,
+    "canonical": "2020",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2045 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2045",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2023 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2023",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2051 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2051",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2016/2017 (SUPPLEMENTARY)",
+    "count": 2,
+    "canonical": "2016/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "45426",
+    "count": 2,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2014-2015 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2014/2015",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2038 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2038",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2052 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2052",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2OO5/2OO6 Rain Semester",
+    "count": 2,
+    "canonical": "2005/2006",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2049 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2049",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2003/ 2004 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2003/2004",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2050 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2050",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2035 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2035",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2036 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2036",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2017",
+    "count": 2,
+    "canonical": "2014/2017",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2031 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2031",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2047 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2047",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2015/2018",
+    "count": 2,
+    "canonical": "2015/2018",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2008-2009 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2000/2001 ACADEMIC SESSSION",
+    "count": 2,
+    "canonical": "2000/2001",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "PASS DEGREE",
+    "count": 2,
+    "canonical": "",
+    "note": "",
+    "flag": "NO_YEAR_IN_SOURCE"
+  },
+  {
+    "raw": "2011/2012 SUPPLEMENTARY",
+    "count": 2,
+    "canonical": "2011/2012",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2042 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2042",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1998/99 SESSION: SEPTEMBER, 2000",
+    "count": 2,
+    "canonical": "1998",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1993/94",
+    "count": 2,
+    "canonical": "1993",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2041 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2041",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2007 / 2008",
+    "count": 2,
+    "canonical": "2007/2008",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2018/2019 Sesssion",
+    "count": 2,
+    "canonical": "2018/2019",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2003-2004 ACADEMIC SESSION:",
+    "count": 2,
+    "canonical": "2003/2004",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2033 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2033",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2018/2020",
+    "count": 2,
+    "canonical": "2018/2020",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1988/1989",
+    "count": 2,
+    "canonical": "1988/1989",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2039 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2039",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2032 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2032",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2027 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2027",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2002 ACADEMIC SEESION",
+    "count": 2,
+    "canonical": "2002",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2025 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2025",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2009/2010 ACADEMIC SESSION .",
+    "count": 2,
+    "canonical": "2009/2010",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2028 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2028",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2024 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2024",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2030 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2030",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2043 ACADEMIC SESSION",
+    "count": 2,
+    "canonical": "2043",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2002/2003 MID STREAM",
+    "count": 1,
+    "canonical": "2002/2003",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2016/2019",
+    "count": 1,
+    "canonical": "2016/2019",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2010-2011 ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "2010/2011",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2118",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2128",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2149",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2086",
+    "count": 1,
+    "canonical": "2014/2086",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2055",
+    "count": 1,
+    "canonical": "2014/2055",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2152",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2142",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2120",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2140",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2008/2009 SESSION (SUPPLEMENTARY)",
+    "count": 1,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2013/2015",
+    "count": 1,
+    "canonical": "2013/2015",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2O17/2O18 Harmattan Semester",
+    "count": 1,
+    "canonical": "2017/2018",
+    "note": "Harmattan Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2108",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2010/2010 Academic Session",
+    "count": 1,
+    "canonical": "2010/2010",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2018 CONVOCATION CEREMONY",
+    "count": 1,
+    "canonical": "2018",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2054 ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "2054",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2038",
+    "count": 1,
+    "canonical": "2014/2038",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2015/2023",
+    "count": 1,
+    "canonical": "2015/2023",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "1996/97 SESSION",
+    "count": 1,
+    "canonical": "1996",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2O13/2O14 Rain Semester",
+    "count": 1,
+    "canonical": "2013/2014",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "1991/1992 ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "1991/1992",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2009/2008 ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "2009/2008",
+    "note": "",
+    "flag": "NEEDS_REVIEW_REVERSED"
+  },
+  {
+    "raw": "2011/2014",
+    "count": 1,
+    "canonical": "2011/2014",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2057 ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "2057",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2002/2003 MIDSTREAM",
+    "count": 1,
+    "canonical": "2002/2003",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2002/2003ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "2002/2003",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2133",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "EDUCATION 2004 ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "2004",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2017/2021",
+    "count": 1,
+    "canonical": "2017/2021",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2011/2012 SESSION (SUPPLEMENTARY)",
+    "count": 1,
+    "canonical": "2011/2012",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2136",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2028",
+    "count": 1,
+    "canonical": "2014/2028",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2004/2005 SESSION (SUPPLEMENTARY)",
+    "count": 1,
+    "canonical": "2004/2005",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2003/2003",
+    "count": 1,
+    "canonical": "2003/2003",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2022/2023ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "2022/2023",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2122",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2032",
+    "count": 1,
+    "canonical": "2014/2032",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2137",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1991/1992 Harmattan Semester",
+    "count": 1,
+    "canonical": "1991/1992",
+    "note": "Harmattan Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2026",
+    "count": 1,
+    "canonical": "2014/2026",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2059",
+    "count": 1,
+    "canonical": "2014/2059",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2124",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2007/2009",
+    "count": 1,
+    "canonical": "2007/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "MARCH, 2021",
+    "count": 1,
+    "canonical": "2021",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2018/2019 ACADEMIC",
+    "count": 1,
+    "canonical": "2018/2019",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014 YEAR MODULAR",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2015 (SUPPLEMENTARY)",
+    "count": 1,
+    "canonical": "2014/2015",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2083",
+    "count": 1,
+    "canonical": "2014/2083",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2135",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2084",
+    "count": 1,
+    "canonical": "2014/2084",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2015/2021",
+    "count": 1,
+    "canonical": "2015/2021",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2043",
+    "count": 1,
+    "canonical": "2014/2043",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2020/2021ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "2020/2021",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2008/2009 MID-STREAM",
+    "count": 1,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2048",
+    "count": 1,
+    "canonical": "2014/2048",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2074",
+    "count": 1,
+    "canonical": "2014/2074",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2069",
+    "count": 1,
+    "canonical": "2014/2069",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2114",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2067",
+    "count": 1,
+    "canonical": "2014/2067",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2009/2010 Final Degree Examinations",
+    "count": 1,
+    "canonical": "2009/2010",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "06/07 SESSION",
+    "count": 1,
+    "canonical": "2006/2007",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2055 ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "2055",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2099",
+    "count": 1,
+    "canonical": "2014/2099",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2011/2016",
+    "count": 1,
+    "canonical": "2011/2016",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2071",
+    "count": 1,
+    "canonical": "2014/2071",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "JULY 2015",
+    "count": 1,
+    "canonical": "2015",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2056 ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "2056",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2013/2014 Second Contact (Rain) Semester",
+    "count": 1,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "00/01 SESSION",
+    "count": 1,
+    "canonical": "2000/2001",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017/2019",
+    "count": 1,
+    "canonical": "2017/2019",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2105",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2141",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2072",
+    "count": 1,
+    "canonical": "2014/2072",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "20042005 ACADEMIC SESSSION",
+    "count": 1,
+    "canonical": "2004",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2090",
+    "count": 1,
+    "canonical": "2014/2090",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2011/2015",
+    "count": 1,
+    "canonical": "2011/2015",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2056",
+    "count": 1,
+    "canonical": "2014/2056",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2075",
+    "count": 1,
+    "canonical": "2014/2075",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2010- 2011 ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "2010/2011",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2060",
+    "count": 1,
+    "canonical": "2014/2060",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2003/2004 ACADEMIC SESSION:",
+    "count": 1,
+    "canonical": "2003/2004",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "45395",
+    "count": 1,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "APRIL, 2016",
+    "count": 1,
+    "canonical": "2016",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2016/2017 Rain Semester",
+    "count": 1,
+    "canonical": "2016/2017",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2063",
+    "count": 1,
+    "canonical": "2014/2063",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "MIDSTREAM 2020/2021",
+    "count": 1,
+    "canonical": "2020/2021",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2115",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2019/2020 Haramattan Semester",
+    "count": 1,
+    "canonical": "2019/2020",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "MARCH, 2019",
+    "count": 1,
+    "canonical": "2019",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2004/2006",
+    "count": 1,
+    "canonical": "2004/2006",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2015/2016 MID STREAM",
+    "count": 1,
+    "canonical": "2015/2016",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "MARCH, 2020",
+    "count": 1,
+    "canonical": "2020",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2123",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2143",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2082",
+    "count": 1,
+    "canonical": "2014/2082",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2130",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "MARCH, 2015",
+    "count": 1,
+    "canonical": "2015",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2054",
+    "count": 1,
+    "canonical": "2014/2054",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2049",
+    "count": 1,
+    "canonical": "2014/2049",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2018/2021",
+    "count": 1,
+    "canonical": "2018/2021",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2012/2013 Harmattan Semester",
+    "count": 1,
+    "canonical": "2012/2013",
+    "note": "Harmattan Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2053",
+    "count": 1,
+    "canonical": "2014/2053",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2153",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2040",
+    "count": 1,
+    "canonical": "2014/2040",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "1992/1993 ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "1992/1993",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2052",
+    "count": 1,
+    "canonical": "2014/2052",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "20032004 ACADEMIC SESSSION",
+    "count": 1,
+    "canonical": "2003",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2021",
+    "count": 1,
+    "canonical": "2014/2021",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2150",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2O22/2023 Rain Semester",
+    "count": 1,
+    "canonical": "2022/2023",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2125",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2034",
+    "count": 1,
+    "canonical": "2014/2034",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2077",
+    "count": 1,
+    "canonical": "2014/2077",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2146",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "08/09 SESSION",
+    "count": 1,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2126",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2042",
+    "count": 1,
+    "canonical": "2014/2042",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2093",
+    "count": 1,
+    "canonical": "2014/2093",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2097",
+    "count": 1,
+    "canonical": "2014/2097",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2012",
+    "count": 1,
+    "canonical": "2012",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2111",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2087",
+    "count": 1,
+    "canonical": "2014/2087",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2065",
+    "count": 1,
+    "canonical": "2014/2065",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2017/2018 Harmattan Semester",
+    "count": 1,
+    "canonical": "2017/2018",
+    "note": "Harmattan Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "NOVEMBER, 2015",
+    "count": 1,
+    "canonical": "2015",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2019 / 2020 Session",
+    "count": 1,
+    "canonical": "2019/2020",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2017 CONVOCATION CEREMONY",
+    "count": 1,
+    "canonical": "2017",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2016/2016",
+    "count": 1,
+    "canonical": "2016/2016",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2036",
+    "count": 1,
+    "canonical": "2014/2036",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2106",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1997/1998 Rain Semester",
+    "count": 1,
+    "canonical": "1997/1998",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2003 CADEMIC SESSION",
+    "count": 1,
+    "canonical": "2003",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2100",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2116",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1991/1992 SESSION",
+    "count": 1,
+    "canonical": "1991/1992",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2010/2011 ACDEMIC SESSION",
+    "count": 1,
+    "canonical": "2010/2011",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2046",
+    "count": 1,
+    "canonical": "2014/2046",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2051",
+    "count": 1,
+    "canonical": "2014/2051",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2147",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2061",
+    "count": 1,
+    "canonical": "2014/2061",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2016/2017 (EXTRA YEAR)",
+    "count": 1,
+    "canonical": "2016/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2070",
+    "count": 1,
+    "canonical": "2014/2070",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2006 ACADEMIC SEESION",
+    "count": 1,
+    "canonical": "2006",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2134",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2O21/2O22 Harmattan Semester)",
+    "count": 1,
+    "canonical": "2021/2022",
+    "note": "Harmattan Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2091",
+    "count": 1,
+    "canonical": "2014/2091",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2058",
+    "count": 1,
+    "canonical": "2014/2058",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "MARCH, 2013",
+    "count": 1,
+    "canonical": "2013",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2145",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2080",
+    "count": 1,
+    "canonical": "2014/2080",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2132",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2044",
+    "count": 1,
+    "canonical": "2014/2044",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "07/08 SESSION",
+    "count": 1,
+    "canonical": "2007/2008",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2O12/2O13 Harmattan",
+    "count": 1,
+    "canonical": "2012/2013",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2112",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2066",
+    "count": 1,
+    "canonical": "2014/2066",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2088",
+    "count": 1,
+    "canonical": "2014/2088",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2019",
+    "count": 1,
+    "canonical": "2014/2019",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2104",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2011/2017",
+    "count": 1,
+    "canonical": "2011/2017",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2009- 2010 ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "2009/2010",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2023",
+    "count": 1,
+    "canonical": "2014/2023",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2029",
+    "count": 1,
+    "canonical": "2014/2029",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2102",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2064",
+    "count": 1,
+    "canonical": "2014/2064",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2009/2012",
+    "count": 1,
+    "canonical": "2009/2012",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2053 ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "2053",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1995/1996",
+    "count": 1,
+    "canonical": "1995/1996",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2033",
+    "count": 1,
+    "canonical": "2014/2033",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "1999/2000 Rain Semester",
+    "count": 1,
+    "canonical": "1999/2000",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2098",
+    "count": 1,
+    "canonical": "2014/2098",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2008/2009 HarmattanSemester",
+    "count": 1,
+    "canonical": "2008/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "36647",
+    "count": 1,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2017/2020",
+    "count": 1,
+    "canonical": "2017/2020",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2139",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2O14/2O15 Rain Semester",
+    "count": 1,
+    "canonical": "2014/2015",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2024",
+    "count": 1,
+    "canonical": "2014/2024",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2019/2022",
+    "count": 1,
+    "canonical": "2019/2022",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2148",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2027",
+    "count": 1,
+    "canonical": "2014/2027",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2068",
+    "count": 1,
+    "canonical": "2014/2068",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2015/2020",
+    "count": 1,
+    "canonical": "2015/2020",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2001/2002 ACADEMIC ' SESSION",
+    "count": 1,
+    "canonical": "2001/2002",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "1996/1996",
+    "count": 1,
+    "canonical": "1996/1996",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2000 MODULAR YEAR",
+    "count": 1,
+    "canonical": "2000",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2009/ 2010 ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "2009/2010",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2121",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "PASS",
+    "count": 1,
+    "canonical": "",
+    "note": "",
+    "flag": "NO_YEAR_IN_SOURCE"
+  },
+  {
+    "raw": "2003/2004 ACADEMIC SESSIION",
+    "count": 1,
+    "canonical": "2003/2004",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "MARCH, 2014",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "07/2008 ACADEMIC SESSION",
+    "count": 1,
+    "canonical": "2008",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2110",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2002/2003 ACADEMIC SESSION:",
+    "count": 1,
+    "canonical": "2002/2003",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "20072008 ACADEMIC SESSSION",
+    "count": 1,
+    "canonical": "2007",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2039",
+    "count": 1,
+    "canonical": "2014/2039",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2016/2017 ACADEMIC",
+    "count": 1,
+    "canonical": "2016/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2022",
+    "count": 1,
+    "canonical": "2014/2022",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2078",
+    "count": 1,
+    "canonical": "2014/2078",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2103",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2001 ACADEMIC SEESION",
+    "count": 1,
+    "canonical": "2001",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2016/2018",
+    "count": 1,
+    "canonical": "2016/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2020",
+    "count": 1,
+    "canonical": "2014/2020",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "MAY, 2016",
+    "count": 1,
+    "canonical": "2016",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2107",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2015/2022",
+    "count": 1,
+    "canonical": "2015/2022",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2081",
+    "count": 1,
+    "canonical": "2014/2081",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2007 ACADEMIC SEESION",
+    "count": 1,
+    "canonical": "2007",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2037",
+    "count": 1,
+    "canonical": "2014/2037",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2076",
+    "count": 1,
+    "canonical": "2014/2076",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "MARCH, 2023",
+    "count": 1,
+    "canonical": "2023",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2085",
+    "count": 1,
+    "canonical": "2014/2085",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2OO2/2OO3 Harmattan Semester",
+    "count": 1,
+    "canonical": "2002/2003",
+    "note": "Harmattan Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2131",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2035",
+    "count": 1,
+    "canonical": "2014/2035",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2045",
+    "count": 1,
+    "canonical": "2014/2045",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2O16/2O17 Harmattan Semester",
+    "count": 1,
+    "canonical": "2016/2017",
+    "note": "Harmattan Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2079",
+    "count": 1,
+    "canonical": "2014/2079",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2092",
+    "count": 1,
+    "canonical": "2014/2092",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2006/2007 ACADEMIC SESSSION",
+    "count": 1,
+    "canonical": "2006/2007",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2144",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "45400",
+    "count": 1,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "45338",
+    "count": 1,
+    "canonical": "",
+    "note": "",
+    "flag": "CORRUPTED_DATE_SERIAL"
+  },
+  {
+    "raw": "2014/2050",
+    "count": 1,
+    "canonical": "2014/2050",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "MARCH, 2022",
+    "count": 1,
+    "canonical": "2022",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "MARCH, 2012",
+    "count": 1,
+    "canonical": "2012",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2119",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2127",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2OO8/2OO9 Rain Semester",
+    "count": 1,
+    "canonical": "2008/2009",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2015/2016 MID SREAM",
+    "count": 1,
+    "canonical": "2015/2016",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2020/2021 MID- STREAM",
+    "count": 1,
+    "canonical": "2020/2021",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2096",
+    "count": 1,
+    "canonical": "2014/2096",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2073",
+    "count": 1,
+    "canonical": "2014/2073",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2151",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "1995/1996 Rain Semester",
+    "count": 1,
+    "canonical": "1995/1996",
+    "note": "Rain Semester",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2138",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2047",
+    "count": 1,
+    "canonical": "2014/2047",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "16/17 SESSION",
+    "count": 1,
+    "canonical": "2016/2017",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2003/2004 ACADEMICSESSSION",
+    "count": 1,
+    "canonical": "2003/2004",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2113",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2019 YEARBOOK",
+    "count": 1,
+    "canonical": "2019",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2030",
+    "count": 1,
+    "canonical": "2014/2030",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2015/ 2016",
+    "count": 1,
+    "canonical": "2015/2016",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2062",
+    "count": 1,
+    "canonical": "2014/2062",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2006 ACADEMIC SESSIONS",
+    "count": 1,
+    "canonical": "2006",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2018",
+    "count": 1,
+    "canonical": "2014/2018",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2003/2004 ACCADEMIC SESSION",
+    "count": 1,
+    "canonical": "2003/2004",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2129",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2041",
+    "count": 1,
+    "canonical": "2014/2041",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2109",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2057",
+    "count": 1,
+    "canonical": "2014/2057",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2094",
+    "count": 1,
+    "canonical": "2014/2094",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2017/2022",
+    "count": 1,
+    "canonical": "2017/2022",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2031",
+    "count": 1,
+    "canonical": "2014/2031",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "JANUARY, 1999",
+    "count": 1,
+    "canonical": "1999",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2013/ 2014 MID-STREAM",
+    "count": 1,
+    "canonical": "2013/2014",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2095",
+    "count": 1,
+    "canonical": "2014/2095",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2009/2009 Session",
+    "count": 1,
+    "canonical": "2009/2009",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2025",
+    "count": 1,
+    "canonical": "2014/2025",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "17/18 SESSION",
+    "count": 1,
+    "canonical": "2017/2018",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2003 SESSION",
+    "count": 1,
+    "canonical": "2003",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2009 / 2010",
+    "count": 1,
+    "canonical": "2009/2010",
+    "note": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2014/2101",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2014/2089",
+    "count": 1,
+    "canonical": "2014/2089",
+    "note": "",
+    "flag": "NEEDS_REVIEW_WIDE_GAP"
+  },
+  {
+    "raw": "2014/2117",
+    "count": 1,
+    "canonical": "2014",
+    "note": "",
+    "flag": "ok-single-year"
+  },
+  {
+    "raw": "2017/2013 SESSION",
+    "count": 1,
+    "canonical": "2017/2013",
+    "note": "",
+    "flag": "NEEDS_REVIEW_REVERSED"
+  }
+]

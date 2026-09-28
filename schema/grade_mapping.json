@@ -1,0 +1,2655 @@
+[
+  {
+    "raw": "N/A",
+    "count": 111315,
+    "canonical": "N/A",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (LOWER DIVISION)",
+    "count": 75764,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (Hons.) LOWER DIVISION",
+    "count": 44091,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "PASS",
+    "count": 34627,
+    "canonical": "Pass",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER DIVISION)",
+    "count": 34447,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second Class Lower",
+    "count": 31694,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Third Class Honours",
+    "count": 22588,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second Class Upper",
+    "count": 21481,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Third Class",
+    "count": 17905,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) LOWER DIVISION",
+    "count": 15628,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (Hons.) UPPER DIVISION",
+    "count": 12602,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONOURS) LOWER DIVISION",
+    "count": 12345,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second Class Honours Lower Division",
+    "count": 9019,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second Class (Lower Division)",
+    "count": 7646,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS (HONS.)",
+    "count": 7420,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS (HONOURS)",
+    "count": 6544,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second Class (Upper Division)",
+    "count": 5558,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONOURS) UPPER DIVISION",
+    "count": 5412,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) UPPER DIV.",
+    "count": 4748,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "First Class Honours",
+    "count": 4632,
+    "canonical": "First Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "LOWER CREDIT",
+    "count": 4399,
+    "canonical": "Lower Credit",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOUR LOWER DIVISION",
+    "count": 4110,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second Class Honours Upper Division",
+    "count": 3987,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) LOWER DIV.",
+    "count": 3707,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "UPPER CREDIT",
+    "count": 3180,
+    "canonical": "Upper Credit",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "MERIT",
+    "count": 2905,
+    "canonical": "Merit",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "First Class",
+    "count": 2887,
+    "canonical": "First Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONORS (LOWER DIVISION)",
+    "count": 2474,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) UPPER DIVISION",
+    "count": 2326,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "DISTINCTION",
+    "count": 2011,
+    "canonical": "Distinction",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS  LOWER DIVISION",
+    "count": 1912,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS (HONS)",
+    "count": 1635,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "CREDIT",
+    "count": 1556,
+    "canonical": "Credit",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS  UPPER DIVISION",
+    "count": 992,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONS. LOWER DIVISION",
+    "count": 766,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "FIRST CLASS (Hons.)",
+    "count": 710,
+    "canonical": "First Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second Class Honours: Upper Division",
+    "count": 701,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS LOWER DIVISION",
+    "count": 628,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOUR (LOWER DIVISION)",
+    "count": 585,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second Class Honours: Lower Division",
+    "count": 452,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Pass with Credit",
+    "count": 427,
+    "canonical": "Credit",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS(UPPER DIVISION)",
+    "count": 410,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOUR UPPER DIVISION",
+    "count": 390,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "PASS DEGREE",
+    "count": 382,
+    "canonical": "Pass",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS HONOUR",
+    "count": 354,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (Hons.) LOWER DIV.",
+    "count": 321,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2nd CLASS HONOURS (LOWER DIVISION)",
+    "count": 312,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2ND CLASS HONOURS (UPPER DIVISION)",
+    "count": 291,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "N /A",
+    "count": 257,
+    "canonical": "N/A",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "First Class (Honours)",
+    "count": 254,
+    "canonical": "First Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONS. UPPER DIVISION",
+    "count": 253,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS UPPER DIVISION",
+    "count": 249,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HON.) LOWER DIVISION",
+    "count": 243,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (LOWER DIVISON)",
+    "count": 240,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (LOWER DIVISION):",
+    "count": 190,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HOUOURS (LOWER DIVISION)",
+    "count": 189,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) UPPER CLASS",
+    "count": 188,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "2ND CLASS LOWER",
+    "count": 187,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURSLOWER DIVISION",
+    "count": 174,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "(MB:BS) DEGREE",
+    "count": 153,
+    "canonical": "N/A",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS(LOWER DIVISION)",
+    "count": 142,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS(LOW ER DIVISION)",
+    "count": 140,
+    "canonical": "Second Class Honours (Division unspecified)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOUR (UPPER DIVISION)",
+    "count": 129,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS   LOWER DIVISION",
+    "count": 116,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) LOWER CLASS",
+    "count": 112,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (LOWER DMSION)",
+    "count": 98,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "FIRST CLASS HONOUR",
+    "count": 96,
+    "canonical": "First Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Pass with Distinction",
+    "count": 95,
+    "canonical": "Pass",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) LOWER DIVISON",
+    "count": 86,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS  (LOWER DIVISION)",
+    "count": 80,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER  DIVISION)",
+    "count": 72,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS LOWER DISION",
+    "count": 70,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) LOWER CLASS DIVISION",
+    "count": 63,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (Hons.) LOWER DIVISON",
+    "count": 61,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURSUPPER DIVISION",
+    "count": 60,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONS. (LOWER DIVISION)",
+    "count": 58,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER DIVISON)",
+    "count": 55,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HON.) UPPER DIVISION",
+    "count": 53,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS HONS",
+    "count": 52,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER DIVISION):",
+    "count": 47,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (LOWER  DIVISION)",
+    "count": 42,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS, (LOWER DIVISION)",
+    "count": 39,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second Class Honours:Upper Division",
+    "count": 37,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECONDCLASS HONOURS (UPPER DIVISION)",
+    "count": 36,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (LOWER DIVISION )",
+    "count": 34,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction in Psychiatry",
+    "count": 32,
+    "canonical": "Distinction",
+    "notes": "Psychiatry",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS.) UPPER DIV.",
+    "count": 30,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (LOWER DIVISION",
+    "count": 30,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOUR(UPPER DIVISION)",
+    "count": 29,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS.) LOWERDIVISION",
+    "count": 25,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER DIVSION)",
+    "count": 24,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONORS (UPPER DIVISION)",
+    "count": 22,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS",
+    "count": 21,
+    "canonical": "Second Class Honours (Division unspecified)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRDCLASS (HONS)",
+    "count": 21,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS HONOURS:",
+    "count": 20,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second Class Lower Division)",
+    "count": 20,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (Hons!) UPPER DIVISION",
+    "count": 19,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS:(UPPER DIVISION)",
+    "count": 18,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HON) LOWER DIVISION",
+    "count": 18,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS UPPER DISION",
+    "count": 18,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "FIRST CLASS (HONS)",
+    "count": 18,
+    "canonical": "First Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS LOWER UPPER DIVISION",
+    "count": 17,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "PASS (UPPER DIVISION)",
+    "count": 16,
+    "canonical": "Pass",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS [HONS.] LOWER DIVISION",
+    "count": 16,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD",
+    "count": 15,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND LASS HONOURS (UPPER DIVISION)",
+    "count": 15,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOUND CLASS HONOURS UPPER DIVISION",
+    "count": 14,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND LASS LOWER",
+    "count": 14,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS.) LOWER DIVISION.",
+    "count": 13,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (Hons.) LOWER DIVIVISION",
+    "count": 12,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONS. (UPPER DIVISION)",
+    "count": 11,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS  HONOURS  LOWER DIVISION",
+    "count": 11,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD C.LASS (HONS)",
+    "count": 10,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS  (UPPER DIVISION)",
+    "count": 10,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER   DIVISION)",
+    "count": 10,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THRID CLASS HONOURS",
+    "count": 10,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER DIVISION), Distinction in Cardiorespiratory",
+    "count": 9,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "Cardiorespiratory",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) UPPERER DIVISION",
+    "count": 9,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "µ Distinction in Aquatic Animal and Wildlife Ecology Management and Diseases",
+    "count": 9,
+    "canonical": "Distinction",
+    "notes": "Aquatic Animal and Wildlife Ecology Management and Diseases",
+    "flag": "ok"
+  },
+  {
+    "raw": "LOWER CLASS",
+    "count": 9,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) LOWER DIVISIONS",
+    "count": 9,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction Aquatic and Wildlife Ecology Management and Diseases",
+    "count": 8,
+    "canonical": "Distinction",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "PASS WITH HONOR",
+    "count": 8,
+    "canonical": "Pass",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "PASSED",
+    "count": 8,
+    "canonical": "Pass",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS UPPER DIVISION)",
+    "count": 8,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOUR LOWER DIVISION '",
+    "count": 8,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS LOWER",
+    "count": 8,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS DIVISION",
+    "count": 8,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second Class Honours: Upper Division.",
+    "count": 8,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND, CLASS HONOURS,(UPPER DIVISION)",
+    "count": 7,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Pass with Honours",
+    "count": 7,
+    "canonical": "Pass",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "$",
+    "count": 7,
+    "canonical": "",
+    "notes": "$",
+    "flag": "GARBAGE_SYMBOLS"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS /LOWER DIVISION)",
+    "count": 7,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS , (LOWER DIVISION).",
+    "count": 7,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS. UPPER DIVISION",
+    "count": 7,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLAS HONOURS",
+    "count": 7,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "FIRST CLASS DIVISION",
+    "count": 7,
+    "canonical": "First Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second Class",
+    "count": 7,
+    "canonical": "Second Class Honours (Division unspecified)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HON.) UPPER",
+    "count": 7,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS( HONS)LOWER DIVISION",
+    "count": 6,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS (HONS) DIVISION",
+    "count": 6,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (LOWER DIVSION)",
+    "count": 6,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS , HONOURS (LOWER DIVISION)",
+    "count": 6,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second Class (Lipper Division)",
+    "count": 6,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction in Pharmacognosy",
+    "count": 5,
+    "canonical": "Distinction",
+    "notes": "Pharmacognosy",
+    "flag": "ok"
+  },
+  {
+    "raw": "DISTINCTION (FIRST CLASS)",
+    "count": 5,
+    "canonical": "First Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "UPPER DIVISION",
+    "count": 5,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER DIVISION",
+    "count": 5,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "DISTICTION",
+    "count": 5,
+    "canonical": "Distinction",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS HONS.",
+    "count": 5,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS . (HONS)",
+    "count": 5,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECON CLASS (Hons.)",
+    "count": 4,
+    "canonical": "Second Class Honours (Division unspecified)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS.)LOWER DIVISION",
+    "count": 4,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "# Distinction in Pharmaceutical Microbiology",
+    "count": 4,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ Distinction in Pharmacognosy",
+    "count": 4,
+    "canonical": "Distinction",
+    "notes": "Pharmacognosy",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Manual Therapy, *Distinction in Exercise Therapy, &Distinction in Electrotherapy",
+    "count": 4,
+    "canonical": "Distinction",
+    "notes": "Manual Therapy; Exercise Therapy; Electrotherapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) LOWERDIVISION",
+    "count": 4,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "-2146826259",
+    "count": 3,
+    "canonical": "",
+    "notes": "-2146826259",
+    "flag": "GARBAGE_NUMERIC"
+  },
+  {
+    "raw": "SECOND CLASS (HONSLOWER DIVISION",
+    "count": 3,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER DIVISION), Distinction in Paediatrics and Geriatrics, Distinction in Cardiorespiratory",
+    "count": 3,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "Paediatrics and Geriatrics; Cardiorespiratory",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (LOWER DIVISION), Distinction in Cardiorespiratory",
+    "count": 3,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "Cardiorespiratory",
+    "flag": "ok"
+  },
+  {
+    "raw": "*Distinction in Psychiatry",
+    "count": 3,
+    "canonical": "Distinction",
+    "notes": "Psychiatry",
+    "flag": "ok"
+  },
+  {
+    "raw": "## Distinction in Social & Admin Pharmacy",
+    "count": 3,
+    "canonical": "Distinction",
+    "notes": "Social & Admin Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "PASS WITH MERIT",
+    "count": 3,
+    "canonical": "Merit",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) LOWEER DIVISION",
+    "count": 3,
+    "canonical": "Second Class Honours (Division unspecified)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER LOWER)",
+    "count": 3,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HON.) UPPER DIAVISION",
+    "count": 3,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "$Distinction in Pharmaceutics & Industrial Pharmacy",
+    "count": 3,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutics & Industrial Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS.) UPPER  DIVISION",
+    "count": 3,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HOHS) LOWER DIVISION",
+    "count": 3,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) LOWER",
+    "count": 3,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "*Distinction in Electrotherapy",
+    "count": 3,
+    "canonical": "Distinction",
+    "notes": "Electrotherapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS (HONS",
+    "count": 3,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS  HONOURS  UPPER DIVISION",
+    "count": 2,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ Distinction in Orthopedics and Trauma",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Orthopedics and Trauma",
+    "flag": "ok"
+  },
+  {
+    "raw": "& Distinction in Veterinary Theriogenology",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Veterinary Theriogenology",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONUORS (UPPER DIVISION)",
+    "count": 2,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Pharmaceutical Microbiology, @Distinction in Pharmacognosy, $Distinction in Pharmaceutics & Industrial Pharmacy",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology; Pharmacognosy; Pharmaceutics & Industrial Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "$ Distinction in Kinesiology",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Kinesiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOUR LOWER",
+    "count": 2,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "&Distinction in Orthopaedics and Traumatology, @Distinction in Exercise therapy, #Distinction in Electrotherapy",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Orthopaedics and Traumatology; Exercise therapy; Electrotherapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "Ω Distinction in Neurology, @ Distinction in Orthopaedics and Traumatology, $ Distinction in Kinesiology, # Distinction in Manual Therapy, * Distinction in Exercise Therapy, & Distinction in Electrotherapy",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Neurology; Orthopaedics and Traumatology; Kinesiology; Manual Therapy; Exercise Therapy; Electrotherapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction in Pharmacognosy, Distinction in Pharmaceutical Microbiology",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Pharmacognosy; Pharmaceutical Microbiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONS UPPER DIVISION",
+    "count": 2,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (LOWER DIVISION..",
+    "count": 2,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "µ DISTINCTION IN AQUATIC ANIMAL AND WILDLIFE",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "AQUATIC ANIMAL AND WILDLIFE",
+    "flag": "ok"
+  },
+  {
+    "raw": "FIRST CLASS HONOURS:",
+    "count": 2,
+    "canonical": "First Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ Distinction in Veterinary in Public Health and Preventive Medicine, r Distinction in Veterinary Parasitology",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Veterinary in Public Health and Preventive Medicine; Veterinary Parasitology",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second Class Lowor",
+    "count": 2,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second  Class Upper",
+    "count": 2,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS LOWER",
+    "count": 2,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "@",
+    "count": 2,
+    "canonical": "",
+    "notes": "@",
+    "flag": "GARBAGE_SYMBOLS"
+  },
+  {
+    "raw": "SECOND CLASS HONS OWER DIVISION",
+    "count": 2,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "'@ Distinction in Pharmacognosy",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Pharmacognosy",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS (HON.)",
+    "count": 2,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "&Distinction in Electrotherapy, *Distinction in Exercise Therapy",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Electrotherapy; Exercise Therapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLAS",
+    "count": 2,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ DISTINCTION IN VETERINARY ANATOMY, µ DISTINCTION IN AQUATIC ANIMAL AND WILDLIFE",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "VETERINARY ANATOMY; AQUATIC ANIMAL AND WILDLIFE",
+    "flag": "ok"
+  },
+  {
+    "raw": "? DISTINCTION IN CLINICAL ANATOMY",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "CLINICAL ANATOMY",
+    "flag": "ok"
+  },
+  {
+    "raw": "&Distinction in Orthopaedics and Traumatology, @Distinction in Exercise therapy",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Orthopaedics and Traumatology; Exercise therapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ Distinction in Veterinary in Public Health and Preventive Medicine",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Veterinary in Public Health and Preventive Medicine",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction in Pharmacognosy, Distinction in Pharmaceutical Chemistry",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Pharmacognosy; Pharmaceutical Chemistry",
+    "flag": "ok"
+  },
+  {
+    "raw": "*Distinction in Exercise Therapy",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Exercise Therapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Manual Therapy",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Manual Therapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER DIVISION), Distinction in Orthopedics and Trauma, Distinction in Cardiorespiratory",
+    "count": 2,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "Orthopedics and Trauma; Cardiorespiratory",
+    "flag": "ok"
+  },
+  {
+    "raw": "PASS WITH DISTICTION",
+    "count": 2,
+    "canonical": "Pass",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS(HONS) LOWER DIVISION",
+    "count": 2,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD HONOUR DIVISION",
+    "count": 2,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS (HONS)a",
+    "count": 2,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Pharmaceutical Microbiology, @Distinction in Pharmacognosy",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology; Pharmacognosy",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Pharmaceutical Microbiology",
+    "count": 2,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (Hons) LOWER DIV",
+    "count": 2,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOUR UPPPER DIVISION",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "@$#*",
+    "count": 1,
+    "canonical": "",
+    "notes": "@$#*",
+    "flag": "GARBAGE_SYMBOLS"
+  },
+  {
+    "raw": "FIRST CLASS HONOURS, Distinction in Electrotherapy, Distinction in Exercise Therapy, Distinction in Manual Therapy, Distinction in Orthopedics and Trauma, Distinction in Neurology & Medicine, Distinction in Paediatrics and Geriatrics, Distinction in Cardiorespiratory",
+    "count": 1,
+    "canonical": "First Class Honours",
+    "notes": "Electrotherapy; Exercise Therapy; Manual Therapy; Orthopedics and Trauma; Neurology & Medicine; Paediatrics and Geriatrics; Cardiorespiratory",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS (Hons).",
+    "count": 1,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "# Distinction in Veterinary Physiology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Physiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction in Pharmacognosy, Distinction in Pharmaceutics and Industrial Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmacognosy; Pharmaceutics and Industrial Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ DISTINCTION IN VETERINARY ANATOMY",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY ANATOMY",
+    "flag": "ok"
+  },
+  {
+    "raw": "&Distinction in Veterinary Parasitology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Parasitology",
+    "flag": "ok"
+  },
+  {
+    "raw": "& Distinction in Electrotherapy,  + Distinction in Exercise Therapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Electrotherapy; Exercise Therapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER DIVISION), Distinction in Kinesiology, Distinction in Cardiorespiratory",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "Kinesiology; Cardiorespiratory",
+    "flag": "ok"
+  },
+  {
+    "raw": "FIRST  CLASS HONOURS",
+    "count": 1,
+    "canonical": "First Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction in Theriogenology, Distinction in Veterinary Public Health and Preventive Medicine, Distinction Aquatic and Wildlife Ecology Management and Diseases, Distinction in Veterinary Microbiology, Distinction in Veterinary Anatomy, Distinction in Clinical Veterenary Anatomy, Distinction in Veterinary Biochemistry",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Theriogenology; Veterinary Public Health and Preventive Medicine; Veterinary Microbiology; Veterinary Anatomy; Clinical Veterenary Anatomy; Veterinary Biochemistry",
+    "flag": "ok"
+  },
+  {
+    "raw": "*Distinction in Electrotherapy, @Distinction in Exercise Therapy, +Distinction in Orthopaedic Truma, ?Distinction in Neurology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Electrotherapy; Exercise Therapy; Orthopaedic Truma; Neurology",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Pharmaceutical Microbiology, ## Distinction in Clinical Pharmacy & Pharmacy Admin, @Distinction in Pharmacognosy, $Distinction in Pharmaceutics & Industrial Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology; Clinical Pharmacy & Pharmacy Admin; Pharmacognosy; Pharmaceutics & Industrial Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction  in Veterinary Microbiology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Microbiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "* Distinction in Clinical Pharmacy, & Distinction in Pharmaceutics and Industrial Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Clinical Pharmacy; Pharmaceutics and Industrial Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction in Theriogenology, Distinction in Veterinary Public Health and Preventive Medicine, Distinction Aquatic and Wildlife Ecology Management and Diseases, Distinction in Veterinary Microbiology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Theriogenology; Veterinary Public Health and Preventive Medicine; Veterinary Microbiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "P Distinction in Veterinary Physiology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Physiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Manual Therapy, &Distinction in Electrotherapy, *Distinction in Exercise Therapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Manual Therapy; Electrotherapy; Exercise Therapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction in Pharmacognosy, Distinction in Pharmaceutical Chemistry, Distinction in Pharmaceutics and Industrial Pharmacy, Distinction in Pharmaceutical Microbiology, Distinction in Clinical Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmacognosy; Pharmaceutical Chemistry; Pharmaceutics and Industrial Pharmacy; Pharmaceutical Microbiology; Clinical Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ DISTINCTION IN VETERINARY ANATOMY, % DISTINCTION IN VETERINARY PUBLIC HEALTH",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY ANATOMY; VETERINARY PUBLIC HEALTH",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction Aquatic and Wildlife Ecology Management and Diseases, Distinction in Veterinary Microbiology, Distinction in Clinical Veterinary Anatomy, Distinction in Clinical Veterinary Pathology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Microbiology; Clinical Veterinary Anatomy; Clinical Veterinary Pathology",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS(HONS)",
+    "count": 1,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "& Distinction in Veterinary Theriogenology, * Distinction  in Veterinary Anatomy, @ Distinction in Veterinary Public Health & Preventive Medicine",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Theriogenology; Veterinary Anatomy; Veterinary Public Health & Preventive Medicine",
+    "flag": "ok"
+  },
+  {
+    "raw": "@+$#*&%",
+    "count": 1,
+    "canonical": "",
+    "notes": "@+$#*&%",
+    "flag": "GARBAGE_SYMBOLS"
+  },
+  {
+    "raw": "#Distinction in Theriogenology, P Distinction in Veterinary Physiology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Theriogenology; Veterinary Physiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "& Distinction in Pharmacy Laws and Ethics",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmacy Laws and Ethics",
+    "flag": "ok"
+  },
+  {
+    "raw": "# DISTINCTION IN VETERINARY PHYSIOLOGY, $ DISTINCTION IN VETERINARY BIOCHEMISTRY, ? DISTINCTION IN CLINICAL ANATOMY",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY PHYSIOLOGY; VETERINARY BIOCHEMISTRY; CLINICAL ANATOMY",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPERDIVISION)",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "$Distinction in Cardiorespiratory, '@Distinction in Orthopaedics and Traumatology, &Distinction in Electrotherapy, *Distinction in Exercise Therapy, ?Distinction in Neurology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Cardiorespiratory; Orthopaedics and Traumatology; Electrotherapy; Exercise Therapy; Neurology",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS HONOURS (LOWER DIVISION)",
+    "count": 1,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "'@@ Distinction in Pharmacology,  # Distinction in Pharmaceutical Microbiology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmacology; Pharmaceutical Microbiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ Distinction in Veterinary in Public Health and Preventive Health, £ Distinction in Veterinary Theriogenology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary in Public Health and Preventive Health; Veterinary Theriogenology",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ DISTINCTION IN VETERINARY ANATOMY, # DISTINCTION IN VETERINARY PHYSIOLOGY, ? DISTINCTION IN CLINICAL ANATOMY, µ DISTINCTION IN AQUATIC ANIMAL AND WILDLIFE ECOLOGY MANAGEMENT AND DISEASES, ? DISTINCTION IN THERIOGENOLOGY, % DISTINCTION IN VETERINARY PUBLIC HEALTH",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY ANATOMY; VETERINARY PHYSIOLOGY; CLINICAL ANATOMY; AQUATIC ANIMAL AND WILDLIFE ECOLOGY MANAGEMENT AND DISEASES; THERIOGENOLOGY; VETERINARY PUBLIC HEALTH",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction in Veterinary Theriogenology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Theriogenology",
+    "flag": "ok"
+  },
+  {
+    "raw": "? Distinction in Veterinary Microbiology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Microbiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "$Distinction in Neurology, &Distinction in Orthopaedics and Traumatology, @Distinction in Exercise therapy, #Distinction in Electrotherapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Neurology; Orthopaedics and Traumatology; Exercise therapy; Electrotherapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "SEDOND CLASS HONOURS (LOWER DIVISION)",
+    "count": 1,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "# Distinction in Pharmaceutical Microbiology,  ## Distinction in Social & Admin Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology; Social & Admin Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ Distinction in Veterinary in Public Health and Preventive Medicine, ? Distinction in Veterinary Microbiology, * Distinction in Veterinary Anatomy, £ Distinction in Veterinary Theriogenology, r Distinction in Veterinary Parasitology, © Distinction in Veterinary Pathology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary in Public Health and Preventive Medicine; Veterinary Microbiology; Veterinary Anatomy; Veterinary Theriogenology; Veterinary Parasitology; Veterinary Pathology",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ Distinction in Pharmacognosy, # Distinction in Pharmaceutical Microbiology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmacognosy; Pharmaceutical Microbiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "# Distinction in Pharmaceutical Microbiology, $ Distinction in Pharmaceutics & Industrial Pharmacy, ## Distinction  in Social & Admin Pharmacy, '+ Distinction in Pharmaceutical Chemistry",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology; Pharmaceutics & Industrial Pharmacy; Social & Admin Pharmacy; Pharmaceutical Chemistry",
+    "flag": "ok"
+  },
+  {
+    "raw": "+ Distinction in Pharmacognosy, & Distinction in Clinical Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmacognosy; Clinical Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ Distinction in Veterinary in Public Health and Preventive Health",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary in Public Health and Preventive Health",
+    "flag": "ok"
+  },
+  {
+    "raw": "* Distinction in Oral Pathology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Oral Pathology",
+    "flag": "ok"
+  },
+  {
+    "raw": "@DISTINCTION IN VETERINARY MICROBIOLOGY, #DISTINCTION IN VETERINARY REPRODUCTION",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY MICROBIOLOGY; VETERINARY REPRODUCTION",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER DIVISION).",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "@$#&",
+    "count": 1,
+    "canonical": "",
+    "notes": "@$#&",
+    "flag": "GARBAGE_SYMBOLS"
+  },
+  {
+    "raw": "Distinction Aquatic and Wildlife Ecology Management and Diseases, Distinction in Veterinary Microbiology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Microbiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) LOWER DIVISION '",
+    "count": 1,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "FIRST CL ASS (HONS)",
+    "count": 1,
+    "canonical": "First Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "*AEGROTAT",
+    "count": 1,
+    "canonical": "Aegrotat",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONUORS LOWER DIVISION",
+    "count": 1,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "* Distinction in Veterinary Anatomy, β Distinction in Veterinary Microbiology, r Distinction in Veterinary Parasitology,'@ Distinction in Veterinary in Public Health and Preventive Health",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Anatomy; Veterinary Microbiology; Veterinary Parasitology; Veterinary in Public Health and Preventive Health",
+    "flag": "ok"
+  },
+  {
+    "raw": "@Distinction in Pharmacognosy, $Distinction in Pharmaceutics & Industrial Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmacognosy; Pharmaceutics & Industrial Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "# Distinction in Pharmaceutical Microbiology, @ Distinction in Pharmacognosy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology; Pharmacognosy",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Pharmaceutical Microbiology, '@Distinction in Pharmacognosy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology; Pharmacognosy",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS HONORS",
+    "count": 1,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) UPPER,DIVISION",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "@+$#*&",
+    "count": 1,
+    "canonical": "",
+    "notes": "@+$#*&",
+    "flag": "GARBAGE_SYMBOLS"
+  },
+  {
+    "raw": "& Distinction in Veterinary Theriogenology,  * Distinction  in Veterinary Anatomy,  + Distinction in Veterinary Physiology,  @ Distinction in Veterinary Public Health & Preventive Medicine",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Theriogenology; Veterinary Anatomy; Veterinary Physiology; Veterinary Public Health & Preventive Medicine",
+    "flag": "ok"
+  },
+  {
+    "raw": "$ Distinction in Kinesiology,  @ Distinction in Orthopedics and Traumatology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Kinesiology; Orthopedics and Traumatology",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ Distinction in Veterinary in Public Health and Preventive Medicine, £ Distinction in Veterinary Theriogenology, r Distinction in Veterinary Parasitology,  $ Distinction in Veterinary Surgery",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary in Public Health and Preventive Medicine; Veterinary Theriogenology; Veterinary Parasitology; Veterinary Surgery",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HON) UPPER DIVISION",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "&Distinction in Veterinary Parasitology, P Distinction in Veterinary Physiology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Parasitology; Veterinary Physiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "Second  Class Lower",
+    "count": 1,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "© Distinction in Veterinary Pathology, @ Distinction in Veterinary in Public Health and Preventive Medicine, ? Distinction in Veterinary Microbiology, * Distinction in Veterinary Anatomy, £ Distinction in Veterinary Theriogenology, r Distinction in Veterinary Parasitology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Pathology; Veterinary in Public Health and Preventive Medicine; Veterinary Microbiology; Veterinary Anatomy; Veterinary Theriogenology; Veterinary Parasitology",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction in Pharmaceutics and Industrial Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutics and Industrial Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "& Distinction in Orthopaedics and Traumatology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Orthopaedics and Traumatology",
+    "flag": "ok"
+  },
+  {
+    "raw": "& Distinction in Clinical Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Clinical Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HON.) LOWER DIVISON",
+    "count": 1,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Manual Therapy, $Distinction  in  Cardiorespiratory, &Distinction in Electrotherapy, *Distinction in Exercise Therapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Manual Therapy; Cardiorespiratory; Electrotherapy; Exercise Therapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLASS (HONS.",
+    "count": 1,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "$Distinction in Cardiorespiratory, *Distinction in Exercise Therapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Cardiorespiratory; Exercise Therapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "*Distinction in Kinesiology, @Distinction in Exercise therapy, #Distinction in Electrotherapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Kinesiology; Exercise therapy; Electrotherapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "$DISTINCTION IN VETERINARY PATHOLOGY",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY PATHOLOGY",
+    "flag": "ok"
+  },
+  {
+    "raw": "'@@Distinction in Pharmacology, #Distinction in Pharmaceutical Microbiology, +Distinction in Pharmaceutical Chemistry, ##Distinction in Clinical Pharmacy & Pharmacy Admin, @Distinction in Pharmacognosy, $Distinction in Pharmaceutics & Industrial Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmacology; Pharmaceutical Microbiology; Pharmaceutical Chemistry; Clinical Pharmacy & Pharmacy Admin; Pharmacognosy; Pharmaceutics & Industrial Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "Third Class Honours)",
+    "count": 1,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "P DISTINCTION IN VETERINARY PHYSIOLOGY, @DISTINCTION IN VETERINARY MICROBIOLOGY",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY PHYSIOLOGY; VETERINARY MICROBIOLOGY",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASSS HONOURS (UPPER DIVISION)",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ Distinction in Veterinary in Public Health and Preventive Medicine, ? Distinction in Veterinary Microbiology,  * Distinction in Veterinary Anatomy, £ Distinction in Veterinary Theriogenology, r Distinction in Veterinary Parasitology,  $ Distinction in Veterinary Surgery, V Distinction in Veterinary Medicine",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary in Public Health and Preventive Medicine; Veterinary Microbiology; Veterinary Anatomy; Veterinary Theriogenology; Veterinary Parasitology; Veterinary Surgery; Veterinary Medicine",
+    "flag": "ok"
+  },
+  {
+    "raw": "@Distinction in Orthopaedics and Traumatology, #Distinction in Manual Therapy, *Distinction in Exercise Therapy, &Distinction in Electrotherapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Orthopaedics and Traumatology; Manual Therapy; Exercise Therapy; Electrotherapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS UPPER",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "+ Distinction in Veterinary Physiology, & Distinction in Veterinary Theriogenology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Physiology; Veterinary Theriogenology",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ DISTINCTION IN VETERINARY ANATOMY, ? DISTINCTION IN CLINICAL ANATOMY, µ DISTINCTION IN AQUATIC ANIMAL AND WILDLIFE, ? Distinction in Veterinary Surgery, % DISTINCTION IN VETERINARY PUBLIC HEALTH",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY ANATOMY; CLINICAL ANATOMY; AQUATIC ANIMAL AND WILDLIFE; Veterinary Surgery; VETERINARY PUBLIC HEALTH",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Pharmaceutical Microbiology, ##Distinction in Clinical Pharmacy & Pharmacy Admin, @Distinction in Pharmacognosy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology; Clinical Pharmacy & Pharmacy Admin; Pharmacognosy",
+    "flag": "ok"
+  },
+  {
+    "raw": "@DISTINCTION IN VETERINARY MICROBIOLOGY",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY MICROBIOLOGY",
+    "flag": "ok"
+  },
+  {
+    "raw": "@@ Distinction in Pharmacology, # Distinction  in Pharmaceutical Microbiology, ## Distinction  in Social & Admin Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmacology; Pharmaceutical Microbiology; Social & Admin Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "&Distinction in Orthopaedics and Traumatology, %Distinction in Manual therapy, @Distinction in Exercise therapy, #Distinction in Electrotherapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Orthopaedics and Traumatology; Manual therapy; Exercise therapy; Electrotherapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "'+ Distinction in Pharmaceutical Chemistry",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Chemistry",
+    "flag": "ok"
+  },
+  {
+    "raw": "$DISTINCTION IN VETERINARY PATHOLOGY, &DISTINCTION IN VETERINARY PARASITOLOGY, %DISTINCTION IN VETERINARY PUBLIC HEALTH  AND PREVENTIVE MEDICINE, @DISTINCTION IN VETERINARY MICROBIOLOGY, ?DISTINCTION IN VETERINARY MEDICINE, #DISTINCTION IN VETERINARY REPRODUCTION",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY PATHOLOGY; VETERINARY PARASITOLOGY; VETERINARY PUBLIC HEALTH AND PREVENTIVE MEDICINE; VETERINARY MICROBIOLOGY; VETERINARY MEDICINE; VETERINARY REPRODUCTION",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction in Pharmacognosy, Distinction in Pharmaceutics and Industrial Pharmacy, Distinction in Pharmaceutical Microbiology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmacognosy; Pharmaceutics and Industrial Pharmacy; Pharmaceutical Microbiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND  CLASS (HON.) LOWER DIVISION",
+    "count": 1,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "& Distinction in Veterinary Theriogenology, @ Distinction in Veterinary Public Health & Preventive Medicine",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Theriogenology; Veterinary Public Health & Preventive Medicine",
+    "flag": "ok"
+  },
+  {
+    "raw": "HONOURS",
+    "count": 1,
+    "canonical": "Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (Hons.) UPPER CLASS",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "*Distinction in Veterinary Anatomy, $ Distinction in Veterinary Physiology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Anatomy; Veterinary Physiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "*Distinction in Kinesiology, @Distinction in Exercise therapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Kinesiology; Exercise therapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "& Distinction in Veterinary Theriogenology,  + Distinction in Veterinary Physiology , £ Distinction  in Veterinary Microbiology, @ Distinction in Veterinary Public Health & Preventive Medicine",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Theriogenology; Veterinary Physiology; Veterinary Microbiology; Veterinary Public Health & Preventive Medicine",
+    "flag": "ok"
+  },
+  {
+    "raw": "# Distinction in Pharmaceutical Microbiology, ## Distinction in Social & Admin Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology; Social & Admin Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Pharmacology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmacology",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ DISTINCTION IN VETERINARY ANATOMY, # DISTINCTION IN VETERINARY PHYSIOLOGY, µ DISTINCTION IN AQUATIC ANIMAL AND WILDLIFE ECOLOGY MANAGEMENT AND DISEASES",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY ANATOMY; VETERINARY PHYSIOLOGY; AQUATIC ANIMAL AND WILDLIFE ECOLOGY MANAGEMENT AND DISEASES",
+    "flag": "ok"
+  },
+  {
+    "raw": "@Distinction in Pharmacognosy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmacognosy",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (Hons.)",
+    "count": 1,
+    "canonical": "Second Class Honours (Division unspecified)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS [HONS.] UPPER DIVISION",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Manual Therapy, *Distinction in Exercise Therapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Manual Therapy; Exercise Therapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "$Distinction in Neurology, &Distinction in Orthopaedics and Traumatology, *Distinction in Kinesiology, %Distinction in Manual therapy, @Distinction in Exercise therapy, #Distinction in Electrotherapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Neurology; Orthopaedics and Traumatology; Kinesiology; Manual therapy; Exercise therapy; Electrotherapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "@Distinction in Veterinary Microbiology, $ Distinction in Veterinary Pathology, P Distinction in Veterinary Physiology, *Distinction in Veterinary Anatomy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Microbiology; Veterinary Pathology; Veterinary Physiology; Veterinary Anatomy",
+    "flag": "ok"
+  },
+  {
+    "raw": "$Distinction in Cardiorespiratory, &Distinction in Electrotherapy, *Distinction in Exercise Therapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Cardiorespiratory; Electrotherapy; Exercise Therapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "AEGROTAT",
+    "count": 1,
+    "canonical": "Aegrotat",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ DISTINCTION IN VETERINARY ANATOMY, ? DISTINCTION IN CLINICAL ANATOMY",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY ANATOMY; CLINICAL ANATOMY",
+    "flag": "ok"
+  },
+  {
+    "raw": "# Distinction in Pharmaceutical Microbiology,  @ Distinction in Pharmacognosy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology; Pharmacognosy",
+    "flag": "ok"
+  },
+  {
+    "raw": "µ DISTINCTION IN AQUATIC ANIMAL AND WILDLIFE ECOLOGY MANAGEMENT AND DISEASES, ? Distinction in Veterinary Surgery,  % DISTINCTION IN VETERINARY PUBLIC HEALTH",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "AQUATIC ANIMAL AND WILDLIFE ECOLOGY MANAGEMENT AND DISEASES; Veterinary Surgery; VETERINARY PUBLIC HEALTH",
+    "flag": "ok"
+  },
+  {
+    "raw": "# Distinction in Theriogenology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Theriogenology",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS.)UPPER DIVISION",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Ω Distinction in Neurology, @ Distinction in Orthopaedics and Traumatology, $ Distinction in Kinesiology, & Distinction in Electrotherapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Neurology; Orthopaedics and Traumatology; Kinesiology; Electrotherapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction Aquatic and Wildlife Ecology Management and Diseases, Distinction in Veterinary Microbiology, Distinction in Veterinary Anatomy, Distinction in Clinical Veterinary Anatomy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Microbiology; Veterinary Anatomy; Clinical Veterinary Anatomy",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Pharmaceutical Microbiology, ##Distinction in Clinical Pharmacy & Pharmacy Admin, '@Distinction in Pharmacognosy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology; Clinical Pharmacy & Pharmacy Admin; Pharmacognosy",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction Aquatic and Wildlife Ecology Management and Diseases, Distinction in Theriogenology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Theriogenology",
+    "flag": "ok"
+  },
+  {
+    "raw": "£ Distinction  in Veterinary Microbiology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Microbiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "THIRD CLSSS HONOURS",
+    "count": 1,
+    "canonical": "Third Class Honours",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Theriogenology, @Distinction in Veterinary Microbiology, $Distinction in Veterinary Pathology, &Distinction in Veterinary Parasitology, P Distinction in Veterinary Physiology, *Distinction in Veterinary Anatomy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Theriogenology; Veterinary Microbiology; Veterinary Pathology; Veterinary Parasitology; Veterinary Physiology; Veterinary Anatomy",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASSS HONOURS (LOWER DIVISION)",
+    "count": 1,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction Aquatic and Wildlife Ecology Management and Diseases, Distinction in Clinical Veterinary Pathology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Clinical Veterinary Pathology",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction in Theriogenology, Distinction in Veterinary Public Health and Preventive Medicine, Distinction Aquatic and Wildlife Ecology Management and Diseases, Distinction in Veterinary Microbiology, Distinction in Veterinary Anatomy, Distinction in Veterinary Physiology, Distinction in Clinical Veterenary Anatomy, Distinction in Veterinary Biochemistry, Distinction in Clinical Veterinary Pathology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Theriogenology; Veterinary Public Health and Preventive Medicine; Veterinary Microbiology; Veterinary Anatomy; Veterinary Physiology; Clinical Veterenary Anatomy; Veterinary Biochemistry; Clinical Veterinary Pathology",
+    "flag": "ok"
+  },
+  {
+    "raw": "$ Distinction in Veterinary Physiology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Physiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS {HONS) LOWER DIVISION",
+    "count": 1,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "$Distinction in Kinesiology, #Distinction in Manual Therapy, *Distinction in Exercise Therapy, & Distinction in Electrotherapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Kinesiology; Manual Therapy; Exercise Therapy; Electrotherapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "*Distinction in Veterinary Anatomy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Anatomy",
+    "flag": "ok"
+  },
+  {
+    "raw": "$Distinction in Neurology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Neurology",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ Distinction in Pharmaceutical Microbiology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER DIVISION), Distinction in Manual Therapy, Distinction in Paediatrics and Geriatrics",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "Manual Therapy; Paediatrics and Geriatrics",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS",
+    "count": 1,
+    "canonical": "Second Class Honours (Division unspecified)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "LOWER DIVISION",
+    "count": 1,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Electrotherapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Electrotherapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "# Distinction in Manual Therapy, $ Distinction in Kinesiology, & Distinction in Cardiorespiratory Rehabilitation",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Manual Therapy; Kinesiology; Cardiorespiratory Rehabilitation",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER DIVISION), Distinction in Manual Therapy, Distinction in Orthopedics and Trauma, Distinction in Cardiorespiratory",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "Manual Therapy; Orthopedics and Trauma; Cardiorespiratory",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ Distinction in Pharmacognosy, * Distinction in Pharmaceutics",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmacognosy; Pharmaceutics",
+    "flag": "ok"
+  },
+  {
+    "raw": "* Distinction in Veterinary Anatomy, r Distinction in Veterinary Parasitology, β Distinction in Veterinary Microbiology, © Distinction in Veterinary Pathology, V Distinction in Veterinary Medicine, '@ Distinction in Veterinary in Public Health and Preventive Health, $ Distinction in Veterinary Surgery, £ Distinction in Veterinary Theriogenology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Anatomy; Veterinary Parasitology; Veterinary Microbiology; Veterinary Pathology; Veterinary Medicine; Veterinary in Public Health and Preventive Health; Veterinary Surgery; Veterinary Theriogenology",
+    "flag": "ok"
+  },
+  {
+    "raw": "$ Distinction in Kinesiology, '@ Distinction in Orthopedics and Trauma",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Kinesiology; Orthopedics and Trauma",
+    "flag": "ok"
+  },
+  {
+    "raw": "#DISTINCTION IN VETERINARY REPRODUCTION",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY REPRODUCTION",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Pharmaceutical Microbiology, ##Distinction in Clinical Pharmacy & Pharmacy Admin, @,Distinction in Pharmacognosy, $Distinction in Pharmaceutics & Industrial Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology; Clinical Pharmacy & Pharmacy Admin; Pharmacognosy; Pharmaceutics & Industrial Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ DISTINCTION IN VETERINARY ANATOMY, # DISTINCTION IN VETERINARY PHYSIOLOGY, ^ DISTINCTION IN VETERINARY PATHOLOGY, * DISTINCTION IN VETERINARY MICROBIOLOGY",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY ANATOMY; VETERINARY PHYSIOLOGY; VETERINARY PATHOLOGY; VETERINARY MICROBIOLOGY",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER DIVISION), Distinction in Exercise Therapy, Distinction in Kinesiology",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "Exercise Therapy; Kinesiology",
+    "flag": "ok"
+  },
+  {
+    "raw": "#Distinction in Theriogenology, $Distinction in Veterinary Pathology, &Distinction in Veterinary Parasitology, *Distinction in Veterinary Anatomy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Theriogenology; Veterinary Pathology; Veterinary Parasitology; Veterinary Anatomy",
+    "flag": "ok"
+  },
+  {
+    "raw": "@Distinction in Orthopaedics and Traumatology, #Distinction in Manual Therapy, &Distinction in Electrotherapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Orthopaedics and Traumatology; Manual Therapy; Electrotherapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "# Distinction in Pharmaceutical Microbiology, $ Distinction in Pharmaceutics & Industrial Pharmacy, ## Distinction  in Social & Admin Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology; Pharmaceutics & Industrial Pharmacy; Social & Admin Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLAS UPPER",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (Hons.) LOWER CLASS",
+    "count": 1,
+    "canonical": "Second Class Honours (Lower Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ DISTINCTION IN VETERINARY ANATOMY, # DISTINCTION IN VETERINARY PHYSIOLOGY, & DISTINCTION IN VETERINARY PARASITOLOGY, ^ DISTINCTION IN VETERINARY PATHOLOGY, * DISTINCTION IN VETERINARY MICROBIOLOGY, µ DISTINCTION IN AQUATIC ANIMAL AND WILDLIFE,  ? DISTINCTION IN CLINICAL ANATOMY, € DISTINCTION IN CLINICAL PATHOLOGY, ? DISTINCTION IN THERIOGENOLOGY, ? Distinction in Veterinary Surgery, % DISTINCTION IN VETERINARY PUBLIC HEALTH",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY ANATOMY; VETERINARY PHYSIOLOGY; VETERINARY PARASITOLOGY; VETERINARY PATHOLOGY; VETERINARY MICROBIOLOGY; AQUATIC ANIMAL AND WILDLIFE; CLINICAL ANATOMY; CLINICAL PATHOLOGY; THERIOGENOLOGY; Veterinary Surgery; VETERINARY PUBLIC HEALTH",
+    "flag": "ok"
+  },
+  {
+    "raw": "& Distinction in Clinical Pharmacy, '+ Distinction in Pharmacognosy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Clinical Pharmacy; Pharmacognosy",
+    "flag": "ok"
+  },
+  {
+    "raw": "$ Distinction in Veterinary Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "%DISTINCTION IN VETERINARY PUBLIC HEALTH  AND PREVENTIVE MEDICINE",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "VETERINARY PUBLIC HEALTH AND PREVENTIVE MEDICINE",
+    "flag": "ok"
+  },
+  {
+    "raw": "%Distinction in Veterinary Public Health, #Distinction in Theriogenology, &Distinction in Veterinary Parasitology",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary Public Health; Theriogenology; Veterinary Parasitology",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction Aquatic and Wildlife Ecology Management and Diseases, Distinction in Clinical Veterinary Anatomy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Clinical Veterinary Anatomy",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS (HONS) UPPER CLASS DIVISION",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "",
+    "flag": "ok"
+  },
+  {
+    "raw": "# Distinction in Manual Therapy, $ Distinction in Kinesiology,  '@ Distinction in Orthopedics and Traumatology, & Distinction in Electrotherapy,  + Distinction in Exercise Therapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Manual Therapy; Kinesiology; Orthopedics and Traumatology; Electrotherapy; Exercise Therapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "? DISTINCTION IN CLINICAL ANATOMY, µ DISTINCTION IN AQUATIC ANIMAL AND WILDLIFE",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "CLINICAL ANATOMY; AQUATIC ANIMAL AND WILDLIFE",
+    "flag": "ok"
+  },
+  {
+    "raw": "SECOND CLASS HONOURS (UPPER DIVISION), Distinction in Exercise Therapy, Distinction in Manual Therapy, Distinction in Neurology & Medicine, Distinction in Cardiorespiratory",
+    "count": 1,
+    "canonical": "Second Class Honours (Upper Division)",
+    "notes": "Exercise Therapy; Manual Therapy; Neurology & Medicine; Cardiorespiratory",
+    "flag": "ok"
+  },
+  {
+    "raw": "@+$*&",
+    "count": 1,
+    "canonical": "",
+    "notes": "@+$*&",
+    "flag": "GARBAGE_SYMBOLS"
+  },
+  {
+    "raw": "$ Distinction in Kinesiology, & Distinction in Electrotherapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Kinesiology; Electrotherapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "+ Distinction in Clinical Pharmacy, * Distinction in Pharmaceutics,  $ Distinction in Veterinary Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Clinical Pharmacy; Pharmaceutics; Veterinary Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "Distinction in Pharmaceutics and Industrial Pharmacy, Distinction in Clinical Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutics and Industrial Pharmacy; Clinical Pharmacy",
+    "flag": "ok"
+  },
+  {
+    "raw": "@ Distinction in Pharmaceutical Microbiology, * Distinction in Pharmaceutics",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Microbiology; Pharmaceutics",
+    "flag": "ok"
+  },
+  {
+    "raw": "'@ Distinction in Veterinary in Public Health and Preventive Medicine",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Veterinary in Public Health and Preventive Medicine",
+    "flag": "ok"
+  },
+  {
+    "raw": "$Distinction in Neurology, &Distinction in Orthopaedics and Traumatology, %Distinction in Manual therapy, @Distinction in Exercise therapy, #Distinction in Electrotherapy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Neurology; Orthopaedics and Traumatology; Manual therapy; Exercise therapy; Electrotherapy",
+    "flag": "ok"
+  },
+  {
+    "raw": "+Distinction in Pharmaceutical Chemistry, @Distinction in Pharmacognosy, $Distinction in Pharmaceutics & Industrial Pharmacy",
+    "count": 1,
+    "canonical": "Distinction",
+    "notes": "Pharmaceutical Chemistry; Pharmacognosy; Pharmaceutics & Industrial Pharmacy",
+    "flag": "ok"
+  }
+]

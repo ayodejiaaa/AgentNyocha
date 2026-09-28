@@ -1,0 +1,66 @@
+# Reference deployment for a single always-on box (an EC2 instance is the
+# obvious fit, since that's the AWS account already available) running the
+# two services that can't live on Vercel: the API and the worker. Both
+# come from the same image (webapp/api/Dockerfile) - only the command
+# differs - so there's one thing to build and push, not two.
+#
+#   docker compose up -d --build
+#
+# Postgres here is the simplest path to "it just works" on one box; the
+# same DATABASE_URL var can point at RDS instead with no code change if
+# managed backups/failover matter more than saving that cost - api/db.py
+# doesn't know or care which. Same story for file storage: point
+# STORAGE_BACKEND=s3 at a real S3 bucket instead of local disk once this
+# runs anywhere that isn't purely a single box (see api/storage.py).
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: akowe
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set a real password in .env}
+      POSTGRES_DB: extraction_review
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports: []  # not exposed outside the box - api/worker reach it over the compose network only
+
+  api:
+    build:
+      context: ..
+      dockerfile: webapp/api/Dockerfile
+    restart: unless-stopped
+    depends_on: [db]
+    environment:
+      DATABASE_URL: postgresql+psycopg2://akowe:${POSTGRES_PASSWORD}@db:5432/extraction_review
+      JWT_SECRET: ${JWT_SECRET:?set a real random secret in .env}
+      STORAGE_BACKEND: ${STORAGE_BACKEND:-local}
+      S3_BUCKET: ${S3_BUCKET:-}
+      S3_ENDPOINT_URL: ${S3_ENDPOINT_URL:-}
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-}
+      S3_SECRET_KEY: ${S3_SECRET_KEY:-}
+    volumes:
+      - local_files:/app/webapp/api/_local_data  # only used while STORAGE_BACKEND=local; irrelevant once S3 is set
+    ports:
+      - "8000:8000"  # put a load balancer / Caddy / nginx with TLS in front of this in production - see README
+
+  worker:
+    build:
+      context: ..
+      dockerfile: webapp/api/Dockerfile
+    command: ["python", "-m", "webapp.api.worker"]
+    restart: unless-stopped
+    depends_on: [db]
+    environment:
+      DATABASE_URL: postgresql+psycopg2://akowe:${POSTGRES_PASSWORD}@db:5432/extraction_review
+      STORAGE_BACKEND: ${STORAGE_BACKEND:-local}
+      S3_BUCKET: ${S3_BUCKET:-}
+      S3_ENDPOINT_URL: ${S3_ENDPOINT_URL:-}
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-}
+      S3_SECRET_KEY: ${S3_SECRET_KEY:-}
+    volumes:
+      - local_files:/app/webapp/api/_local_data
+
+volumes:
+  db_data:
+  local_files:

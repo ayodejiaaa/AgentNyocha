@@ -1,0 +1,61 @@
+Flagged grade values: 9
+Flagged year values: 140
+Scanned: COVENANT\covenant-university-2018.xlsx
+Scanned: COVENANT\covenant-university-2019.xlsx
+Scanned: COVENANT\covenant-university-2021.xlsx
+Scanned: COVENANT\covenant-university-2022.xlsx
+Scanned: COVENANT\covenant-university-2023.xlsx
+Scanned: COVENANT\covenant-university-2024.xlsx
+Scanned: FUTA\futa-2021.xlsx
+Scanned: FUTA\futa-2024.xlsx
+Scanned: LASU\lasu-2005-b.sc.xlsx
+Scanned: LASU\lasu-2007.xlsx
+Scanned: LASU\lasu-2009.xlsx
+Scanned: LASU\lasu-2012.xlsx
+Scanned: LASU\lasu-2013.xlsx
+Scanned: LASU\lasu-2016.xlsx
+Scanned: LASU\lasu-2018.xlsx
+Scanned: LASU\lasu-2019.xlsx
+Scanned: LASU\lasu-2020.xlsx
+Scanned: LASU\lasu-2022.xlsx
+Scanned: LASU\lasu-2023.xlsx
+Scanned: LASU\lasu-2024.xlsx
+Scanned: OAU\oau-2019.xlsx
+Scanned: OAU\oau-2023.xlsx
+Scanned: OAU\oau-2024.xlsx
+Scanned: OOU\OOU - Postgraduate\oou-pgs-2020.xlsx
+Scanned: OOU\OOU - Postgraduate\oou-pgs-2022.xlsx
+Scanned: OOU\OOU - Undergraduate\oou-b.sc-2020.xlsx
+Scanned: OOU\OOU - Undergraduate\oou-b.sc-2022.xlsx
+Scanned: OOU\oou-2024.xlsx
+Scanned: UI\university-of-ibadan-2003.xlsx
+Scanned: UI\university-of-ibadan-2004.xlsx
+Scanned: UI\university-of-ibadan-2012.xlsx
+Scanned: UI\university-of-ibadan-2014.xlsx
+Scanned: UI\university-of-ibadan-2015.xlsx
+Scanned: UI\university-of-ibadan-2016.xlsx
+Scanned: UI\university-of-ibadan-2017.xlsx
+Scanned: UI\university-of-ibadan-2018.xlsx
+Scanned: UI\university-of-ibadan-2019.xlsx
+Scanned: UI\university-of-ibadan-2021.xlsx
+Scanned: UI\university-of-ibadan-2022.xlsx
+Scanned: UNILAG - Postgraduate\unilag-2019-postgraduate.xlsx
+Scanned: UNILAG - Postgraduate\unilag-2021-postgraduate.xlsx
+Scanned: UNILAG - Postgraduate\unilag-2022-postgraduate.xlsx
+Scanned: UNILAG - Postgraduate\unilag-2023-postgraduate.xlsx
+Scanned: UNILAG - Undergraduate\unilag-2018.xlsx
+Scanned: UNILAG - Undergraduate\unilag-2019.xlsx
+Scanned: UNILAG - Undergraduate\unilag-2021.xlsx
+Scanned: UNILAG - Undergraduate\unilag-2022.xlsx
+Scanned: UNILAG - Undergraduate\unilag-2024.xlsx
+Scanned: UNILAG - Undergraduate\unilag-2025.xlsx
+Scanned: UNILORIN\unilorin-2015.xlsx
+Scanned: UNILORIN\unilorin-2016.xlsx
+Scanned: UNILORIN\unilorin-2017.xlsx
+Scanned: UNILORIN\unilorin-2018.xlsx
+Scanned: UNILORIN\unilorin-2019.xlsx
+Scanned: UNILORIN\unilorin-2021.xlsx
+Scanned: UNILORIN\unilorin-2022.xlsx
+Scanned: UNILORIN\unilorin-2023.xlsx
+Wrote C:\Users\User1\Desktop\Dev Projects\Extractor\schema\flagged_rows.csv with 1678 flagged rows
+Distinct (file, page) combinations needing a lookup: 64

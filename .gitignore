@@ -1,0 +1,30 @@
+# Environments, dependencies, build output
+.venv/
+node_modules/
+.next/
+__pycache__/
+*.pyc
+
+# Real data: never versioned
+Canonical Training Data/
+Data Training/
+Extracted Output/
+pdf_extractor/samples/
+schema/raw_extract/
+schema/corrected/
+schema/flagged_rows.csv
+schema/flagged_groups.json
+schema/corrections_log.csv
+webapp/api/_local_data/
+upload_test.pdf
+*.pdf
+*.xlsx
+*.pkl
+
+# Local config and tooling state
+.env
+.env.local
+.claude/
+
+# Internal working notes
+Missing Pages.md
