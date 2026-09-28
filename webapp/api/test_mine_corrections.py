@@ -34,8 +34,9 @@ def fresh():
     return engine
 
 
-def result(subs=(), names=(), examples=None):
-    return {"substitutions": list(subs), "new_vocabulary": list(names), "substitution_examples": examples or {}}
+def result(subs=(), names=(), examples=None, sub_booklets=None, name_booklets=None):
+    return {"substitutions": list(subs), "new_vocabulary": list(names), "substitution_examples": examples or {},
+            "substitution_booklets": sub_booklets or {}, "vocabulary_booklets": name_booklets or {}}
 
 
 def rows_by_key(engine):
@@ -160,6 +161,43 @@ def test_listing():
     check("status 'all'", len(mc.list_patterns(status="all", engine=e)), 3)
 
 
+def test_booklet_spread_ranks_filters_and_follows_evidence():
+    e = fresh()
+    first = result([(("Q", "O"), 30), (("", "I"), 5), (("A", "B"), 7)], [("ZQXVTA", 4)],
+                   sub_booklets={("Q", "O"): 1, ("", "I"): 3, ("A", "B"): 3}, name_booklets={"ZQXVTA": 2})
+    mc.persist_patterns(first, engine=e, now=T0)
+    rows = mc.list_patterns(engine=e)
+    check("a pattern in more booklets outranks a bigger count from one booklet",
+          [(r["booklets"], r["count"]) for r in rows], [(3, 7), (3, 5), (2, 4), (1, 30)])
+    check("--min-booklets drops the single-booklet pattern",
+          [r["count"] for r in mc.list_patterns(min_booklets=2, engine=e)], [7, 5, 4])
+    check("...and combines with --min-count", [r["count"] for r in mc.list_patterns(min_booklets=3, min_count=6, engine=e)], [7])
+
+    mc.persist_patterns(first, engine=e, now=T1)
+    check("running it again leaves the spread as it was",
+          [(r["booklets"], r["count"]) for r in mc.list_patterns(engine=e)], [(3, 7), (3, 5), (2, 4), (1, 30)])
+
+    grown = result([(("Q", "O"), 33)], sub_booklets={("Q", "O"): 4})
+    mc.persist_patterns(grown, engine=e, now=T1)
+    top = mc.list_patterns(engine=e)[0]
+    check("a pattern that spreads to more booklets moves to the top", (top["booklets"], top["count"]), (4, 33))
+
+    row = rows_by_key(e)[("vocabulary", "ZQXVTA")]
+    check("a pattern whose evidence is gone loses its spread as well as its count",
+          (row["count"], row["booklets"]), (0, 0))
+    check("...and is out of the default list", [r["kind"] for r in mc.list_patterns(kind="vocabulary", engine=e)], [])
+
+    mc.persist_patterns(result([(("X", "Y"), 2)]), engine=e, now=T1)   # no booklet info at all
+    check("a result without booklet information stores a spread of 0, not an error",
+          rows_by_key(e)[("substitution", mc._substitution_key("X", "Y"))]["booklets"], 0)
+
+
+def _add_job(conn, uploaded_by, university, year, filename):
+    return conn.execute(db.jobs.insert().values(
+        university=university, year=year, filenames=[filename], storage_prefix="p",
+        uploaded_by=uploaded_by)).inserted_primary_key[0]
+
+
 def _add_record(conn, job_id, index, original_name, current_name):
     conn.execute(db.records.insert().values(
         job_id=job_id, row_index=index, name=current_name,
@@ -171,39 +209,63 @@ def test_end_to_end_from_records():
     e = fresh()
     with e.begin() as conn:
         uid = conn.execute(db.users.insert().values(email="d@akowe.example", password_hash="x")).inserted_primary_key[0]
-        jid = conn.execute(db.jobs.insert().values(
-            university="U", year="2020", filenames=["a.pdf"], storage_prefix="p", uploaded_by=uid)).inserted_primary_key[0]
-        _add_record(conn, jid, 0, "QKAFOR Chidi", "OKAFOR Chidi")
-        _add_record(conn, jid, 1, "QKAFOR Emeka", "OKAFOR Emeka")
-        _add_record(conn, jid, 2, "ADEYEMI Zqxvtb", "ADEYEMI Zqxvta")
-        _add_record(conn, jid, 3, "BELLO Tunde", "BELLO Tunde")        # untouched: teaches nothing
+        first = _add_job(conn, uid, "U", "2020", "part1.pdf")
+        later = _add_job(conn, uid, "  u ", "2020", "part2.pdf")   # the rest of the SAME booklet, typed a little differently
+        other = _add_job(conn, uid, "V", "2021", "b.pdf")          # a different booklet
+        _add_record(conn, first, 0, "QKAFOR Chidi", "OKAFOR Chidi")
+        _add_record(conn, first, 1, "QKAFOR Emeka", "OKAFOR Emeka")
+        _add_record(conn, first, 2, "ADEYEMI Zqxvtb", "ADEYEMI Zqxvta")
+        _add_record(conn, first, 3, "BELLO Tunde", "BELLO Tunde")        # untouched: teaches nothing
+        _add_record(conn, later, 10, "QKAFOR Ngozi", "OKAFOR Ngozi")
+        _add_record(conn, other, 20, "QKAFOR Chidi", "OKAFOR Chidi")
     stats = mc.mine_and_save(engine=e, now=T0)
     rows = rows_by_key(e)
-    check("only edited rows are counted", stats["corrections"], 3)
-    check("the recurring Q->O confusion is stored with its count", rows[("substitution", Q_TO_O)]["count"], 2)
-    check("its example is a token pair, not a full name", rows[("substitution", Q_TO_O)]["example"].startswith("QKAFOR ->"), True)
-    check("an unrecognized confirmed name becomes a vocabulary candidate", rows[("vocabulary", "ZQXVTA")]["count"], 1)
+    q = rows[("substitution", Q_TO_O)]
+    check("only edited rows are counted", stats["corrections"], 5)
+    check("the recurring Q->O confusion is stored with its count", q["count"], 4)
+    check("a second upload of the same booklet (its other pages) is still one booklet: 4 corrections, 2 booklets",
+          q["booklets"], 2)
+    check("its example is a token pair, not a full name", q["example"].startswith("QKAFOR ->"), True)
+    check("an unrecognized confirmed name becomes a vocabulary candidate, seen in 1 booklet",
+          (rows[("vocabulary", "ZQXVTA")]["count"], rows[("vocabulary", "ZQXVTA")]["booklets"]), (1, 1))
     before = len(rows)
     mc.mine_and_save(engine=e, now=T1)
     check("running it again adds nothing", len(rows_by_key(e)), before)
 
-    with e.begin() as conn:   # a DES undoes one of the two Q->O fixes
+    with e.begin() as conn:   # a DES undoes one of the Q->O fixes in the first booklet
         conn.execute(update(db.records).where(db.records.c.row_index == 1).values(name="QKAFOR Emeka"))
     mc.mine_and_save(engine=e, now=T1)
     row = rows_by_key(e)[("substitution", Q_TO_O)]
-    check("a reverted correction stops counting but the peak remembers it", (row["count"], row["peak_count"]), (1, 2))
+    check("a reverted correction stops counting but the peak remembers it; the spread is unchanged",
+          (row["count"], row["peak_count"], row["booklets"]), (3, 4, 2))
+
+    with e.begin() as conn:   # ...and the only correction from the other booklet is undone too
+        conn.execute(update(db.records).where(db.records.c.row_index == 20).values(name="QKAFOR Chidi"))
+    mc.mine_and_save(engine=e, now=T1)
+    row = rows_by_key(e)[("substitution", Q_TO_O)]
+    check("when a booklet's evidence is gone the spread narrows to what remains", (row["count"], row["booklets"]), (2, 1))
 
 
 def test_save_refuses_partial_runs():
-    with contextlib.redirect_stderr(io.StringIO()):   # the refusal message is expected output here
-        check("--save with --job is refused before touching anything", mc.main(["--save", "--job", "1"]), 2)
-        check("--save with --since is refused", mc.main(["--save", "--since", "2026-01-01"]), 2)
+    # main() talks to db.engine, the real database. Point that at a throwaway one for the
+    # duration, so that if the guard under test ever breaks, the run it wrongly allows lands
+    # in the throwaway and not in whatever database this machine has configured.
+    real_engine, db.engine = db.engine, fresh()
+    try:
+        with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+            check("--save with --job is refused before touching anything", mc.main(["--save", "--job", "1"]), 2)
+            check("--save with --since is refused", mc.main(["--save", "--since", "2026-01-01"]), 2)
+        with db.engine.begin() as conn:
+            check("...and stored nothing", conn.execute(select(db.mined_patterns)).all(), [])
+    finally:
+        db.engine = real_engine
 
 
 def main():
     for t in (test_first_save_stores_every_pattern, test_rerunning_changes_nothing,
               test_count_follows_evidence_and_peak_remembers, test_decisions_survive_reruns,
-              test_vocabulary_graduation, test_listing, test_end_to_end_from_records,
+              test_vocabulary_graduation, test_listing, test_booklet_spread_ranks_filters_and_follows_evidence,
+              test_end_to_end_from_records,
               test_save_refuses_partial_runs):
         t()
     if _failures:

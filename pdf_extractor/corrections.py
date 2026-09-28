@@ -23,7 +23,7 @@ import argparse
 import csv
 import difflib
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -128,25 +128,41 @@ def mine_patterns(diffs: list[dict], limit_substitutions: int | None = 30,
     The limits keep an on-screen report readable; pass None for the full
     lists (what anything that stores the patterns needs - a truncated list
     would make every pattern past the cutoff look like it had vanished).
-    "substitution_examples" maps each substitution to one token pair."""
+    "substitution_examples" maps each substitution to one token pair.
+
+    A diff may carry a "booklet" (which document the correction came from);
+    "substitution_booklets" / "vocabulary_booklets" then say how many DIFFERENT
+    booklets each pattern was seen in. That is the number that separates a real
+    OCR confusion from one bad scan: thirty identical corrections in a single
+    booklet are one scan's quirk, three booklets is a pattern. Diffs without
+    one (the CSV workflow) simply produce no booklet counts."""
     subs = Counter()
     new_names = Counter()
     examples: dict[tuple[str, str], str] = {}
+    sub_booklets: dict[tuple[str, str], set] = defaultdict(set)
+    name_booklets: dict[str, set] = defaultdict(set)
     for d in diffs:
         if d["field"] != "name" or not d["before"] or not d["after"]:
             continue
+        booklet = d.get("booklet")
         before, after = d["before"].upper(), d["after"].upper()
         for old, new in _char_substitutions(before, after):
             subs[(old, new)] += 1
+            if booklet:
+                sub_booklets[(old, new)].add(booklet)
             if not examples.get((old, new)):
                 examples[(old, new)] = _substitution_example(before, after, old, new)
         for tok in after.split():
             tok = "".join(c for c in tok if c.isalpha())
             if len(tok) >= 3 and tok not in _NAME_WORDS:
                 new_names[tok] += 1
+                if booklet:
+                    name_booklets[tok].add(booklet)
     return {"substitutions": subs.most_common(limit_substitutions),
             "new_vocabulary": new_names.most_common(limit_names),
-            "substitution_examples": examples}
+            "substitution_examples": examples,
+            "substitution_booklets": {k: len(v) for k, v in sub_booklets.items()},
+            "vocabulary_booklets": {k: len(v) for k, v in name_booklets.items()}}
 
 
 def main():

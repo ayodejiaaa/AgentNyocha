@@ -381,6 +381,19 @@ def test_corrections_diff_and_mining():
     many = [{"field": "name", "before": f"K{a}Z", "after": f"K{b}Z"}
             for a, b in [(x, y) for x in "ABCDEFGH" for y in "ABCDEFGH" if x != y][:35]]
     check("report default keeps the top 30", len(mine_patterns(many)["substitutions"]), 30)
+
+    # how many DIFFERENT booklets a pattern came from (a single bad scan repeats one correction endlessly)
+    def fix(before, after, booklet):
+        return {"field": "name", "before": before, "after": after, "booklet": booklet}
+    spread = mine_patterns([fix("QKAFOR Emeka", "OKAFOR Emeka", "u|2020"), fix("QKAFOR Chidi", "OKAFOR Chidi", "u|2020"),
+                            fix("QKAFOR Ngozi", "OKAFOR Ngozi", "v|2021"),
+                            fix("ADEYEMI ZQXVTB", "ADEYEMI ZQXVTA", "u|2020"),
+                            fix("ADEYEMI ZQXVTB", "ADEYEMI ZQXVTA", "v|2021")])
+    check("three corrections across two booklets: counted 3 times, 2 booklets",
+          (dict(spread["substitutions"])[("Q", "O")], spread["substitution_booklets"][("Q", "O")]), (3, 2))
+    check("a name confirmed in two booklets says so", spread["vocabulary_booklets"]["ZQXVTA"], 2)
+    check("corrections with no booklet information produce no booklet counts",
+          (mine_patterns(diffs)["substitution_booklets"], mine_patterns(diffs)["vocabulary_booklets"]), ({}, {}))
     check("None lifts the limit", len(mine_patterns(many, limit_substitutions=None)["substitutions"]), 35)
 
 

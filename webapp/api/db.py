@@ -98,6 +98,9 @@ records = Table(
 # corrections on every run (so re-running never double counts, and a
 # correction a DES later reverts stops counting); "peak_count" is the most it
 # has ever been, so evidence isn't lost if the source records are purged.
+# "booklets" is how many different booklets (distinct university + year) the
+# corrections came from - the guard against one bad scan looking like a
+# pattern: 30 corrections in 1 booklet is weaker evidence than 5 across 3.
 # "status" is candidate -> accepted / rejected by a person, or in_vocabulary
 # when a token later appeared in the vocabulary by itself. Nothing here is
 # ever applied to the tool automatically.
@@ -108,6 +111,7 @@ mined_patterns = Table(
     Column("key", String, nullable=False),
     Column("count", Integer, nullable=False, default=0),
     Column("peak_count", Integer, nullable=False, default=0),
+    Column("booklets", Integer, nullable=False, default=0),
     Column("example", String, nullable=False, default=""),   # one token pair, never a full name
     Column("status", String, nullable=False, default="candidate"),
     Column("decided_by", Integer, ForeignKey("users.id"), nullable=True),

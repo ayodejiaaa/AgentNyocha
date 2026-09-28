@@ -12,7 +12,10 @@ anything automatically.
 What it learns is kept in the database (the mined_patterns table), so the
 candidate list has a memory: what has been seen and how often, and - the part
 that matters - what a person already decided about each pattern, so the same
-candidate isn't put in front of anyone twice.
+candidate isn't put in front of anyone twice. Each pattern also records how many
+different booklets (university + year) it was seen in, and --list puts the widest
+spread first: thirty identical corrections in one booklet are one bad scan, not a
+pattern, and shouldn't outrank five spread across three.
 
     python -m webapp.api.mine_corrections                    # report only, saves nothing
     python -m webapp.api.mine_corrections --since 2026-09-01 # report over a window
@@ -20,6 +23,7 @@ candidate isn't put in front of anyone twice.
     python -m webapp.api.mine_corrections --save             # mine everything, keep the result
     python -m webapp.api.mine_corrections --list             # what's waiting for a decision
     python -m webapp.api.mine_corrections --list --status all --min-count 3
+    python -m webapp.api.mine_corrections --list --min-booklets 3   # only patterns seen in 3+ booklets
     python -m webapp.api.mine_corrections --mark 12 accepted --by jane@akowe.example
     python -m webapp.api.mine_corrections --mark 12 rejected
 
@@ -54,6 +58,13 @@ HUMAN_STATUSES = ("candidate", "accepted", "rejected")
 ALL_STATUSES = HUMAN_STATUSES + ("in_vocabulary",)
 
 
+def booklet_key(university: str, year: str) -> str:
+    """One booklet = one university + year, however many times it was uploaded:
+    a re-upload, or the parts of a split booklet, are the same booklet. Case and
+    stray spaces in what a DES typed at upload are ignored."""
+    return f"{(university or '').strip().lower()}|{(year or '').strip()}"
+
+
 def find_corrections(job_id: int | None = None, since: datetime | None = None, engine=None) -> list[dict]:
     query = select(db.records)
     if job_id is not None:
@@ -62,6 +73,8 @@ def find_corrections(job_id: int | None = None, since: datetime | None = None, e
         query = query.where(db.records.c.updated_at >= since)
     with (engine or db.engine).begin() as conn:
         rows = conn.execute(query).mappings().all()
+        booklets = {j["id"]: booklet_key(j["university"], j["year"]) for j in conn.execute(
+            select(db.jobs.c.id, db.jobs.c.university, db.jobs.c.year)).mappings()}
 
     diffs = []
     for r in rows:
@@ -70,7 +83,8 @@ def find_corrections(job_id: int | None = None, since: datetime | None = None, e
             before, after = (original.get(field) or "").strip(), (r[field] or "").strip()
             if before != after:
                 diffs.append({"row_index": r["id"], "field": field, "before": before, "after": after,
-                               "confidence": r["confidence"], "flag_reason": r["flag_reason"]})
+                               "confidence": r["confidence"], "flag_reason": r["flag_reason"],
+                               "booklet": booklets.get(r["job_id"], "")})
     return diffs
 
 
@@ -88,7 +102,8 @@ def describe(kind: str, key: str) -> str:
 def persist_patterns(result: dict, engine=None, now: datetime | None = None) -> dict:
     """Upserts one full (untruncated) mine_patterns() result into
     mined_patterns. `count` is set to the evidence in `result`, never added to
-    it, which is what makes running this twice harmless; `peak_count`,
+    it, which is what makes running this twice harmless (as is `booklets`, the
+    number of different booklets that evidence came from); `peak_count`,
     `first_seen` and a person's `status` are never lowered or overwritten. A
     pattern absent from `result` has lost its evidence (its corrections were
     reverted or removed) and drops to count 0 - or, for a name token that has
@@ -97,26 +112,29 @@ def persist_patterns(result: dict, engine=None, now: datetime | None = None) -> 
     engine = engine or db.engine
     now = now or datetime.now(timezone.utc)
     examples = result.get("substitution_examples", {})
-    seen: dict[tuple[str, str], tuple[int, str]] = {}
+    sub_booklets = result.get("substitution_booklets", {})
+    name_booklets = result.get("vocabulary_booklets", {})
+    seen: dict[tuple[str, str], tuple[int, str, int]] = {}
     for (old, new), count in result["substitutions"]:
-        seen[("substitution", _substitution_key(old, new))] = (count, examples.get((old, new), ""))
+        seen[("substitution", _substitution_key(old, new))] = (
+            count, examples.get((old, new), ""), sub_booklets.get((old, new), 0))
     for token, count in result["new_vocabulary"]:
-        seen[("vocabulary", token)] = (count, "")
+        seen[("vocabulary", token)] = (count, "", name_booklets.get(token, 0))
 
     stats = {"new": 0, "updated": 0, "no_longer_seen": 0, "now_in_vocabulary": 0}
     table = db.mined_patterns
     with engine.begin() as conn:
         existing = {(r["kind"], r["key"]): r for r in conn.execute(select(table)).mappings()}
-        for (kind, key), (count, example) in seen.items():
+        for (kind, key), (count, example, booklets) in seen.items():
             row = existing.get((kind, key))
             if row is None:
                 conn.execute(table.insert().values(
-                    kind=kind, key=key, count=count, peak_count=count, example=example,
+                    kind=kind, key=key, count=count, peak_count=count, booklets=booklets, example=example,
                     status="candidate", first_seen=now, last_seen=now))
                 stats["new"] += 1
             else:
                 conn.execute(update(table).where(table.c.id == row["id"]).values(
-                    count=count, peak_count=max(row["peak_count"], count),
+                    count=count, peak_count=max(row["peak_count"], count), booklets=booklets,
                     example=example or row["example"], last_seen=now))
                 stats["updated"] += 1
         for (kind, key), row in existing.items():
@@ -125,6 +143,7 @@ def persist_patterns(result: dict, engine=None, now: datetime | None = None) -> 
             values = {}
             if row["count"]:
                 values["count"] = 0
+                values["booklets"] = 0
                 stats["no_longer_seen"] += 1
             if kind == "vocabulary" and row["status"] == "candidate" and key in _NAME_WORDS:
                 values["status"] = "in_vocabulary"
@@ -146,13 +165,18 @@ def mine_and_save(engine=None, now: datetime | None = None) -> dict:
 
 
 def list_patterns(status: str = "candidate", kind: str | None = None, min_count: int = 1,
-                  engine=None) -> list[dict]:
-    query = select(db.mined_patterns).where(db.mined_patterns.c.count >= min_count)
+                  min_booklets: int = 0, engine=None) -> list[dict]:
+    """Widest spread across booklets first, then most corrections: a pattern
+    seen in several booklets is a real confusion, a large count from one booklet
+    may be a single bad scan."""
+    query = select(db.mined_patterns).where(db.mined_patterns.c.count >= min_count,
+                                            db.mined_patterns.c.booklets >= min_booklets)
     if status != "all":
         query = query.where(db.mined_patterns.c.status == status)
     if kind:
         query = query.where(db.mined_patterns.c.kind == kind)
-    query = query.order_by(db.mined_patterns.c.count.desc(), db.mined_patterns.c.id)
+    query = query.order_by(db.mined_patterns.c.booklets.desc(), db.mined_patterns.c.count.desc(),
+                           db.mined_patterns.c.id)
     with (engine or db.engine).begin() as conn:
         return [dict(r) for r in conn.execute(query).mappings()]
 
@@ -179,24 +203,32 @@ def set_status(pattern_id: int, status: str, by_email: str | None = None, engine
         return result.rowcount > 0
 
 
+def _spread(booklets: dict, key) -> str:
+    n = booklets.get(key)
+    return f"   in {n} booklet{'s' if n != 1 else ''}" if n else ""
+
+
 def _print_report(result: dict):
+    sub_booklets = result.get("substitution_booklets", {})
+    name_booklets = result.get("vocabulary_booklets", {})
     print("Recurring character substitutions (old -> new, count) - candidates for "
           "parser._fix_ocr_confusions:")
     for (old, new), count in result["substitutions"]:
-        print(f"  {old!r:>6} -> {new!r:<6} x{count}")
+        print(f"  {old!r:>6} -> {new!r:<6} x{count}{_spread(sub_booklets, (old, new))}")
     print("\nNames DES confirmed that the tool didn't recognize - candidates for the "
           "name vocabulary in classify.py:")
     for name, count in result["new_vocabulary"]:
-        print(f"  {name:<20} x{count}")
+        print(f"  {name:<20} x{count}{_spread(name_booklets, name)}")
 
 
 def _print_list(rows: list[dict]):
     if not rows:
         print("Nothing matches.")
         return
-    print(f"{'id':>4}  {'kind':<12} {'count':>5} {'peak':>5}  {'status':<13} pattern")
+    print(f"{'id':>4}  {'kind':<12} {'count':>5} {'booklets':>8} {'peak':>5}  {'status':<13} pattern")
     for r in rows:
-        line = f"{r['id']:>4}  {r['kind']:<12} {r['count']:>5} {r['peak_count']:>5}  {r['status']:<13} {describe(r['kind'], r['key'])}"
+        line = (f"{r['id']:>4}  {r['kind']:<12} {r['count']:>5} {r['booklets']:>8} {r['peak_count']:>5}  "
+                f"{r['status']:<13} {describe(r['kind'], r['key'])}")
         if r["example"]:
             line += f"   ({r['example']})"
         print(line)
@@ -212,6 +244,8 @@ def main(argv=None) -> int:
                     help="With --list: which patterns to show (default: candidate, i.e. undecided)")
     ap.add_argument("--kind", choices=["substitution", "vocabulary"], default=None, help="With --list")
     ap.add_argument("--min-count", type=int, default=1, help="With --list: hide patterns with less evidence")
+    ap.add_argument("--min-booklets", type=int, default=0,
+                    help="With --list: hide patterns seen in fewer different booklets")
     ap.add_argument("--mark", nargs=2, metavar=("ID", "STATUS"),
                     help=f"Record a decision on a stored pattern: STATUS is one of {', '.join(HUMAN_STATUSES)}")
     ap.add_argument("--by", metavar="EMAIL", default=None, help="With --mark: who is deciding")
@@ -238,7 +272,7 @@ def main(argv=None) -> int:
         return 0
 
     if args.list:
-        _print_list(list_patterns(args.status, args.kind, args.min_count))
+        _print_list(list_patterns(args.status, args.kind, args.min_count, args.min_booklets))
         return 0
 
     since = datetime.fromisoformat(args.since) if args.since else None

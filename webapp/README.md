@@ -107,9 +107,17 @@ docker compose exec api python -m webapp.api.mine_corrections --mark 13 rejected
   they stand, not added to, and nobody's accept/reject decision is ever
   overwritten. It refuses `--job` / `--since`, because a partial count would
   overwrite the stored totals.
-- `--list` shows undecided patterns, most evidence first (`--status all`,
-  `--kind`, `--min-count` narrow it). A name token that later shows up in the
-  vocabulary is closed out automatically as `in_vocabulary`.
+- `--list` shows undecided patterns, widest spread first: each pattern records
+  how many different **booklets** it was seen in, and a pattern seen in three
+  booklets outranks one seen thirty times in a single booklet (which is more
+  likely one bad scan than a real confusion). `--min-booklets 3`, `--min-count`,
+  `--kind` and `--status all` narrow it. A name token that later shows up in
+  the vocabulary is closed out automatically as `in_vocabulary`.
+- A booklet is a university plus a year, not an upload: the parts of a split
+  booklet, or a re-upload, are one booklet (case and stray spaces in the
+  university are ignored). The catch is that it goes by what was typed at
+  upload - an undergraduate and a postgraduate booklet of the same university
+  and year count as one, which understates the spread rather than inflating it.
 - Accepting a pattern records the decision only. Editing `parser.py` /
   `classify.py` / the vocabulary is still a deliberate human change.
 - Nothing runs `--save` by itself. To keep the list current, schedule it
