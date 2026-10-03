@@ -10,7 +10,7 @@ Runs unchanged against SQLite (local dev, zero setup) or Postgres
 from datetime import datetime, timezone
 
 from sqlalchemy import (JSON, Boolean, Column, DateTime, ForeignKey, Integer,
-                         MetaData, String, Table, Text, UniqueConstraint, create_engine)
+                         MetaData, String, Table, Text, UniqueConstraint, create_engine, inspect, text)
 
 from . import config
 
@@ -54,6 +54,34 @@ jobs = Table(
     Column("low_count", Integer, nullable=False, default=0),
 )
 
+# One row per physical page of the booklet that has names on it (a spread
+# counts as two). Holds the page's two images - the whole corrected page, which
+# is what a client's report pulls in, and the strip of its top and bottom edges
+# a reviewer checks the printed number against - plus what extraction made of
+# the printed page number. The number that actually counts for the report is the
+# one on the page's records (a DES can correct it there); "printed_page" is only
+# what the tool first read, and is "" when it couldn't.
+pages = Table(
+    "pages", metadata,
+    Column("id", Integer, primary_key=True),
+    Column("job_id", Integer, ForeignKey("jobs.id"), nullable=False),
+    Column("source_file", String, nullable=False, default=""),
+    Column("file_order", Integer, nullable=False, default=0),    # which uploaded file, in the order it was read
+    Column("page_index", Integer, nullable=False),               # physical page within that file, from 0
+    Column("spread_half", Integer, nullable=True),               # 0/1 for the halves of a two-page scan, else NULL
+    Column("printed_page", String, nullable=False, default=""),
+    Column("page_status", String, nullable=False, default=""),   # detected / interpolated / uncertain
+    Column("image_key", String, nullable=True),                  # storage key of the full page PNG
+    Column("number_image_key", String, nullable=True),           # storage key of the edge-strip PNG
+    # Set when the scan shows another page's number too (it runs into the
+    # neighbouring page): "two_numbers" / "neighbour_number", the numbers seen as
+    # JSON ([{"side": "left", "value": 32}, ...]), and the number the booklet's
+    # sequence points to - a prefilled answer for the reviewer, never applied.
+    Column("page_note", String, nullable=True),
+    Column("seen_numbers", Text, nullable=True),
+    Column("suggested_page", String, nullable=True),
+)
+
 # One row per extracted name. "original_fields" is a frozen snapshot of
 # what the tool first produced (the canonical columns only) - everything
 # else on the row (name, faculty, ...) is what a DES sees and edits
@@ -83,6 +111,7 @@ records = Table(
     Column("flag_reason", String, nullable=False, default=""),
     Column("review_image", String, nullable=True),       # storage key, not a public URL - see api/main.py's /files route
     Column("reviewed", Boolean, nullable=False, default=False),
+    Column("page_id", Integer, ForeignKey("pages.id"), nullable=True),   # NULL for jobs processed before pages existed
     Column("updated_by", Integer, ForeignKey("users.id"), nullable=True),
     Column("updated_at", DateTime, nullable=True),
 )
@@ -126,5 +155,18 @@ engine = create_engine(config.DATABASE_URL, connect_args=(
 ))
 
 
+# Columns added to a table after a database may already have been created from
+# an older version of this file. create_all() only ever adds whole missing
+# tables, never a column on an existing one, so each is added here if absent.
+_ADDED_COLUMNS = [("records", "page_id", "INTEGER"),
+                  ("pages", "page_note", "VARCHAR"), ("pages", "seen_numbers", "TEXT"),
+                  ("pages", "suggested_page", "VARCHAR")]
+
+
 def init_db():
     metadata.create_all(engine)
+    existing = inspect(engine)
+    with engine.begin() as conn:
+        for table, column, sql_type in _ADDED_COLUMNS:
+            if column not in {c["name"] for c in existing.get_columns(table)}:
+                conn.execute(text(f"ALTER TABLE {table} ADD COLUMN {column} {sql_type}"))

@@ -5,6 +5,7 @@ Railway/Vercel). Nothing here should ever hold a real secret - those come
 from the deploy environment, not this file.
 """
 
+import json
 import os
 from pathlib import Path
 
@@ -41,3 +42,21 @@ ZOOM = float(os.environ.get("EXTRACTION_ZOOM", "2.0"))
 
 LOCAL_DATA_DIR.mkdir(parents=True, exist_ok=True)
 (LOCAL_DATA_DIR / "files").mkdir(parents=True, exist_ok=True)
+
+# Resolution (PyMuPDF zoom, 2.0 = 144 dpi) of the full-page images saved for each
+# page - the ones exported for report assembly. Independent of EXTRACTION_ZOOM,
+# which only governs how well the page is OCR'd. Higher is sharper and larger:
+# at 2.0 a page is roughly 1,200 x 1,700 px.
+PAGE_IMAGE_ZOOM = float(os.environ.get("PAGE_IMAGE_ZOOM", "2.0"))
+
+# What the exported page images are called inside the zip (always PNG). Fields:
+# {slug} the university's short name as it appears in Akowe's existing page image
+# files (covenant-university, unibadan, futa ... - see page_export.UNIVERSITY_SLUGS),
+# {year} the four-digit year, {page} the printed page number, {university} the
+# university exactly as typed at upload. The default gives e.g.
+# "covenant-university-2022-28.png".
+PAGE_IMAGE_NAME_PATTERN = os.environ.get("PAGE_IMAGE_NAME_PATTERN", "{slug}-{year}-{page}")
+
+# Extra or corrected university short names, as JSON: {"University Name": "slug"}.
+# Added on top of page_export.UNIVERSITY_SLUGS, matched ignoring case and punctuation.
+PAGE_IMAGE_SLUGS = json.loads(os.environ.get("PAGE_IMAGE_SLUGS", "{}"))

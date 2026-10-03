@@ -21,7 +21,7 @@ from sqlalchemy import select, update
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from pdf_extractor.parser import CANON_FIELDS  # noqa: E402
 
-from . import config, db, security, storage  # noqa: E402
+from . import config, db, page_export, security, storage  # noqa: E402
 
 app = FastAPI(title="Akowe Extraction Review API")
 app.add_middleware(
@@ -86,6 +86,17 @@ async def create_job(university: str, year: str, files: list[UploadFile],
     return {"id": job_id, "status": "queued"}
 
 
+def _load_pages(conn, job_id: int):
+    pages = [dict(p) for p in conn.execute(select(db.pages).where(db.pages.c.job_id == job_id)).mappings()]
+    recs = conn.execute(select(db.records.c.id, db.records.c.page, db.records.c.page_id)
+                         .where(db.records.c.job_id == job_id)).mappings().all()
+    by_page: dict[int, list[dict]] = {}
+    for r in recs:
+        if r["page_id"] is not None:
+            by_page.setdefault(r["page_id"], []).append(dict(r))
+    return pages, by_page
+
+
 @app.get("/jobs/{job_id}")
 def get_job(job_id: int, user_id: int = Depends(security.current_user_id)):
     with db.engine.begin() as conn:
@@ -94,7 +105,15 @@ def get_job(job_id: int, user_id: int = Depends(security.current_user_id)):
             raise HTTPException(404, "Job not found")
         recs = conn.execute(select(db.records).where(db.records.c.job_id == job_id)
                              .order_by(db.records.c.row_index)).mappings().all()
-    return {"job": dict(job), "records": [dict(r) for r in recs]}
+        pages, by_page = _load_pages(conn, job_id)
+    page_by_id = {p["id"]: p for p in pages}
+    records = []
+    for r in recs:
+        page = page_by_id.get(r["page_id"]) or {}
+        # The edge strip is what a reviewer checks an uncertain page number against;
+        # None for a job processed before page images were kept.
+        records.append(dict(r) | {"pageno_image": page.get("number_image_key")})
+    return {"job": dict(job), "records": records}
 
 
 def _auth_header_or_query(request: Request, token: Optional[str]) -> int:
@@ -128,6 +147,94 @@ def export_job(job_id: int, request: Request, token: Optional[str] = Query(defau
     filename = f"{job['university']}_{job['year']}_clean.csv"
     return StreamingResponse(iter([buf.getvalue()]), media_type="text/csv",
                               headers={"Content-Disposition": f'attachment; filename="{filename}"'})
+
+
+def _plan_for_job(job_id: int):
+    """(job, plan) for a job's page images, or an HTTP error saying why not."""
+    with db.engine.begin() as conn:
+        job = conn.execute(select(db.jobs).where(db.jobs.c.id == job_id)).mappings().first()
+        if not job:
+            raise HTTPException(404, "Job not found")
+        pages, by_page = _load_pages(conn, job_id)
+    if not pages:
+        raise HTTPException(409, "This job was processed before page images were kept - upload it again to get them")
+    try:
+        return dict(job), page_export.plan_page_files(dict(job), pages, by_page, config.PAGE_IMAGE_NAME_PATTERN,
+                                                      config.PAGE_IMAGE_SLUGS)
+    except ValueError as e:
+        raise HTTPException(500, str(e))
+
+
+class PageNumberUpdate(BaseModel):
+    page: str
+
+
+@app.patch("/pages/{page_id}")
+def set_page_number(page_id: int, body: PageNumberUpdate, user_id: int = Depends(security.current_user_id)):
+    """Sets one page's printed number on every record on it at once. A page holds
+    dozens to hundreds of names and its number is a fact about the page, so
+    resolving an uncertain one row by row would be absurd - this is the single
+    action a reviewer takes for it. The page images are filed under the number
+    on the records, so this is also what unblocks the download."""
+    value = page_export.normalize_page_number(body.page)
+    if value is None:
+        raise HTTPException(422, "A page number is 1 to 3 digits, for example 45")
+    with db.engine.begin() as conn:
+        if not conn.execute(select(db.pages.c.id).where(db.pages.c.id == page_id)).first():
+            raise HTTPException(404, "Page not found")
+        updated = conn.execute(update(db.records).where(db.records.c.page_id == page_id).values(
+            page=value, updated_by=user_id, updated_at=datetime.now(timezone.utc))).rowcount
+        conn.execute(update(db.pages).where(db.pages.c.id == page_id).values(printed_page=value))
+    return {"ok": True, "records": updated, "page": value}
+
+
+@app.get("/jobs/{job_id}/page-images/status")
+def page_images_status(job_id: int, user_id: int = Depends(security.current_user_id)):
+    """Whether this job's page images can be downloaded yet, and the pages in the
+    way if not. Read from the records' current page numbers every time, so it
+    changes the moment a reviewer fixes one. "available" is False for a job
+    processed before page images were kept."""
+    with db.engine.begin() as conn:
+        has_pages = conn.execute(select(db.pages.c.id).where(db.pages.c.job_id == job_id).limit(1)).first()
+    if not has_pages:
+        return {"available": False, "pages": 0, "ready": False, "problems": []}
+    _, plan = _plan_for_job(job_id)
+    return {"available": True, **page_export.export_status(plan)}
+
+
+@app.get("/jobs/{job_id}/page-images")
+def export_page_images(job_id: int, request: Request, token: Optional[str] = Query(default=None)):
+    """Every page that has names on it, as its own PNG named by printed page
+    number, in one zip (plus manifest.csv) - what report assembly pulls from.
+    Refused (409) until every page has exactly one confirmed number: a report
+    built from a zip with unnumbered pages, or two pages competing for one name,
+    would silently pull the wrong page."""
+    _auth_header_or_query(request, token)
+    job, plan = _plan_for_job(job_id)
+    status = page_export.export_status(plan)
+    if not status["ready"]:
+        n = len(status["problems"])
+        raise HTTPException(409, f"{n} page{'s' if n != 1 else ''} still need{'' if n != 1 else 's'} a confirmed "
+                                 f"page number before the images can be downloaded - e.g. "
+                                 f"{status['problems'][0]['where']}: {status['problems'][0]['detail']}")
+    try:
+        archive = page_export.build_zip(plan, storage.get_storage().get_bytes)
+    except page_export.MissingPageImage as e:
+        raise HTTPException(500, str(e))
+    size = archive.seek(0, 2)
+    archive.seek(0)
+
+    def chunks():
+        try:
+            while block := archive.read(1024 * 1024):
+                yield block
+        finally:
+            archive.close()
+
+    safe = page_export.safe_filename(f"{page_export.slug_for(job['university'], config.PAGE_IMAGE_SLUGS)}"
+                                     f"-{page_export.year_for(job['year'])}-pages")
+    return StreamingResponse(chunks(), media_type="application/zip", headers={
+        "Content-Disposition": f'attachment; filename="{safe}.zip"', "Content-Length": str(size)})
 
 
 # ---- records (DES corrections) ------------------------------------------

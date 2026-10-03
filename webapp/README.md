@@ -77,6 +77,75 @@ person:
 docker compose exec api python -m webapp.api.seed_users add jane@akowe.example "Jane Doe"
 ```
 
+## Page images, for building reports
+
+When a job is processed, every page of the booklet that has names on it is saved
+as an image (the whole page), along with a second image of just its top and
+bottom edges - where the printed page number is.
+
+- **Checking a page number.** A row flagged `page_number_uncertain` shows the
+  edge image at the top of its right-hand column, above the name snapshot (the
+  snapshot is a crop around the name and never contained the page number). Any
+  other row has a "Show the page number" link.
+- **Page numbers must all be resolved before the download.** The job page shows
+  *Download page images* greyed out, with "N pages need a page number first",
+  until every page has exactly one confirmed number. "Show which" lists the pages
+  in the way, each with its edge image, an input, and **Set for all N rows** - a
+  page's number is a fact about the page, so it is set once for every row on it,
+  not row by row. Three things hold the download back: a page with no number, two
+  pages with the same number (one is wrong), and rows on a page that disagree
+  about its number (some were edited, some not).
+- **The download** is one PNG per page, named like Akowe's existing page image
+  files - `covenant-university-2022-28.png`, `unibadan-2016-152.png`,
+  `futa-2024-100.png` - in a zip with a `manifest.csv` (file, page number, source
+  file, physical page, rows). PNG only.
+  (`GET /jobs/{id}/page-images`; refused with a 409 and the reason while anything
+  is unresolved, and `GET /jobs/{id}/page-images/status` says what is in the way.)
+- **A scan that shows two page numbers is held for a person.** A scan often runs
+  into the corner of the neighbouring page, so a page can show its own number and
+  the one beside it. The tool reads both bottom corners of every page, learns
+  which corner this booklet keeps its numbers in (separately for odd and even
+  pages) from the readings that fit the booklet's sequence, and holds a page back
+  when (a) the two corners show different numbers, or (b) the only number it can
+  read is in the other corner (so it is the neighbour's and the page's own wasn't
+  read). Such a page is never filed under a number by itself - not even one the
+  sequence would fill in. It is listed under "pages that need a page number" with
+  what it showed ("33 in the left corner and 34 in the right corner") and the
+  number the booklet's sequence points to, which is put in the box for the
+  reviewer to check against the image and set. A number printed in a corner on
+  many pages (a convocation ordinal) is ignored. Limits: it reads the bottom
+  corners only, and a number it cannot read (a bold digit on a coloured tab
+  often defeats OCR) is simply not seen - so the flag fires on what it saw, and
+  the sequence check still catches the rest.
+- **A page is filed under the number on its rows**, not what the tool first read,
+  so correcting it is what the download uses. A page image that can't be read from
+  storage fails the download and names the page - it is never left out silently.
+- **Naming.** `{slug}-{year}-{page}`: the *slug* is the university's short name
+  from a table in `webapp/api/page_export.py` (`UNIVERSITY_SLUGS`) - it can't be
+  derived, because the existing files call the University of Ibadan `unibadan`,
+  not `university-of-ibadan`. A postgraduate booklet - "PG", "PGS" or
+  "Postgraduate" in the university typed at upload, any casing - gets `-pgs`
+  after the short name (`unilag-pgs-2019-102`, beside the undergraduate
+  `unilag-2019-102`), and "UG"/"Undergraduate" is the unmarked case; the same
+  rule covers every university (OOU confirmed to follow it). LASU, OAU, OOU and
+  UNILORIN have no sample to confirm their short names and use their lower-case
+  names; check them. Add or correct any
+  with `PAGE_IMAGE_SLUGS` (JSON, e.g. `{"UNILAG": "unilag-ug"}`), matched ignoring
+  case, spaces and punctuation. The *year* is the first four-digit year in what
+  was typed at upload. `PAGE_IMAGE_NAME_PATTERN` changes the whole shape
+  (`{slug}`, `{year}`, `{page}`, `{university}`; a bad pattern is refused rather
+  than quietly producing wrongly named files).
+- **Image size** is `PAGE_IMAGE_ZOOM` (default `2.0`, about 1,200 x 1,700 px per
+  page; raise it for sharper images at a larger size).
+- A page number is 1 to 3 digits (booklets never run to a thousand pages), so a
+  printed year can never be entered as one.
+- Jobs processed before this existed have no page images (their rows say so, and
+  the download explains it). Upload the booklet again to get them - note that
+  this creates a new job, so corrections already made on the old one are not
+  carried over.
+- The database is upgraded automatically on start (a new `pages` table and a
+  `page_id` column on `records`); nothing to run.
+
 ## Feeding corrections back into the tool
 
 Once DES have been correcting flagged rows for a while:

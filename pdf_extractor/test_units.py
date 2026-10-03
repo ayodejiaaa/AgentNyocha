@@ -19,7 +19,8 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 from . import pages
-from .cli import _detect_banners, _discard_repeated_readings, _larger_zoom_if_small_text
+from .cli import (_detect_banners, _discard_repeated_readings, _flag_two_number_pages, _hold_two_number_page,
+                  _larger_zoom_if_small_text)
 from .dewarp import _needs_correction
 from .classify import classify_line
 from .columns import (Line, _group_words_into_lines, _merge_split_name_bands, _merge_wrapped_names,
@@ -683,6 +684,147 @@ def test_discard_repeated_readings_updates_page_meta():
           [pm["raw_page_number"] for *_, pm in page_data], [None, None, 92, None, 94, None, None, None, 98])
 
 
+def _corner(left=None, right=None):
+    return {"left": left, "right": right}
+
+
+def test_audit_corner_numbers():
+    audit = pages.audit_corner_numbers
+    # A booklet that keeps its numbers in the bottom-right corner, 40-47; the scan of
+    # page index 3 runs into the neighbour (42 on the left), and on index 5 the page's own
+    # number wasn't read and only the neighbour's (44) is showing.
+    raw = [40, 41, 42, 43, 44, None, 46, 47]
+    corners = [_corner(None, 40), _corner(None, 41), _corner(None, 42), _corner(42, 43),
+               _corner(None, 44), _corner(44, None), _corner(None, 46), _corner(None, 47)]
+    got = audit(raw, corners)
+    check("clean pages are not flagged", [g for i, g in enumerate(got) if i not in (3, 5)], [None] * 6)
+    check("two different numbers on a scan: flagged, naming both and the one in the booklet's own corner",
+          got[3], {"note": "two_numbers", "suggested": 43,
+                   "seen": [{"side": "left", "value": 42}, {"side": "right", "value": 43}]})
+    check("only the neighbour's number showing: flagged, and the sequence suggests the page's own",
+          got[5], {"note": "neighbour_number", "suggested": 45, "seen": [{"side": "left", "value": 44}]})
+
+    # a reading is never trusted just because the detector produced it
+    check("a page the detector read as the neighbour's number is still flagged",
+          audit([40, 41, 42, 42, 44, 45, 46, 47], corners[:3] + [_corner(42, 43)] + corners[4:5]
+                + [_corner(None, 45), _corner(None, 46), _corner(None, 47)])[3]["note"], "two_numbers")
+
+    # the detector itself took the neighbour's number (39, left corner) on the first page: that
+    # reading doesn't fit the sequence, so it must not teach the booklet's corner as "left"
+    lead = audit([39, None, 42, 43],
+                 [_corner(39, None), _corner(None, 41), _corner(None, 42), _corner(None, 43)])
+    check("a wrongly read neighbour number is caught, and the sequence gives the page's own",
+          lead[0], {"note": "neighbour_number", "suggested": 40, "seen": [{"side": "left", "value": 39}]})
+
+    # nothing to learn the booklet's corner from: two different numbers are still flagged,
+    # but one number on its own is not guessed at
+    check("one number in a corner, booklet's side unknown: not flagged",
+          audit([None, None], [_corner(7, None), _corner(None, None)]), [None, None])
+    check("two numbers, booklet's side unknown: flagged with nothing suggested",
+          audit([None, None], [_corner(7, 8), _corner(None, None)])[0],
+          {"note": "two_numbers", "suggested": None,
+           "seen": [{"side": "left", "value": 7}, {"side": "right", "value": 8}]})
+
+    # a book numbered right on odd pages and left on even ones is normal, not a flaw
+    alt_raw = [10, 11, 12, 13, 14, 15]
+    alt = [_corner(10, None), _corner(None, 11), _corner(12, None), _corner(None, 13), _corner(14, None), _corner(None, 15)]
+    check("numbers alternating sides by odd/even page are not flagged", audit(alt_raw, alt), [None] * 6)
+    # ...and each parity's own corner is what a page is held to: index 6 is an even page, so its
+    # number belongs on the left, and one showing only on the right is the neighbour's
+    alt8 = alt + [_corner(12, None), _corner(None, 17)]
+    alt8[6] = _corner(None, 15)
+    check("the corner is learned separately for odd and even pages",
+          [g["note"] if g else None for g in audit(alt_raw + [None, 17], alt8)], [None] * 6 + ["neighbour_number", None])
+
+    # fixed print in a corner (a title year / ordinal on every page) is not a second number
+    fixed_raw = list(range(60, 70))
+    fixed = [_corner(28, 60 + i) for i in range(10)]
+    check("a number repeated in a corner on most pages is fixed print", audit(fixed_raw, fixed), [None] * 10)
+
+    # the suggestion must agree with what the page shows
+    odd = audit([40, 41, 42, 43, 44, 45], [_corner(None, 40), _corner(None, 41), _corner(None, 42),
+                                         _corner(99, 77), _corner(None, 44), _corner(None, 45)])
+    check("a suggestion the page doesn't show is not offered for two numbers", odd[3]["suggested"], None)
+    check("empty document", audit([], []), [])
+
+
+def test_two_number_pages_are_held_for_review():
+    def page(raw, corner):
+        return ("0", (800, 1000), [], 0, {"raw_page_number": raw, "corner_numbers": corner})
+
+    data = [page(40 + i, _corner(None, 40 + i)) for i in range(5)] + [page(45, _corner(44, 45))]         + [page(46 + i, _corner(None, 46 + i)) for i in range(2)]
+    _flag_two_number_pages(data, verbose=False)
+    flagged = data[5][4]
+    check("a flagged page's reading stays, as one of the anchors for the booklet's sequence", flagged["raw_page_number"], 45)
+    check("...and what it showed is kept for the reviewer",
+          (flagged["page_number_note"], flagged["suggested_page_number"], [s["value"] for s in flagged["seen_numbers"]]),
+          ("two_numbers", 45, [44, 45]))
+    check("other pages are untouched", [pm["raw_page_number"] for *_, pm in data[:5]], [40, 41, 42, 43, 44])
+    check("...and carry no note", [pm.get("page_number_note") for *_, pm in data[:5]], [None] * 5)
+
+    hold = _hold_two_number_page
+    check("a flagged page stays uncertain even when interpolation filled it in",
+          hold({"page_number_note": "two_numbers"}, 45, "interpolated"), (None, "uncertain"))
+    meta = {"page_number_note": "two_numbers"}
+    hold(meta, 45, "interpolated")
+    check("...and what interpolation said becomes the suggestion", meta["suggested_page_number"], 45)
+    meta = {"page_number_note": "two_numbers", "suggested_page_number": 46}
+    hold(meta, 45, "interpolated")
+    check("...without replacing a suggestion already made", meta["suggested_page_number"], 46)
+    check("an unflagged page is left as it was", hold({}, 45, "detected"), (45, "detected"))
+
+
+def test_corner_numbers_reads_both_corners():
+    def frame(*cells):   # (text, conf, left, top) in the upscaled corner crop's own coordinates
+        return pd.DataFrame({"text": [c[0] for c in cells], "conf": [float(c[1]) for c in cells],
+                             "left": [float(c[2]) for c in cells], "top": [float(c[3]) for c in cells],
+                             "width": [60.0] * len(cells), "height": [60.0] * len(cells)})
+
+    real = pages.pytesseract.image_to_data
+
+    def read(left_cells, right_cells, words=None):
+        replies = iter([frame(*left_cells), frame(*right_cells)])   # left corner is read first
+        pages.pytesseract.image_to_data = lambda *a, **k: next(replies)
+        try:
+            return pages.corner_numbers(Image.new("RGB", (1191, 1684), "white"), words)
+        finally:
+            pages.pytesseract.image_to_data = real
+
+    check("both corner numbers are read", read([("32", 95, 40, 100)], [("33", 95, 40, 100)]), {"left": 32, "right": 33})
+    check("one number only", read([], [("33", 95, 40, 100)]), {"left": None, "right": 33})
+    check("a blank page", read([], []), {"left": None, "right": None})
+    check("a year in a corner is not a page number", read([("2022", 95, 40, 100)], []), {"left": None, "right": None})
+    check("a shaky reading is ignored", read([("32", 40, 40, 100)], []), {"left": None, "right": None})
+    check("zero is not a page number", read([("0", 95, 40, 100)], []), {"left": None, "right": None})
+    check("the most confident reading in a corner wins over a speck",
+          read([], [("5", 72, 10, 100), ("34", 96, 200, 100)]), {"left": None, "right": 34})
+    # a number sitting beside a name in the corner is a list number, not a page number
+    words = pd.DataFrame({"text": ["ADEYEMI"], "conf": [95.0], "left": [60.0], "top": [1620.0],
+                          "width": [120.0], "height": [24.0]})
+    # the page's own OCR usually read the number too: it is in `words`, and must not make itself non-isolated
+    own = pd.DataFrame({"text": ["33"], "conf": [95.0], "left": [1120.0], "top": [1625.0], "width": [25.0], "height": [15.0]})
+    check("the number's own OCR word does not count against it",
+          read([], [("33", 95, (1120 - 893) * 4, (1625 - 1431) * 4)], own), {"left": None, "right": 33})
+    covered = pd.DataFrame({"text": ["ADEYEMI"], "conf": [95.0], "left": [1100.0], "top": [1620.0], "width": [60.0], "height": [24.0]})
+    check("...but a name sitting over it still does",
+          read([], [("33", 95, (1120 - 893) * 4, (1625 - 1431) * 4)], covered), {"left": None, "right": None})
+    check("a number beside a name is not a page number",
+          read([("7", 95, 0, (1620 - 1431) * 4)], [], words), {"left": None, "right": None})
+    sizes = []
+    pages.pytesseract.image_to_data = lambda big, **k: (sizes.append(big.size), frame())[1]
+    try:
+        pages.corner_numbers(Image.new("RGB", (1000, 2000), "white"))
+    finally:
+        pages.pytesseract.image_to_data = real
+    check("each corner is the outer quarter of the page, bottom 15%", sizes, [(1000, 1200)] * 2)
+    check("a failing OCR call leaves the corner empty",
+          (lambda: (setattr(pages.pytesseract, "image_to_data",
+                            lambda *a, **k: (_ for _ in ()).throw(pages.pytesseract.TesseractError(1, "boom"))),
+                    pages.corner_numbers(Image.new("RGB", (1191, 1684), "white")))[1])(),
+          {"left": None, "right": None})
+    pages.pytesseract.image_to_data = real
+
+
 def test_detect_banners_footer_guard_and_noise_clustering():
     slogan = "THE BEST UNIVERSITY OF TECHNOLOGY IN NIGERIA"
     H = 1000
@@ -716,7 +858,9 @@ def main():
               test_review_rows_flag_and_carry_image_path, test_looks_isolated, test_resolve_page_numbers,
               test_plain_page_number, test_banner_fused_candidate_line, test_reread_banner_fused_digit,
               test_oval_badge_page_number, test_drop_repeated_readings, test_discard_repeated_readings_updates_page_meta,
-              test_detect_banners_footer_guard_and_noise_clustering):
+              test_detect_banners_footer_guard_and_noise_clustering,
+              test_audit_corner_numbers, test_two_number_pages_are_held_for_review,
+              test_corner_numbers_reads_both_corners):
         t()
     if _failures:
         print("\n".join(_failures))

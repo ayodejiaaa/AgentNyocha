@@ -84,6 +84,15 @@ table.jobs a.job-link:hover { text-decoration: underline; }
 .reason { font-size: 11px; color: #888; margin-left: 6px; }
 .snap { flex: 2 1 320px; max-width: 420px; min-width: 240px; }
 .snap img { width: 100%; border: 1px solid #ddd; border-radius: 6px; cursor: zoom-in; display: block; }
+.snap-number { margin-bottom: 10px; }
+.snap-label { font-size: 11px; color: #a15c00; font-weight: 600; margin-bottom: 4px; }
+.snap-number img { border-color: #e0b96b; }
+.link-btn { background: none; border: none; padding: 0; margin-bottom: 8px; font-size: 11px; color: #666; cursor: pointer; text-decoration: underline; }
+.btn.disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
+.problem-page { display: flex; gap: 16px; flex-wrap: wrap; padding: 12px 0; border-top: 1px solid #eee; }
+.problem-text { flex: 1 1 300px; }
+.problem-image { flex: 2 1 380px; max-width: 560px; }
+.problem-image img { width: 100%; border: 1px solid #e0b96b; border-radius: 6px; cursor: zoom-in; display: block; }
 .snap .none { color: #bbb; font-size: 12px; padding: 30px 0; text-align: center; border: 1px dashed #ddd; border-radius: 6px; }
 .save-status { min-height: 16px; font-size: 11px; margin-top: 3px; }
 .save-status .hint { color: #aaa; }

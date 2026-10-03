@@ -238,6 +238,7 @@ def _process_page(pdf_path: str, page_index: int, zoom: float, verbose: bool) ->
             "dewarped": was_dewarped, "zoom": zoom_used,
             "spread_half": half_index if len(halves) > 1 else None, "spread_halves": len(halves),
             "image_size": half_img.size, "raw_page_number": raw_page_number,
+            "corner_numbers": pages.corner_numbers(half_img, words),
             "boxed_page_number_tried": False, "boxed_page_number_succeeded": False,
         }
         entries.append((page_key, half_img.size, lines, rotated_by, page_meta))
@@ -338,6 +339,42 @@ def _discard_repeated_readings(page_data: list[tuple], verbose: bool):
         pm["raw_page_number"] = value
 
 
+def _flag_two_number_pages(page_data: list[tuple], verbose: bool):
+    """Marks pages whose scan shows a neighbouring page's number as well (see
+    pages.audit_corner_numbers) so a person confirms them. The reading itself
+    stays where it is: it still counts toward the booklet's sequence, which is
+    decided by the majority and so can't be misled by a neighbour's number, and
+    withdrawing it would weaken the neighbouring pages' footing. What changes is
+    that the page is later forced to "uncertain" whatever that sequence says
+    (_hold_two_number_page); what the page showed and the number the sequence
+    points to are kept on the page, to prefill the reviewer's answer."""
+    verdicts = pages.audit_corner_numbers(
+        [pm["raw_page_number"] for _, _, _, _, pm in page_data],
+        [pm["corner_numbers"] for _, _, _, _, pm in page_data])
+    flagged = 0
+    for (_, _, _, _, pm), verdict in zip(page_data, verdicts):
+        if verdict is None:
+            continue
+        flagged += 1
+        pm["page_number_note"] = verdict["note"]
+        pm["seen_numbers"] = verdict["seen"]
+        pm["suggested_page_number"] = verdict["suggested"]
+    if flagged and verbose:
+        print(f"{flagged} page(s) show another page's number as well - flagged for a person to confirm",
+              file=sys.stderr)
+
+
+def _hold_two_number_page(page_meta: dict, page_number, page_status: str):
+    """What a page flagged by _flag_two_number_pages ends up with once page
+    numbers are resolved: never filed under a number by itself, even one that
+    interpolation could fill in. That number is kept only as the suggestion."""
+    if not page_meta.get("page_number_note"):
+        return page_number, page_status
+    if page_number is not None and page_meta.get("suggested_page_number") is None:
+        page_meta["suggested_page_number"] = page_number
+    return None, "uncertain"
+
+
 def extract_pdf_with_state(pdf_path: str, page_indices: list[int] | None = None, zoom: float = 2.0,
                             verbose: bool = True,
                             initial_state: "parser.HeaderState | None" = None) -> tuple[list[dict], "parser.HeaderState"]:
@@ -383,6 +420,7 @@ def extract_pdf_with_state(pdf_path: str, page_indices: list[int] | None = None,
     _discard_repeated_readings(page_data, verbose)
     _resolve_boxed_page_numbers(page_data, banner_keys, verbose)
     _discard_repeated_readings(page_data, verbose)
+    _flag_two_number_pages(page_data, verbose)
 
     # Resolved once, across the whole document, from every physical page's
     # raw reading (content or not - a divider or photo page still occupies
@@ -418,6 +456,7 @@ def extract_pdf_with_state(pdf_path: str, page_indices: list[int] | None = None,
         # "interpolated", this one gets flagged for a human to check the
         # actual page against the PDF, because Akowe's report assembly
         # matches client-facing pages by this exact number.
+        page_number, page_status = _hold_two_number_page(page_meta, page_number, page_status)
         page_label = page_number if page_number is not None else f"idx{page_key}"
         page_meta["page_number_status"] = page_status
 

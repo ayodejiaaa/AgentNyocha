@@ -27,7 +27,7 @@ import json
 import sys
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageDraw
 
 from . import batch, cli, dewarp, orientation, render, spread
 from .confidence import score_record
@@ -87,6 +87,69 @@ def generate_snapshots(flagged: list[tuple[int, dict]], images_dir: Path) -> dic
             crop.save(images_dir / name)
             paths[idx] = f"{images_dir.name}/{name}"
     return paths
+
+
+# How much of the page, from each edge, the page-number strip shows. Matches
+# the edge band the page-number detection itself searches (pages.py,
+# edge_frac), so what a reviewer sees is exactly the ground the tool covered
+# looking for the number - and, when it found nothing, the ground it covered
+# without finding it.
+PAGE_NUMBER_BAND = 0.15
+
+
+def page_number_strip(img: Image.Image, band: float = PAGE_NUMBER_BAND) -> Image.Image:
+    """The bottom and top edges of a page, stacked in one image (bottom first -
+    most booklets print the number there - each labelled). The row snapshots
+    from generate_snapshots show a name and its neighbours, which is nowhere
+    near where a page number is printed, so a reviewer asked to check an
+    uncertain page number had nothing on screen to check it against."""
+    w, h = img.size
+    bh = max(1, int(h * band))
+    pieces = [("BOTTOM EDGE OF PAGE", img.crop((0, h - bh, w, h))), ("TOP EDGE OF PAGE", img.crop((0, 0, w, bh)))]
+    label_h, gap = 22, 10
+    out = Image.new("RGB", (w, sum(label_h + p.height for _, p in pieces) + gap * (len(pieces) - 1)), "white")
+    draw = ImageDraw.Draw(out)
+    y = 0
+    for label, piece in pieces:
+        draw.rectangle((0, y, w, y + label_h), fill=(235, 235, 235))
+        draw.text((8, y + 5), label, fill=(90, 90, 90))
+        out.paste(piece.convert("RGB"), (0, y + label_h))
+        y += label_h + piece.height + gap
+    return out
+
+
+def page_key_of(record: dict) -> tuple | None:
+    """Which physical page a record came from: (source file, page index within
+    it, spread half or None). None for a record with no page geometry."""
+    geom = record.get("_geom") or {}
+    if geom.get("page_index") is None:
+        return None
+    return (record.get("source_file", ""), geom["page_index"], geom.get("spread_half"))
+
+
+def generate_page_images(records: list[dict], images_dir: Path, zoom: float = 2.0) -> dict[tuple, dict]:
+    """Renders every physical page that has records on it ONCE and saves two
+    PNGs: the whole corrected page (what a client's report pulls in) and the
+    page-number strip (what a reviewer checks the number against). Returns
+    {page_key: {"page": relative_path, "strip": relative_path, "geom": geom}},
+    pages in first-appearance order. `zoom` is for the saved page image only -
+    independent of the zoom the page was OCR'd at, so the image quality isn't
+    tied to how the extractor happened to read it."""
+    images_dir.mkdir(parents=True, exist_ok=True)
+    result: dict[tuple, dict] = {}
+    for r in records:
+        key = page_key_of(r)
+        if key is None or key in result:
+            continue
+        geom = dict(r["_geom"])
+        geom["zoom"] = zoom
+        img = _rendered_page(geom)
+        stem = f"pg{len(result):04d}"
+        img.save(images_dir / f"{stem}.png")
+        page_number_strip(img).save(images_dir / f"{stem}_number.png")
+        result[key] = {"page": f"{images_dir.name}/{stem}.png", "strip": f"{images_dir.name}/{stem}_number.png",
+                       "geom": r["_geom"]}
+    return result
 
 
 def build_review_rows(records: list[dict]) -> tuple[list[dict], list[tuple[int, dict]]]:

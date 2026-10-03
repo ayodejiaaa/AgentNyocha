@@ -81,7 +81,33 @@ export type ReviewRecord = {
   confidence: "high" | "medium" | "low";
   flag_reason: string;
   review_image: string | null;
+  page_id: number | null; // which physical page of the booklet this row is on
+  // The top and bottom edges of this record's page - where the printed page
+  // number is - for checking an uncertain page number against. null for a job
+  // processed before these were kept.
+  pageno_image: string | null;
   reviewed: boolean;
+};
+
+// A page that is holding up the page-image download.
+export type PageProblem = {
+  page_id: number;
+  kind: "unresolved" | "duplicate" | "conflict";
+  where: string;        // "page 3 of booklet.pdf"
+  label: string;        // the number its rows currently carry, "" if none
+  records: number;
+  detail: string;       // what is wrong, in a sentence
+  number_image: string | null; // the page's top and bottom edges, to check the number against
+  note: "" | "two_numbers" | "neighbour_number"; // set when the scan shows another page's number too
+  seen: { side: "left" | "right"; value: number }[]; // the numbers read in the page's corners
+  suggested: string;    // the number the booklet's sequence points to; prefilled, never applied
+};
+
+export type PageImageStatus = {
+  available: boolean;   // false for a job processed before page images were kept
+  pages: number;
+  ready: boolean;       // true only when every page has exactly one confirmed number
+  problems: PageProblem[];
 };
 
 export async function listJobs(): Promise<Job[]> {
@@ -127,6 +153,32 @@ export function fileUrl(key: string): string {
 export function exportUrl(jobId: number): string {
   const token = getToken() || "";
   return `${API_URL}/jobs/${jobId}/export?token=${encodeURIComponent(token)}`;
+}
+
+export async function getPageImageStatus(jobId: number): Promise<PageImageStatus> {
+  const res = await authFetch(`/jobs/${jobId}/page-images/status`);
+  if (!res.ok) throw new Error("Failed to load page image status");
+  return res.json();
+}
+
+// Sets a page's printed number on every row of that page at once.
+export async function setPageNumber(pageId: number, page: string): Promise<{ records: number; page: string }> {
+  const res = await authFetch(`/pages/${pageId}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ page }),
+  });
+  if (!res.ok) {
+    const body = await res.json().catch(() => null);
+    throw new Error(typeof body?.detail === "string" ? body.detail : "Could not set the page number");
+  }
+  return res.json();
+}
+
+// Every page that has names on it, as its own PNG named by printed page number.
+export function pageImagesUrl(jobId: number): string {
+  const token = getToken() || "";
+  return `${API_URL}/jobs/${jobId}/page-images?token=${encodeURIComponent(token)}`;
 }
 
 export { API_URL };

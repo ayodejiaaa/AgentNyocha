@@ -357,6 +357,139 @@ def _boxed_page_number(img, words=None, banner_keys=None, band_frac: float = 0.1
     return min(candidates, key=lambda c: c[0])[1]  # prefer the bottom edge
 
 
+_CORNER_FRAC = 0.25
+
+
+def _without_word_at(words, x: float, y: float, box_w: float, box_h: float):
+    """The page's OCR words minus the one that IS the candidate. A page number
+    the ordinary page OCR already read is in `words` itself, and _looks_isolated
+    would count it as content beside the candidate and reject every number the
+    page OCR could read - the ones it can't are the only ones _boxed_page_number
+    ever asks about."""
+    if words is None or len(words) == 0:
+        return words
+    cx, cy = x + box_w / 2, y + box_h / 2
+    wcx, wcy = words["left"] + words["width"] / 2, words["top"] + words["height"] / 2
+    same_spot = ((wcx - cx).abs() <= box_w) & ((wcy - cy).abs() <= box_h)
+    return words[~(same_spot & words["text"].astype(str).str.strip().str.isdigit())]   # a name over it still counts
+
+
+def corner_numbers(img, words=None, band_frac: float = 0.15, corner_frac: float = _CORNER_FRAC) -> dict:
+    """The isolated 1-3 digit number (if any) in each outer bottom corner of the
+    page: {"left": int | None, "right": int | None}. A scan often runs on into
+    the corner of the NEIGHBOURING page, so a page can show two printed numbers
+    - its own, and the one beside it. Reading both corners is what lets
+    audit_corner_numbers notice that, which the single-number detectors above
+    never can: they return one value and have no idea there was a second.
+
+    Same upscaled-band OCR and isolation test as _boxed_page_number. A number
+    that is hard to read (a bold digit on a coloured tab) simply comes back None
+    for that corner - this reports what it saw, never a guess."""
+    w, h = img.size
+    y0 = int(h * (1 - band_frac))
+    found = {"left": None, "right": None}
+    for side, x0, x1 in (("left", 0, int(w * corner_frac)), ("right", int(w * (1 - corner_frac)), w)):
+        band = img.crop((x0, y0, x1, h))
+        big = band.resize((band.width * _BOXED_SCALE, band.height * _BOXED_SCALE))
+        try:
+            data = pytesseract.image_to_data(big, config="--psm 11", output_type=pytesseract.Output.DATAFRAME)
+        except pytesseract.TesseractError:
+            continue
+        best = None  # (confidence, value)
+        for _, r in data[data["text"].notna()].iterrows():
+            t = str(r["text"]).strip()
+            if not (t.isdigit() and 1 <= len(t) <= _MAX_PAGE_DIGITS and int(t) > 0
+                    and float(r["conf"]) >= _BOXED_MIN_CONF):
+                continue
+            ox, oy = x0 + r["left"] / _BOXED_SCALE, y0 + r["top"] / _BOXED_SCALE
+            ow, oh = r["width"] / _BOXED_SCALE, r["height"] / _BOXED_SCALE
+            if not _looks_isolated(_without_word_at(words, ox, oy, ow, oh), ox, oy, ow, oh):
+                continue
+            if best is None or float(r["conf"]) > best[0]:
+                best = (float(r["conf"]), int(t))
+        found[side] = best[1] if best else None
+    return found
+
+
+_CORNER_FIXED_MIN_PAGES = 5   # a number is fixed print only if it shows up in a corner on this many pages
+_SIDE_MIN_PAGES = 2           # pages that must show which corner the numbers sit in, per odd/even page
+_SIDE_MIN_SHARE = 0.8
+
+
+def audit_corner_numbers(raw: list[int | None], corners: list[dict]) -> list[dict | None]:
+    """Finds pages whose page number can't be trusted because the scan shows
+    another page's number as well, so a person looks at them. One entry per
+    physical page (same order as `raw`, the readings the detectors settled on,
+    and `corners`, corner_numbers() for each page): None if the page is fine,
+    else {"note", "seen": [{"side", "value"}], "suggested"}.
+
+      note "two_numbers"       two different numbers, one in each corner - the
+                               scan runs into the neighbouring page.
+      note "neighbour_number"  the only number is in the corner this booklet
+                               does not keep its numbers in, so it is the
+                               neighbour's and the page's own was not read.
+
+    Where the numbers sit is learned from the booklet itself: the corner that
+    agrees with the detected number on its pages (kept per odd/even page, since
+    a book that puts them right on odd pages and left on even ones is normal).
+    The sequence is the other fact - a number minus its page's position is the
+    same all through a booklet. "suggested" is that arithmetic, offered only when
+    it agrees with what the page shows; it is a prefilled answer for the reviewer
+    to confirm, never applied by itself.
+
+    A number printed in a corner on many pages (a convocation ordinal, a title
+    year) is fixed print and ignored."""
+    n = len(raw)
+    present = sum(1 for c in corners if c["left"] is not None or c["right"] is not None)
+    counts = Counter(v for c in corners for v in {c["left"], c["right"]} if v is not None)
+    fixed = {v for v, k in counts.items() if k >= max(_CORNER_FIXED_MIN_PAGES, _REPEAT_MIN_SHARE * present)}
+    seen = [{s: c[s] for s in ("left", "right") if c[s] is not None and c[s] not in fixed} for c in corners]
+
+    offsets = Counter(v - i for i, v in enumerate(raw) if v is not None)
+    offset = None
+    if offsets:
+        top, votes = offsets.most_common(1)[0]
+        if votes >= 2:
+            offset = top
+
+    # Which corner the numbers are in is learned from the readings that fit the
+    # booklet's sequence: a reading that is itself the neighbour's number doesn't
+    # fit it, and must not teach the wrong corner.
+    tally: Counter = Counter()
+    for i in range(n):
+        if raw[i] is None or (offset is not None and raw[i] - i != offset):
+            continue
+        sides = [s for s, v in seen[i].items() if v == raw[i]]
+        if len(sides) == 1:
+            tally[(i % 2, sides[0])] += 1
+
+    def _side(left: int, right: int) -> str | None:
+        if left + right >= _SIDE_MIN_PAGES and max(left, right) >= _SIDE_MIN_SHARE * (left + right):
+            return "left" if left > right else "right"
+        return None
+
+    pooled = _side(tally[(0, "left")] + tally[(1, "left")], tally[(0, "right")] + tally[(1, "right")])
+    usual = {parity: _side(tally[(parity, "left")], tally[(parity, "right")]) or pooled for parity in (0, 1)}
+
+    out: list[dict | None] = [None] * n
+    for i, s in enumerate(seen):
+        values = set(s.values())
+        if len(values) >= 2:
+            note = "two_numbers"
+        elif len(values) == 1 and usual.get(i % 2) not in (None, next(iter(s))):
+            note = "neighbour_number"
+        else:
+            continue
+        expected = offset + i if offset is not None and offset + i >= 1 else None
+        if expected is not None:
+            suggested = expected if expected in values or note == "neighbour_number" else None
+        else:
+            suggested = s.get(usual.get(i % 2))
+        out[i] = {"note": note, "seen": [{"side": side, "value": v} for side, v in s.items()],
+                  "suggested": suggested}
+    return out
+
+
 def detect_page_number(lines, page_height: float, img=None, words=None, banner_keys=None,
                         edge_frac: float = 0.15) -> int | None:
     """The plain bare-digit-line check first (cheap, and correct wherever it
