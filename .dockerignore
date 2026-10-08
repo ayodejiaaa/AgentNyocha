@@ -1,0 +1,18 @@
+# Docker build context = the repo root (see webapp/docker-compose*.yml). Allow-list:
+# nothing goes into an image unless it is named here, because this folder can hold
+# real students' records (training data, sample PDFs, the local dev database and its
+# uploaded files). A built image is pushed to a registry; data must never be in it.
+*
+!pdf_extractor
+!webapp
+
+# ...and even inside the two folders that are allowed:
+pdf_extractor/samples
+webapp/api/_local_data
+webapp/frontend
+**/__pycache__
+**/*.pyc
+**/.env*
+**/*.db
+**/*.pdf
+**/*.csv

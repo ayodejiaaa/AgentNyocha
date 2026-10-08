@@ -25,7 +25,12 @@ from pdf_extractor.parser import CANON_FIELDS  # noqa: E402
 from . import config, db, page_export, storage  # noqa: E402
 
 
-def process_job(job_id: int):
+def process_job(job_id: int, require_claim: bool = False):
+    """Processes one job into review rows. The worker passes require_claim=True:
+    results are then written only if the job is still marked "processing" when
+    they are ready - if it was put back in the queue meanwhile (see worker.py), a
+    second copy of it is running and this one must not write a duplicate set of
+    rows. A direct call (a script, a test) leaves it False and writes regardless."""
     st = storage.get_storage()
     with db.engine.begin() as conn:
         job = conn.execute(select(db.jobs).where(db.jobs.c.id == job_id)).mappings().first()
@@ -76,6 +81,11 @@ def process_job(job_id: int):
             })
 
         with db.engine.begin() as conn:
+            if require_claim:
+                # row lock on Postgres (ignored on SQLite): nothing can re-queue the job between this check and the writes
+                status = conn.execute(select(db.jobs.c.status).where(db.jobs.c.id == job_id).with_for_update()).scalar()
+                if status != "processing":
+                    return   # another worker has it now
             page_ids = {}
             for key, info in page_images.items():
                 source_file, page_index, spread_half = key

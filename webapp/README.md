@@ -1,72 +1,33 @@
-# Deployment
+# Agent Nyocha - review webapp
 
-Two halves, deployed separately, for one hard technical reason: Vercel runs
-short-lived functions with no persistent background process, and this tool's
-actual OCR work (Tesseract + OpenCV, several minutes per booklet) needs a
-real always-on process. So:
+Two halves in one image family, deployed together:
 
-- **`webapp/api`** (this backend: the HTTP API + the worker) - runs on your
-  EC2 box, as two containers from one image (`webapp/api/Dockerfile`).
-- **`webapp/frontend`** (not yet built) - the Next.js app DES actually use,
-  on Vercel, talking to the API over HTTPS.
+- **`webapp/api`** - the HTTP API **and** the worker (two containers from one image,
+  `webapp/api/Dockerfile`). The worker needs Tesseract and several minutes of CPU per
+  booklet, which is why this is a container on a real server, not a serverless function.
+- **`webapp/frontend`** - the Next.js review screen (`webapp/frontend/Dockerfile`).
 
-## Backend: on your EC2 instance
+**To deploy to AWS, follow [`DEPLOY_AWS.md`](DEPLOY_AWS.md)** (EC2 + RDS Postgres + S3, with
+HTTPS; includes the resources to create, every step, a self-check command and the known
+gaps). `docker-compose.aws.yml` is that deployment; `docker-compose.yml` runs everything
+including a Postgres container on one box, for a trial. Settings are described in
+`.env.aws.example` / `.env.example`.
 
-Needs Docker + Docker Compose installed on the box (`sudo apt install
-docker.io docker-compose-plugin` on Ubuntu, or the Amazon Linux equivalent).
+The API and worker **refuse to start** with unsafe settings (no `JWT_SECRET`, wildcard or
+missing `CORS_ALLOW_ORIGINS`, no database address) - see `api/config.py`. Run
+`python -m webapp.api.check_deploy` (inside the API container) to check a deployment.
+
+Tests (none touch real data or the real database):
 
 ```bash
-git clone <this repo> && cd Extractor/webapp
-cp .env.example .env      # fill in POSTGRES_PASSWORD and JWT_SECRET - see below
-docker compose up -d --build
+python -m pdf_extractor.test_units
+python -m webapp.api.test_mine_corrections
+python -m webapp.api.test_page_export
+python -m webapp.api.test_deploy
 ```
 
-`.env` (not committed - real secrets):
-```
-POSTGRES_PASSWORD=<anything long and random>
-JWT_SECRET=<anything long and random - this signs DES login sessions>
-```
-
-That's a complete working deployment on the box itself: Postgres, the API on
-port 8000, and the worker, all `restart: unless-stopped` so a reboot doesn't
-lose the queue.
-
-**Two things still needed for a real deployment, both yours to decide since
-they depend on what the CTO already has:**
-
-1. **A public HTTPS URL for the API**, since Vercel (and DES' browsers) need
-   to reach it over the internet, not just from inside the box. Simplest
-   path on a single EC2 instance: put [Caddy](https://caddyserver.com/) in
-   front of it - it gets a real TLS certificate automatically, no manual
-   certbot dance:
-   ```
-   # /etc/caddy/Caddyfile
-   api.yourdomain.com {
-       reverse_proxy localhost:8000
-   }
-   ```
-   Needs a domain (or subdomain) pointed at the instance's IP, and the
-   security group open on 80/443 (not 8000 - that stays internal).
-
-2. **Object storage**, once this is more than a single box - S3 is the
-   obvious choice since the AWS account is already there:
-   ```
-   STORAGE_BACKEND=s3
-   S3_BUCKET=akowe-extraction-review
-   S3_ACCESS_KEY=...
-   S3_SECRET_KEY=...
-   S3_ENDPOINT_URL=            # leave blank for real AWS S3 (only needed for R2/MinIO-style endpoints)
-   S3_REGION=us-east-1
-   ```
-   Until then, `STORAGE_BACKEND=local` (the default) works fine and keeps
-   uploaded PDFs/snapshot images on the box's own disk (the `local_files`
-   volume in docker-compose.yml) - completely fine for getting started,
-   just means backups/durability are only as good as the instance's disk.
-
-**Database**: `docker compose`'s own Postgres container is enough to start.
-If backups/failover matter more than the cost, point `DATABASE_URL` at RDS
-Postgres instead and drop the `db` service - `webapp/api/db.py` doesn't know
-or care which it's talking to.
+Local development needs none of the above: with nothing set it uses SQLite and a local
+folder, and the review screen on localhost:3000 may call the API.
 
 ## Creating DES accounts
 
@@ -74,7 +35,7 @@ No self-serve signup (see `api/security.py`) - an admin runs this once per
 person:
 
 ```bash
-docker compose exec api python -m webapp.api.seed_users add jane@akowe.example "Jane Doe"
+docker compose -f docker-compose.aws.yml exec api python -m webapp.api.seed_users add jane@akowe.example "Jane Doe"
 ```
 
 ## Page images, for building reports
@@ -151,8 +112,8 @@ bottom edges - where the printed page number is.
 Once DES have been correcting flagged rows for a while:
 
 ```bash
-docker compose exec api python -m webapp.api.mine_corrections                     # report only
-docker compose exec api python -m webapp.api.mine_corrections --since 2026-10-01  # report over a window
+docker compose -f docker-compose.aws.yml exec api python -m webapp.api.mine_corrections                     # report only
+docker compose -f docker-compose.aws.yml exec api python -m webapp.api.mine_corrections --since 2026-10-01  # report over a window
 ```
 
 Reports recurring OCR-confusion substitutions and names the tool didn't
@@ -166,10 +127,10 @@ in the database (the `mined_patterns` table, created automatically the next
 time the API or this script starts - no migration to run):
 
 ```bash
-docker compose exec api python -m webapp.api.mine_corrections --save     # mine every correction, keep the result
-docker compose exec api python -m webapp.api.mine_corrections --list     # what's waiting for a decision
-docker compose exec api python -m webapp.api.mine_corrections --mark 12 accepted --by jane@akowe.example
-docker compose exec api python -m webapp.api.mine_corrections --mark 13 rejected
+docker compose -f docker-compose.aws.yml exec api python -m webapp.api.mine_corrections --save     # mine every correction, keep the result
+docker compose -f docker-compose.aws.yml exec api python -m webapp.api.mine_corrections --list     # what's waiting for a decision
+docker compose -f docker-compose.aws.yml exec api python -m webapp.api.mine_corrections --mark 12 accepted --by jane@akowe.example
+docker compose -f docker-compose.aws.yml exec api python -m webapp.api.mine_corrections --mark 13 rejected
 ```
 
 - `--save` is safe to repeat: counts are recomputed from the corrections as
@@ -190,12 +151,7 @@ docker compose exec api python -m webapp.api.mine_corrections --mark 13 rejected
 - Accepting a pattern records the decision only. Editing `parser.py` /
   `classify.py` / the vocabulary is still a deliberate human change.
 - Nothing runs `--save` by itself. To keep the list current, schedule it
-  (a Railway cron job, or `cron` on the box) - weekly is plenty at this volume.
+  (`cron` on the server, or an EventBridge scheduled task) - weekly is plenty at this volume.
 - What's stored is a character pair, a name token, a count and one token-level
   example ("OSUNNUB -> OSUNNUBI"), never a full name beyond what the `records`
   table already holds.
-
-## Frontend: on Vercel
-
-One environment variable once it exists: `NEXT_PUBLIC_API_URL` pointing at
-the API's public HTTPS URL from step 1 above.

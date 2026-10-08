@@ -1,8 +1,7 @@
 """File storage, behind one interface so a job's uploaded PDFs and
 generated snapshot images work identically whether they're sitting on
-local disk (dev) or in an S3-compatible bucket (production - Cloudflare R2
-recommended: S3-compatible, no egress fees, which matters since DES will
-be loading review images all day). Selected by config.STORAGE_BACKEND.
+local disk (dev) or in an S3 bucket (production - AWS S3, or any S3-compatible
+service such as Cloudflare R2). Selected by config.STORAGE_BACKEND.
 
 Deliberately NOT served from a public URL in either mode - these are real
 people's academic records. api/main.py's /files/{key} route proxies bytes
@@ -31,6 +30,9 @@ class LocalStorage:
     def get_bytes(self, key: str) -> bytes:
         return (self.root / key).read_bytes()
 
+    def delete(self, key: str):
+        (self.root / key).unlink(missing_ok=True)
+
     def get_local_path(self, key: str) -> str:
         """Only local storage can hand back a real filesystem path - the
         worker uses this to point PyMuPDF straight at an uploaded PDF
@@ -45,8 +47,11 @@ class S3Storage:
         self.bucket = config.S3_BUCKET
         self.client = boto3.client(
             "s3", endpoint_url=config.S3_ENDPOINT_URL or None,
-            aws_access_key_id=config.S3_ACCESS_KEY, aws_secret_access_key=config.S3_SECRET_KEY,
-            region_name=config.S3_REGION,
+            # Blank keys mean "none": boto3 then uses the server's own IAM role
+            # (what you want on AWS - no long-lived keys on the box). Passing an
+            # empty string instead would be used as the key and fail.
+            aws_access_key_id=config.S3_ACCESS_KEY or None, aws_secret_access_key=config.S3_SECRET_KEY or None,
+            region_name=config.S3_REGION or None,
         )
 
     def put(self, key: str, local_path: str):
@@ -57,6 +62,9 @@ class S3Storage:
 
     def get_bytes(self, key: str) -> bytes:
         return self.client.get_object(Bucket=self.bucket, Key=key)["Body"].read()
+
+    def delete(self, key: str):
+        self.client.delete_object(Bucket=self.bucket, Key=key)
 
 
 def get_storage():

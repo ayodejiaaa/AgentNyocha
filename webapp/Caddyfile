@@ -1,0 +1,9 @@
+# HTTPS for the two hostnames (certificates are obtained and renewed automatically;
+# both names must point at this server and ports 80/443 must be open to the internet).
+{$API_HOST} {
+	reverse_proxy api:8000
+}
+
+{$WEB_HOST} {
+	reverse_proxy web:3000
+}

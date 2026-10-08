@@ -1,0 +1,67 @@
+# The AWS deployment on one EC2 instance: the API, the worker, the review screen
+# and Caddy (automatic HTTPS) as containers; the database is RDS Postgres and the
+# files are in S3. Nothing here stores anything on the instance, so it can be
+# rebuilt at will. Full steps: webapp/DEPLOY_AWS.md.
+#
+#   cp .env.aws.example .env      # fill it in (never commit .env)
+#   docker compose -f docker-compose.aws.yml up -d --build
+#
+# S3 access comes from the instance's IAM role - there are no AWS keys in here.
+# If you put an Application Load Balancer in front instead of Caddy, delete the
+# caddy service and the `web`/`api` ports are what the target groups point at.
+
+x-app-env: &app-env
+  DATABASE_URL: ${DATABASE_URL:?set the RDS address in .env}
+  JWT_SECRET: ${JWT_SECRET:?set a random secret in .env (openssl rand -hex 32)}
+  CORS_ALLOW_ORIGINS: https://${WEB_HOST:?set the review screen's hostname in .env}
+  STORAGE_BACKEND: s3
+  S3_BUCKET: ${S3_BUCKET:?set the bucket name in .env}
+  S3_REGION: ${AWS_REGION:?set the AWS region in .env}
+
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: webapp/api/Dockerfile
+    restart: unless-stopped
+    environment: *app-env
+    expose: ["8000"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=3)"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  worker:
+    build:
+      context: ..
+      dockerfile: webapp/api/Dockerfile
+    command: ["python", "-m", "webapp.api.worker"]
+    restart: unless-stopped
+    environment: *app-env
+    stop_grace_period: 30s  # a job cut off by a restart is put back in the queue by the next sweep (worker.py)
+
+  web:
+    build:
+      context: frontend
+      args:
+        NEXT_PUBLIC_API_URL: https://${API_HOST:?set the API's hostname in .env}
+    restart: unless-stopped
+    expose: ["3000"]
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on: [api, web]
+    environment:
+      API_HOST: ${API_HOST}
+      WEB_HOST: ${WEB_HOST}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data   # holds the HTTPS certificates; keep it between restarts
+
+volumes:
+  caddy_data:

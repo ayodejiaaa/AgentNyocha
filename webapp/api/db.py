@@ -52,6 +52,11 @@ jobs = Table(
     Column("high_count", Integer, nullable=False, default=0),
     Column("medium_count", Integer, nullable=False, default=0),
     Column("low_count", Integer, nullable=False, default=0),
+    # Set while a worker has the job: when it last reported in, and how many times
+    # a worker has started on it (see worker.py - a job whose worker went silent is
+    # put back in the queue, up to config.MAX_JOB_ATTEMPTS times).
+    Column("heartbeat_at", DateTime, nullable=True),
+    Column("attempts", Integer, nullable=False, default=0, server_default=text("0")),   # DB-side default too: an older version of the code, rolled back to, can still insert jobs
 )
 
 # One row per physical page of the booklet that has names on it (a spread
@@ -158,15 +163,23 @@ engine = create_engine(config.DATABASE_URL, connect_args=(
 # Columns added to a table after a database may already have been created from
 # an older version of this file. create_all() only ever adds whole missing
 # tables, never a column on an existing one, so each is added here if absent.
-_ADDED_COLUMNS = [("records", "page_id", "INTEGER"),
+_ADDED_COLUMNS = [("jobs", "heartbeat_at", "TIMESTAMP"), ("jobs", "attempts", "INTEGER NOT NULL DEFAULT 0"),
+                  ("records", "page_id", "INTEGER"),
                   ("pages", "page_note", "VARCHAR"), ("pages", "seen_numbers", "TEXT"),
                   ("pages", "suggested_page", "VARCHAR")]
 
 
 def init_db():
-    metadata.create_all(engine)
-    existing = inspect(engine)
+    """Creates what is missing and adds any column an older database lacks. The API
+    and the worker both call this as they start - on a fresh Postgres, together - so
+    on Postgres the whole thing runs under one advisory lock: the second to arrive
+    waits, then finds nothing left to do, instead of failing on a table or column
+    the first has just made."""
     with engine.begin() as conn:
+        if conn.dialect.name == "postgresql":
+            conn.execute(text("SELECT pg_advisory_xact_lock(727350)"))   # released at commit
+        metadata.create_all(conn)
+        existing = inspect(conn)
         for table, column, sql_type in _ADDED_COLUMNS:
             if column not in {c["name"] for c in existing.get_columns(table)}:
                 conn.execute(text(f"ALTER TABLE {table} ADD COLUMN {column} {sql_type}"))

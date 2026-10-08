@@ -1,14 +1,23 @@
-fastapi
-uvicorn[standard]
-sqlalchemy
-python-jose[cryptography]
-bcrypt
-python-multipart
-boto3
-psycopg2-binary
-numpy
-opencv-python-headless
-pandas
-pillow
-pymupdf
-pytesseract
+# Exact versions: the ones the code and tests were run against, so a rebuild next
+# month installs the same thing. To update, change a version, run all the tests
+# (see webapp/DEPLOY_AWS.md) and commit. psycopg2-binary is the one range, because
+# it was not installed where these were tested - the first `docker build` picks the
+# newest 2.9.x; pin it to that version afterwards (`pip freeze | grep psycopg2`
+# inside the image).
+fastapi==0.141.1
+starlette==1.7.0
+pydantic==2.13.5
+uvicorn[standard]==0.53.0
+sqlalchemy==2.0.54
+python-jose[cryptography]==3.5.0
+cryptography==50.0.1
+bcrypt==5.0.0
+python-multipart==0.0.32
+boto3==1.43.101
+psycopg2-binary>=2.9,<3
+numpy==2.5.3
+opencv-python-headless==5.0.0.93
+pandas==3.0.5
+pillow==12.3.0
+pymupdf==1.28.2
+pytesseract==0.3.13

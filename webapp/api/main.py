@@ -1,5 +1,5 @@
-"""The HTTP API the Next.js frontend (on Vercel) talks to. Deployed as its
-own Railway service, separate from worker.py - a slow/stuck OCR job must
+"""The HTTP API the Next.js review screen talks to. Deployed as its own
+container, separate from worker.py - a slow/stuck OCR job must
 never be able to make the API (login, the review screen) unresponsive.
 This process never does extraction work itself; POST /jobs only stores the
 upload and queues a row for worker.py to pick up.
@@ -16,19 +16,34 @@ from fastapi import Depends, FastAPI, HTTPException, Query, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
-from sqlalchemy import select, update
+from sqlalchemy import select, text, update
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from pdf_extractor.parser import CANON_FIELDS  # noqa: E402
 
 from . import config, db, page_export, security, storage  # noqa: E402
 
-app = FastAPI(title="Akowe Extraction Review API")
+# The interactive API docs list every endpoint to anyone who can reach the server;
+# useful on a laptop, not something to publish for a system holding student records.
+_docs = {} if not config.is_production() else {"docs_url": None, "redoc_url": None, "openapi_url": None}
+app = FastAPI(title="Akowe Extraction Review API", **_docs)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # tighten to the deployed frontend's exact origin once that URL is known
+    allow_origins=config.CORS_ALLOW_ORIGINS,   # the review screen's exact address(es); see config.py
     allow_methods=["*"], allow_headers=["*"],
 )
+
+
+@app.get("/health")
+def health():
+    """For a load balancer's health check. Unauthenticated and reveals nothing but
+    whether the API can reach its database."""
+    try:
+        with db.engine.connect() as conn:
+            conn.execute(text("SELECT 1"))
+    except Exception:  # noqa: BLE001 - any failure to reach the database means the same thing
+        raise HTTPException(503, "database unreachable")
+    return {"ok": True}
 
 
 @app.on_event("startup")
