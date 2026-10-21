@@ -1,0 +1,97 @@
+# Docker Compose configuration for deploying Agent Nyocha on an Ubuntu Server
+# with PostgreSQL installed directly on the host machine.
+#
+# Run from webapp/ directory:
+#   cp .env.ubuntu.example .env     # fill in DATABASE_URL, JWT_SECRET, CORS, API URL
+#   docker compose -f docker-compose.ubuntu.yml up -d --build
+#
+# To include Caddy for automated HTTPS (if using domain names):
+#   docker compose -f docker-compose.ubuntu.yml --profile tls up -d --build
+
+x-app-env: &app-env
+  # PostgreSQL running directly on the Ubuntu host (resolved via extra_hosts):
+  DATABASE_URL: "${DATABASE_URL:?set DATABASE_URL in .env}"
+  JWT_SECRET: "${JWT_SECRET:?set a random secret in .env}"
+  CORS_ALLOW_ORIGINS: "${CORS_ALLOW_ORIGINS:?set CORS_ALLOW_ORIGINS in .env}"
+  STORAGE_BACKEND: ${STORAGE_BACKEND:-local}
+  S3_BUCKET: ${S3_BUCKET:-}
+  S3_REGION: ${S3_REGION:-}
+  S3_ENDPOINT_URL: ${S3_ENDPOINT_URL:-}
+  S3_ACCESS_KEY: ${S3_ACCESS_KEY:-}
+  S3_SECRET_KEY: ${S3_SECRET_KEY:-}
+  WORKER_POLL_SECONDS: ${WORKER_POLL_SECONDS:-5}
+  WORKER_HEARTBEAT_SECONDS: ${WORKER_HEARTBEAT_SECONDS:-30}
+  STALE_JOB_SECONDS: ${STALE_JOB_SECONDS:-600}
+  MAX_JOB_ATTEMPTS: ${MAX_JOB_ATTEMPTS:-3}
+  EXTRACTION_ZOOM: ${EXTRACTION_ZOOM:-2.0}
+  PAGE_IMAGE_ZOOM: ${PAGE_IMAGE_ZOOM:-2.0}
+  PAGE_IMAGE_NAME_PATTERN: ${PAGE_IMAGE_NAME_PATTERN:-{slug}-{year}-{page}}
+  PAGE_IMAGE_SLUGS: ${PAGE_IMAGE_SLUGS:-{}}
+
+services:
+  # 1. FastAPI REST API
+  api:
+    build:
+      context: ..
+      dockerfile: webapp/api/Dockerfile
+    restart: unless-stopped
+    environment: *app-env
+    # Allows container to reach PostgreSQL installed directly on the Ubuntu host:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - local_files:/app/webapp/api/_local_data
+    ports:
+      - "${API_PORT:-8000}:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=3)"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  # 2. Extraction & OCR background worker
+  worker:
+    build:
+      context: ..
+      dockerfile: webapp/api/Dockerfile
+    command: ["python", "-m", "webapp.api.worker"]
+    restart: unless-stopped
+    environment: *app-env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - local_files:/app/webapp/api/_local_data
+    stop_grace_period: 30s
+
+  # 3. Next.js 14 Review Screen
+  web:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: "${NEXT_PUBLIC_API_URL:?set NEXT_PUBLIC_API_URL in .env}"
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT:-3000}:3000"
+
+  # 4. Optional Reverse Proxy (Caddy with automatic TLS)
+  # Activated with: docker compose -f docker-compose.ubuntu.yml --profile tls up -d
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    profiles: ["tls"]
+    depends_on:
+      - api
+      - web
+    environment:
+      API_HOST: ${API_HOST:-}
+      WEB_HOST: ${WEB_HOST:-}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+
+volumes:
+  local_files:
+  caddy_data:
