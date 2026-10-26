@@ -32,6 +32,9 @@ S3_REGION = os.environ.get("S3_REGION", "")
 # its own. MUST be set in any real deployment - see _check_production_settings,
 # which refuses to start without it.
 _DEV_JWT_SECRET = "dev-only-insecure-secret-change-me"
+# Wording the example env files use for a value to be replaced. A long placeholder passes the length
+# check, so it is recognised by what it says.
+_PLACEHOLDER_HINTS = ("change-this", "change-me", "changeme", "your_", "secret-here", "random-32")
 JWT_SECRET = os.environ.get("JWT_SECRET", _DEV_JWT_SECRET)
 JWT_ALGORITHM = "HS256"
 JWT_EXPIRE_HOURS = int(os.environ.get("JWT_EXPIRE_HOURS", "12"))
@@ -98,6 +101,9 @@ def production_problems() -> list[str]:
     if JWT_SECRET == _DEV_JWT_SECRET or len(JWT_SECRET) < 32:
         problems.append("JWT_SECRET must be set to a random string of at least 32 characters "
                         "(for example: openssl rand -hex 32)")
+    elif any(hint in JWT_SECRET.lower() for hint in _PLACEHOLDER_HINTS):
+        problems.append("JWT_SECRET is still the placeholder from the example file - replace it with a random "
+                        "string (for example: openssl rand -hex 32)")
     if not os.environ.get("CORS_ALLOW_ORIGINS", "").strip():
         problems.append("CORS_ALLOW_ORIGINS must be set to the review screen's exact address, "
                         "e.g. https://review.example.com")

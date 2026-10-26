@@ -69,6 +69,12 @@ def test_settings():
     check("the built-in development secret is refused", (ok, "JWT_SECRET" in out), (False, True))
     ok, out = load_config(**{**GOOD, "JWT_SECRET": "short"})
     check("a short secret is refused", (ok, "JWT_SECRET" in out), (False, True))
+    for placeholder in ("change-this-to-a-random-32-char-secret-openssl-rand-hex-32", "please-change-me-to-something-long-xxxxxxxx",
+                        "your_secret_goes_here_and_is_long_enough_ok"):
+        ok, out = load_config(**{**GOOD, "JWT_SECRET": placeholder})
+        check(f"a placeholder secret from an example file is refused ({placeholder[:18]}...)", (ok, "placeholder" in out), (False, True))
+    ok, out = load_config(**{**GOOD, "JWT_SECRET": "d3b07384d113edec49eaa6238ad5ff00d3b07384d113edec49eaa6238ad5ff00"})
+    check("a real random secret is still accepted", ok, True)
     ok, out = load_config(**{**GOOD, "CORS_ALLOW_ORIGINS": "*"})
     check("any-website CORS is refused", (ok, "must not be *" in out), (False, True))
     ok, out = load_config(**{**GOOD, "CORS_ALLOW_ORIGINS": "https://a.example.com,*"})
