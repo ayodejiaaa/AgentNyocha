@@ -19,7 +19,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 from . import pages
-from .cli import (_detect_banners, _discard_repeated_readings, _flag_two_number_pages, _hold_two_number_page,
+from .cli import (FileProgress, _stage_reporter, _detect_banners, _discard_repeated_readings, _flag_two_number_pages, _hold_two_number_page,
                   _larger_zoom_if_small_text)
 from .dewarp import _needs_correction
 from .classify import classify_line
@@ -825,6 +825,218 @@ def test_corner_numbers_reads_both_corners():
     pages.pytesseract.image_to_data = real
 
 
+def test_file_progress():
+    # a 10-page file where 4 pages need the page-number pass
+    fp = FileProgress(10)
+    reading = [fp.update("ocr", i, 10) for i in range(1, 11)]
+    check("reading moves forward a step per page", all(b > a for a, b in zip(reading, reading[1:])), True)
+    check("...and is not finished when reading is", 0.5 < reading[-1] < 1.0, True)
+    start = fp.update("numbers", 0, 4)
+    check("the number pass starts no lower than where reading ended", start >= reading[-1], True)
+    nums = [fp.update("numbers", i, 4) for i in range(1, 5)]
+    check("the number pass never moves it back, and ends ahead of where it began",
+          (all(b >= a for a, b in zip([start] + nums, nums)), nums[-1] > start), (True, True))
+    check("parsing finishes it, and only then", (fp.update("parse", 5, 20) < 1.0, fp.update("parse", 20, 20)), (True, 1.0))
+
+    # no page needs the number pass: the share assumed for it is simply not used
+    fp = FileProgress(10)
+    for i in range(1, 11):
+        fp.update("ocr", i, 10)
+    check("when nothing needs the number pass, reading is nearly all of it", round(fp.update("numbers", 0, 0), 2) >= 0.97, True)
+
+    # far more pages need it than assumed: the bar waits for the work to catch up, it never drops
+    fp = FileProgress(10)
+    before = [fp.update("ocr", i, 10) for i in range(1, 11)][-1]
+    after = fp.update("numbers", 0, 10)
+    check("a bigger number pass than assumed does not move the bar backwards", after >= before, True)
+    seq = [fp.update("numbers", i, 10) for i in range(1, 11)] + [fp.update("parse", 1, 1)]
+    check("...and it still ends at exactly 100%", (seq[-1], all(b >= a for a, b in zip(seq, seq[1:]))), (1.0, True))
+
+    # the pages say how many will need the number pass: the bar follows what it learns
+    def at_end_of_reading(share):
+        f = FileProgress(10)
+        out = [f.update("ocr", i, 10, share) for i in range(1, 11)]
+        return out[-1]
+    check("when every page needs the number pass, reading is a smaller part of the whole",
+          at_end_of_reading(1.0) < at_end_of_reading(0.5) < at_end_of_reading(0.0), True)
+    f = FileProgress(10)
+    f.update("ocr", 1, 10, 1.0)
+    check("one page is too few to trust", f.share, 0.5)
+    f.update("ocr", 2, 10, 1.0)
+    check("two pages are enough to start learning", f.share, 1.0)
+    check("the hint is not needed (older callers)", FileProgress(10).update("ocr", 5, 10) > 0, True)
+
+    # two of ten pages failed to read, so reading stopped at 8: the later stages still finish the bar
+    fp = FileProgress(10)
+    for i in range(1, 9):
+        fp.update("ocr", i, 10)
+    fp.update("numbers", 0, 4)
+    check("after the number pass the bar is nearly full even if some pages failed to read",
+          fp.update("numbers", 4, 4) > 0.95, True)
+
+    # an empty or one-page file does not divide by zero
+    check("a zero-page file", FileProgress(0).update("ocr", 0, 0) >= 0.0, True)
+
+
+def test_stage_reporter():
+    seen = []
+    tick = _stage_reporter(lambda f, stage, done, total: seen.append((round(f, 2), stage, done, total)), 4)
+    tick("ocr", 1, 4)
+    tick("ocr", 2, 4)
+    check("the listener gets the fraction and the stage's own counts", seen[0][1:], ("ocr", 1, 4))
+    check("...and later events never report a lower fraction", seen[1][0] >= seen[0][0], True)
+    check("nobody listening is fine", _stage_reporter(None, 4)("ocr", 1, 4), None)
+
+    def broken(*a):
+        raise RuntimeError("the listener failed")
+    try:
+        _stage_reporter(broken, 4)("ocr", 1, 4)
+        got = "carried on"
+    except RuntimeError:
+        got = "stopped the extraction"
+    check("a listener that raises never stops the extraction", got, "carried on")
+
+
+def test_process_folder_combines_files_by_page_count():
+    from pathlib import Path
+    from . import batch, cli
+    real = (batch.find_pdfs_in_folder, cli.render.page_count, cli.extract_pdf_with_state)
+    counts = {"a.pdf": 10, "b.pdf": 30}
+    events = []
+
+    def fake_extract(path, zoom=2.0, verbose=True, initial_state=None, on_progress=None):
+        n = counts[Path(path).name]
+        if on_progress is not None:   # the real code passes None when nobody is listening
+            on_progress(0.5, "ocr", n // 2, n)
+            on_progress(1.0, "parse", n, n)
+        return [], initial_state
+
+    batch.find_pdfs_in_folder = lambda folder: [Path("a.pdf"), Path("b.pdf")]
+    cli.render.page_count = lambda path: counts[Path(path).name]
+    cli.extract_pdf_with_state = fake_extract
+    try:
+        batch.process_folder("ignored", verbose=False, on_progress=lambda f, note: events.append((round(f, 4), note)))
+        batch.process_folder("ignored", verbose=False)   # no listener: must still work
+    finally:
+        batch.find_pdfs_in_folder, cli.render.page_count, cli.extract_pdf_with_state = real
+    check("a 10-page part is a quarter of a 40-page booklet", events[1][0], 0.25)
+    check("half way through the second part", events[2][0], round(0.25 + 0.75 * 0.5, 4))
+    check("done", events[3][0], 1.0)
+    check("the note counts pages across the whole booklet", events[2][1], "Reading page 25 of 40")
+    check("...and names the other stages", events[1][1], "Extracting names")
+
+
+def test_number_pass_note_has_a_count_only_for_a_single_file():
+    from pathlib import Path
+    from . import batch, cli
+    real = (batch.find_pdfs_in_folder, cli.render.page_count, cli.extract_pdf_with_state)
+
+    def fake_extract(path, zoom=2.0, verbose=True, initial_state=None, on_progress=None):
+        on_progress(0.8, "numbers", 3, 12)
+        return [], initial_state
+
+    def notes(files):
+        out = []
+        batch.find_pdfs_in_folder = lambda folder: [Path(f) for f in files]
+        batch.process_folder("ignored", verbose=False, on_progress=lambda f, note: out.append(note))
+        return out
+    cli.render.page_count = lambda path: 12
+    cli.extract_pdf_with_state = fake_extract
+    try:
+        check("one file: the note counts the pages", notes(["a.pdf"]), ["Checking page numbers (3 of 12)"])
+        check("several files: the count would be per part, so it is left out", notes(["a.pdf", "b.pdf"])[0], "Checking page numbers")
+    finally:
+        batch.find_pdfs_in_folder, cli.render.page_count, cli.extract_pdf_with_state = real
+
+
+def test_extract_pdf_reports_every_stage():
+    """The real extraction loop, on a generated 3-page PDF, raises the events the progress bar uses."""
+    import shutil
+    import tempfile
+    import fitz
+    from . import cli
+    tmp = tempfile.mkdtemp()
+    try:
+        doc = fitz.open()
+        for i in range(3):
+            page = doc.new_page(width=595, height=842)
+            page.insert_text((72, 120), f"Test booklet page {i + 1} with some printed words on it", fontsize=14)
+        path = f"{tmp}/three.pdf"
+        doc.save(path)
+        events = []
+        cli.extract_pdf_with_state(path, verbose=False, on_progress=lambda f, stage, done, total: events.append((f, stage, done, total)))
+        stages = [e[1] for e in events]
+        check("reading is reported once per page", [e[2:] for e in events if e[1] == "ocr"], [(1, 3), (2, 3), (3, 3)])
+        check("the number pass says how many pages it has to do before it starts", [e[1] for e in events if e[1] == "numbers"][:1], ["numbers"])
+        check("stages come in order: read, numbers, parse",
+              stages.index("numbers") > max(i for i, st in enumerate(stages) if st == "ocr")
+              and stages.index("parse") > max(i for i, st in enumerate(stages) if st == "numbers"), True)
+        check("parsing is reported for every page", [e[2:] for e in events if e[1] == "parse"][-1], (3, 3))
+        fractions = [e[0] for e in events]
+        check("the fraction never goes back", all(b >= a for a, b in zip(fractions, fractions[1:])), True)
+        check("...and ends at 1.0", fractions[-1], 1.0)
+        check("a run with no listener still works", len(cli.extract_pdf_with_state(path, verbose=False)), 2)
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def test_extract_pdf_announces_an_empty_number_pass():
+    """Every page already shows its number plainly, so no page needs the slower number pass: that
+    has to be said (0 of 0), or the bar would keep reserving time for a pass that never happens."""
+    import shutil
+    import tempfile
+    import fitz
+    from . import cli
+    tmp = tempfile.mkdtemp()
+    try:
+        doc = fitz.open()
+        for i in range(3):
+            page = doc.new_page(width=595, height=842)
+            page.insert_text((72, 120), f"Test booklet page {i + 1} with some printed words on it", fontsize=14)
+            page.insert_text((290, 800), str(40 + i), fontsize=14)   # a plain page number at the foot
+        path = f"{tmp}/numbered.pdf"
+        doc.save(path)
+        events = []
+        numbers = iter([40, 41, 42])
+        real = cli.pages._plain_page_number
+        cli.pages._plain_page_number = lambda lines, h, edge_frac=0.15: next(numbers)   # every page reads its number
+        try:
+            cli.extract_pdf_with_state(path, verbose=False, on_progress=lambda f, stage, done, total: events.append((stage, done, total)))
+        finally:
+            cli.pages._plain_page_number = real
+        check("no page needing the number pass is announced as 0 of 0", [e for e in events if e[0] == "numbers"], [("numbers", 0, 0)])
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def test_snapshot_and_page_image_progress():
+    from pathlib import Path
+    import shutil
+    import tempfile
+    from PIL import Image
+    from . import review
+    real = review._rendered_page
+    review._rendered_page = lambda geom: Image.new("RGB", (400, 600), "white")
+    tmp = Path(tempfile.mkdtemp())
+    try:
+        geom = lambda page, top: {"pdf_path": "x.pdf", "page_index": page, "top": top, "bottom": top + 20, "zoom": 2.0}
+        flagged = [(0, geom(0, 100)), (1, geom(0, 200)), (2, geom(1, 100))]
+        seen = []
+        review.generate_snapshots(flagged, tmp / "_images", on_progress=lambda done, total: seen.append((done, total)))
+        check("each snapshot is reported with the running total", seen, [(1, 3), (2, 3), (3, 3)])
+        check("snapshots still work with no listener", len(review.generate_snapshots(flagged, tmp / "_images2")), 3)
+
+        records = [{"source_file": "a.pdf", "_geom": {**geom(0, 1), "spread_half": None}},
+                   {"source_file": "a.pdf", "_geom": {**geom(0, 2), "spread_half": None}},
+                   {"source_file": "a.pdf", "_geom": {**geom(1, 1), "spread_half": None}}]
+        seen = []
+        review.generate_page_images(records, tmp / "_pages", on_progress=lambda done, total: seen.append((done, total)))
+        check("each page image is reported, counting pages not rows", seen, [(1, 2), (2, 2)])
+    finally:
+        review._rendered_page = real
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
 def test_detect_banners_footer_guard_and_noise_clustering():
     slogan = "THE BEST UNIVERSITY OF TECHNOLOGY IN NIGERIA"
     H = 1000
@@ -859,7 +1071,7 @@ def main():
               test_plain_page_number, test_banner_fused_candidate_line, test_reread_banner_fused_digit,
               test_oval_badge_page_number, test_drop_repeated_readings, test_discard_repeated_readings_updates_page_meta,
               test_detect_banners_footer_guard_and_noise_clustering,
-              test_audit_corner_numbers, test_two_number_pages_are_held_for_review,
+              test_audit_corner_numbers, test_two_number_pages_are_held_for_review, test_file_progress, test_stage_reporter, test_number_pass_note_has_a_count_only_for_a_single_file, test_extract_pdf_reports_every_stage, test_extract_pdf_announces_an_empty_number_pass, test_snapshot_and_page_image_progress, test_process_folder_combines_files_by_page_count,
               test_corner_numbers_reads_both_corners):
         t()
     if _failures:

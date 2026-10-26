@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # repo root, for `
 from pdf_extractor import batch, review  # noqa: E402
 from pdf_extractor.parser import CANON_FIELDS  # noqa: E402
 
-from . import config, db, page_export, storage  # noqa: E402
+from . import config, db, page_export, progress as job_progress, storage  # noqa: E402
 
 
 def process_job(job_id: int, require_claim: bool = False):
@@ -37,32 +37,46 @@ def process_job(job_id: int, require_claim: bool = False):
     if job is None:
         return
 
+    progress = job_progress.JobProgress(job_id)
     tmp_dir = Path(tempfile.mkdtemp(prefix=f"job{job_id}_"))
     try:
+        progress.set(1, "Fetching the uploaded files", force=True)
         for filename in job["filenames"]:
             data = st.get_bytes(f"{job['storage_prefix']}/source/{filename}")
             (tmp_dir / filename).write_bytes(data)
 
-        records = batch.process_folder(str(tmp_dir), zoom=config.ZOOM, verbose=False)
+        span = job_progress.EXTRACT_END - job_progress.EXTRACT_START
+        records = batch.process_folder(
+            str(tmp_dir), zoom=config.ZOOM, verbose=False,
+            on_progress=lambda fraction, note: progress.set(job_progress.EXTRACT_START + span * fraction, note))
         rows, flagged = review.build_review_rows(records)
+
+        n_pages = len({k for k in map(review.page_key_of, records) if k is not None})
+        steps = job_progress.PostSteps(progress, job_progress.post_plan(
+            len(flagged), n_pages, len(rows), remote_storage=config.STORAGE_BACKEND != "local"))
 
         if flagged:
             images_dir = tmp_dir / "_images"
-            paths = review.generate_snapshots(flagged, images_dir)
-            for idx, rel_path in paths.items():
+            paths = review.generate_snapshots(flagged, images_dir, on_progress=steps.callback("snapshots", "Creating snapshots"))
+            saved = steps.callback("save_snapshots", "Saving snapshots")
+            for n, (idx, rel_path) in enumerate(paths.items(), start=1):
                 local_file = tmp_dir / rel_path
                 key = f"{job['storage_prefix']}/images/{Path(rel_path).name}"
                 st.put(key, str(local_file))
                 rows[idx]["review_image"] = key
+                saved(n, len(paths))
 
         # One image per physical page that has names on it: the whole page (what a
         # client's report pulls in) and the strip of its edges (what a reviewer
         # checks the printed number against).
-        page_images = review.generate_page_images(records, tmp_dir / "_pages", zoom=config.PAGE_IMAGE_ZOOM)
-        for info in page_images.values():
+        page_images = review.generate_page_images(records, tmp_dir / "_pages", zoom=config.PAGE_IMAGE_ZOOM,
+                                                  on_progress=steps.callback("page_images", "Creating page images"))
+        saved = steps.callback("save_page_images", "Saving page images")
+        for n, info in enumerate(page_images.values(), start=1):
             for field in ("page", "strip"):
                 info[f"{field}_key"] = f"{job['storage_prefix']}/pages/{Path(info[field]).name}"
                 st.put(info[f"{field}_key"], str(tmp_dir / "_pages" / Path(info[field]).name))
+            saved(n, len(page_images))
         file_order = {}
         for source_file, _, _ in page_images:
             file_order.setdefault(source_file, len(file_order))
@@ -80,6 +94,7 @@ def process_job(job_id: int, require_claim: bool = False):
                 "page_id": None,
             })
 
+        steps.at("database", "Saving the results")
         with db.engine.begin() as conn:
             if require_claim:
                 # row lock on Postgres (ignored on SQLite): nothing can re-queue the job between this check and the writes
@@ -109,7 +124,7 @@ def process_job(job_id: int, require_claim: bool = False):
                 conn.execute(db.records.insert(), db_rows)
             conn.execute(
                 update(db.jobs).where(db.jobs.c.id == job_id).values(
-                    status="ready", processed_at=datetime.now(timezone.utc),
+                    status="ready", processed_at=datetime.now(timezone.utc), progress=100, progress_note=None,
                     record_count=len(rows), high_count=counts["high"],
                     medium_count=counts["medium"], low_count=counts["low"],
                 )

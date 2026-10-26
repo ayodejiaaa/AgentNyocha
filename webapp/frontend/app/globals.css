@@ -112,3 +112,24 @@ table.jobs a.job-link:hover { text-decoration: underline; }
 }
 #lightbox.open { display: flex; }
 #lightbox img { max-width: 95%; max-height: 95%; border-radius: 4px; }
+
+.upload-status { margin-top: 14px; padding: 12px 14px; background: #f7f8fa; border: 1px solid #e6e7ea; border-radius: 6px; }
+.upload-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+.upload-head .link-btn { font-size: 12px; font-weight: 400; flex: none; }
+.upload-status .bar { height: 10px; background: #e3e4e7; border-radius: 5px; overflow: hidden; position: relative; }
+.upload-status .bar > span { display: block; height: 100%; background: #1c1e21; border-radius: 5px; transition: width .25s ease; }
+.upload-status .bar.working > span { position: absolute; width: 35%; animation: upload-slide 1.2s ease-in-out infinite; }
+.upload-detail { font-size: 12px; color: #666; margin-top: 7px; }
+.upload-done { margin-top: 14px; padding: 10px 14px; background: #e6f4ea; border: 1px solid #c3e3cb; border-radius: 6px; color: #1e7e34; font-size: 13px; font-weight: 600; }
+@keyframes upload-slide { 0% { left: -35%; } 100% { left: 100%; } }
+@media (prefers-reduced-motion: reduce) {
+  .upload-status .bar > span { transition: none; }
+  .upload-status .bar.working > span { animation: none; position: static; width: 100%; opacity: .5; }
+}
+
+.job-progress { margin-top: 6px; min-width: 190px; max-width: 260px; }
+.job-progress .bar { height: 6px; background: #e3e4e7; border-radius: 3px; overflow: hidden; }
+.job-progress .bar > span { display: block; height: 100%; background: #3a4ba0; border-radius: 3px; transition: width .6s ease; }
+.job-progress-text { font-size: 11px; color: #666; margin-top: 3px; }
+.job-progress-text b { color: #3a4ba0; }
+@media (prefers-reduced-motion: reduce) { .job-progress .bar > span { transition: none; } }

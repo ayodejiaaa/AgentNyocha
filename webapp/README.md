@@ -24,6 +24,7 @@ python -m pdf_extractor.test_units
 python -m webapp.api.test_mine_corrections
 python -m webapp.api.test_page_export
 python -m webapp.api.test_deploy
+python -m webapp.api.test_progress
 ```
 
 Local development needs none of the above: with nothing set it uses SQLite and a local

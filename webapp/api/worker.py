@@ -72,7 +72,8 @@ def _try_claim(conn, job_id: int) -> bool:
     two workers going for the same job exactly one gets rowcount 1."""
     return bool(conn.execute(
         update(db.jobs).where(db.jobs.c.id == job_id, db.jobs.c.status == "queued")
-        .values(status="processing", heartbeat_at=db._now(), attempts=db.jobs.c.attempts + 1)).rowcount)
+        .values(status="processing", heartbeat_at=db._now(), attempts=db.jobs.c.attempts + 1,
+                 progress=0, progress_note="Starting")).rowcount)
 
 
 def requeue_stale_jobs(now=None) -> list[tuple[int, str]]:
@@ -93,7 +94,7 @@ def requeue_stale_jobs(now=None) -> list[tuple[int, str]]:
                     f"memory - the booklet may be too large for the server). Not retried again.")}
                 outcome = f"failed after {attempts} attempts"
             else:
-                values = {"status": "queued", "heartbeat_at": None}
+                values = {"status": "queued", "heartbeat_at": None, "progress": 0, "progress_note": None}
                 outcome = f"put back in the queue (attempt {attempts} of {config.MAX_JOB_ATTEMPTS} used)"
             changed = conn.execute(update(db.jobs).where(db.jobs.c.id == job_id, db.jobs.c.status == "processing", silent)
                                    .values(**values)).rowcount

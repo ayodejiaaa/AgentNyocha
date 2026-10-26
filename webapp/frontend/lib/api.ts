@@ -1,6 +1,8 @@
 // Thin client for the API in webapp/api - one place that knows the base
 // URL and how the token is stored, so every page just calls these.
 
+import { readJobReply, sendWithProgress, type UploadProgress } from "./upload";
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
 const TOKEN_KEY = "akowe_token";
 const NAME_KEY = "akowe_full_name";
@@ -52,6 +54,8 @@ export type Job = {
   filenames: string[];
   status: "queued" | "processing" | "ready" | "failed";
   error_message: string | null;
+  progress: number;                // 0-100 while "processing"
+  progress_note: string | null;    // what it is doing now, e.g. "Reading page 12 of 80"
   uploaded_by_name: string;
   uploaded_at: string;
   record_count: number;
@@ -116,18 +120,29 @@ export async function listJobs(): Promise<Job[]> {
   return res.json();
 }
 
-export async function createJob(university: string, year: string, files: FileList): Promise<{ id: number }> {
+// Uploads the booklet's PDFs and queues the job. `onProgress` is called as bytes go out
+// (see lib/upload.ts); `signal` cancels it. Throws UploadCancelled if cancelled, or an
+// Error whose message says what went wrong in words a reviewer can act on.
+export async function createJob(
+  university: string, year: string, files: FileList,
+  opts: { onProgress?: (p: UploadProgress) => void; signal?: AbortSignal } = {},
+): Promise<{ id: number }> {
   const form = new FormData();
   Array.from(files).forEach((f) => form.append("files", f));
   const token = getToken();
   const params = new URLSearchParams({ university, year });
-  const res = await fetch(`${API_URL}/jobs?${params}`, {
-    method: "POST",
-    headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+  const res = await sendWithProgress({
+    url: `${API_URL}/jobs?${params}`,
     body: form,
+    headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+    onProgress: opts.onProgress ?? (() => {}),
+    signal: opts.signal,
   });
-  if (!res.ok) throw new Error("Upload failed");
-  return res.json();
+  if (res.status === 401) {
+    logout();
+    throw new Error("Session expired - please log in again");
+  }
+  return readJobReply(res.status, res.text);
 }
 
 export async function getJob(id: number): Promise<{ job: Job; records: ReviewRecord[] }> {

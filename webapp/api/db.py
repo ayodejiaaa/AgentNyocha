@@ -56,6 +56,10 @@ jobs = Table(
     # a worker has started on it (see worker.py - a job whose worker went silent is
     # put back in the queue, up to config.MAX_JOB_ATTEMPTS times).
     Column("heartbeat_at", DateTime, nullable=True),
+    # How far along a "processing" job is (0-100) and what it is doing right now
+    # ("Reading page 12 of 80"). Written by the worker, shown in the queue.
+    Column("progress", Integer, nullable=False, default=0, server_default=text("0")),
+    Column("progress_note", String, nullable=True),
     Column("attempts", Integer, nullable=False, default=0, server_default=text("0")),   # DB-side default too: an older version of the code, rolled back to, can still insert jobs
 )
 
@@ -163,7 +167,8 @@ engine = create_engine(config.DATABASE_URL, connect_args=(
 # Columns added to a table after a database may already have been created from
 # an older version of this file. create_all() only ever adds whole missing
 # tables, never a column on an existing one, so each is added here if absent.
-_ADDED_COLUMNS = [("jobs", "heartbeat_at", "TIMESTAMP"), ("jobs", "attempts", "INTEGER NOT NULL DEFAULT 0"),
+_ADDED_COLUMNS = [("jobs", "progress", "INTEGER NOT NULL DEFAULT 0"), ("jobs", "progress_note", "VARCHAR"),
+                  ("jobs", "heartbeat_at", "TIMESTAMP"), ("jobs", "attempts", "INTEGER NOT NULL DEFAULT 0"),
                   ("records", "page_id", "INTEGER"),
                   ("pages", "page_note", "VARCHAR"), ("pages", "seen_numbers", "TEXT"),
                   ("pages", "suggested_page", "VARCHAR")]

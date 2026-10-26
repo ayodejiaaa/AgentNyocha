@@ -254,22 +254,44 @@ def drop_repeats_across_pages(records: list[dict]) -> list[dict]:
     return out
 
 
-def process_folder(folder_path, zoom: float = 2.0, verbose: bool = True) -> list[dict]:
+def process_folder(folder_path, zoom: float = 2.0, verbose: bool = True, on_progress=None) -> list[dict]:
     """Extracts every split PDF in one university/year folder as a single
     continuous document. Banner detection and content-page filtering still
     run fresh per file (each scan run can crop/position the letterhead
-    differently), but header state threads through every file in order."""
+    differently), but header state threads through every file in order.
+
+    `on_progress(fraction, note)`, if given, is told how far along the whole folder is
+    (0..1, weighted by each file's page count, so a 10-page part and a 200-page part count
+    in proportion) and what is happening ("Reading page 12 of 80")."""
     pdfs = find_pdfs_in_folder(folder_path)
     if verbose:
         print(f"[{folder_path}] {len(pdfs)} PDF part(s), in order: {[p.name for p in pdfs]}", file=sys.stderr)
 
+    counts = [max(1, cli.render.page_count(str(p))) for p in pdfs] if on_progress else []
+    total_pages = sum(counts) or 1
+
     all_records: list[dict] = []
     state = parser.HeaderState()
-    for pdf_path in pdfs:
+    pages_before = 0
+    for file_no, pdf_path in enumerate(pdfs):
         if verbose:
             print(f"--- {pdf_path.name} ---", file=sys.stderr)
+
+        def report(fraction, stage, done, total, _before=pages_before, _n=counts[file_no] if counts else 0):
+            overall = (_before + _n * fraction) / total_pages
+            if stage == "ocr":
+                note = f"Reading page {min(total_pages, _before + done)} of {total_pages}"
+            elif stage == "numbers":
+                # a count only when it is the whole booklet; with several parts it would be per part
+                note = f"Checking page numbers ({done} of {total})" if len(pdfs) == 1 and total else "Checking page numbers"
+            else:
+                note = "Extracting names"
+            on_progress(overall, note)
+
         records, state = cli.extract_pdf_with_state(
-            str(pdf_path), zoom=zoom, verbose=verbose, initial_state=state)
+            str(pdf_path), zoom=zoom, verbose=verbose, initial_state=state,
+            on_progress=report if on_progress else None)
+        pages_before += counts[file_no] if counts else 0
         before = len(records)
         records = drop_repeats_across_pages(records)
         if verbose and len(records) < before:

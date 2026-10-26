@@ -3,7 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Topbar from "@/lib/Topbar";
+import ProcessingProgress from "@/lib/ProcessingProgress";
+import UploadStatus from "@/lib/UploadStatus";
 import { createJob, getToken, listJobs, type Job } from "@/lib/api";
+import { UploadCancelled, type UploadProgress } from "@/lib/upload";
 
 function StatusPill({ job }: { job: Job }) {
   return <span className={`status-pill ${job.status}`}>{job.status}</span>;
@@ -25,8 +28,20 @@ export default function JobsPage() {
   const [university, setUniversity] = useState("");
   const [year, setYear] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [progress, setProgress] = useState<UploadProgress | null>(null);
+  const [sending, setSending] = useState(0);          // how many files are in the upload under way
+  const [done, setDone] = useState("");               // confirmation of the last upload that finished
   const [error, setError] = useState("");
   const fileInput = useRef<HTMLInputElement>(null);
+  const abort = useRef<AbortController | null>(null);
+
+  // Closing the tab or leaving mid-upload would silently lose it: ask first.
+  useEffect(() => {
+    if (!uploading) return;
+    const warn = (e: BeforeUnloadEvent) => { e.preventDefault(); e.returnValue = ""; };
+    window.addEventListener("beforeunload", warn);
+    return () => window.removeEventListener("beforeunload", warn);
+  }, [uploading]);
 
   async function refresh() {
     try {
@@ -59,16 +74,24 @@ export default function JobsPage() {
       return;
     }
     setUploading(true);
+    setProgress(null);
+    setSending(files.length);
+    setDone("");
+    abort.current = new AbortController();
     try {
-      await createJob(university, year, files);
+      await createJob(university, year, files, { onProgress: setProgress, signal: abort.current.signal });
+      setDone(`Uploaded. ${university} ${year} is in the queue below and will start processing shortly.`);
       setUniversity("");
       setYear("");
       if (fileInput.current) fileInput.current.value = "";
       await refresh();
     } catch (err: any) {
-      setError(err.message || "Upload failed");
+      if (err instanceof UploadCancelled) setError("Upload cancelled. Nothing was added to the queue.");
+      else setError(err.message || "Upload failed");
     } finally {
       setUploading(false);
+      setProgress(null);
+      abort.current = null;
     }
   }
 
@@ -86,20 +109,22 @@ export default function JobsPage() {
             <div style={{ display: "flex", gap: 14 }}>
               <div className="field" style={{ flex: 1 }}>
                 <label>University</label>
-                <input value={university} onChange={(e) => setUniversity(e.target.value)} placeholder="e.g. LASU" required />
+                <input value={university} onChange={(e) => setUniversity(e.target.value)} placeholder="e.g. LASU" required disabled={uploading} />
               </div>
               <div className="field" style={{ flex: 1 }}>
                 <label>Year</label>
-                <input value={year} onChange={(e) => setYear(e.target.value)} placeholder="e.g. 2026" required />
+                <input value={year} onChange={(e) => setYear(e.target.value)} placeholder="e.g. 2026" required disabled={uploading} />
               </div>
             </div>
             <div className="field">
               <label>PDF file(s)</label>
-              <input type="file" accept="application/pdf" multiple ref={fileInput} required />
+              <input type="file" accept="application/pdf" multiple ref={fileInput} required disabled={uploading} />
             </div>
             <button className="btn" type="submit" disabled={uploading}>
               {uploading ? "Uploading..." : "Upload & queue for extraction"}
             </button>
+            {uploading && <UploadStatus progress={progress} fileCount={sending} onCancel={() => abort.current?.abort()} />}
+            {done && !uploading && <div className="upload-done" role="status">{done}</div>}
             {error && <div className="error">{error}</div>}
           </form>
         </div>
@@ -126,6 +151,7 @@ export default function JobsPage() {
                     </td>
                     <td>
                       <StatusPill job={j} />
+                      <ProcessingProgress job={j} />
                       {j.status === "failed" && (
                         <div style={{ fontSize: 11, color: "#b02a2a", marginTop: 4, maxWidth: 260 }}>
                           {j.error_message?.split("\n")[0]}

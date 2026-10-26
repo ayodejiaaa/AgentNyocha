@@ -64,10 +64,11 @@ def _page_key(geom: dict) -> tuple:
     return (geom["pdf_path"], geom["page_index"])
 
 
-def generate_snapshots(flagged: list[tuple[int, dict]], images_dir: Path) -> dict[int, str]:
+def generate_snapshots(flagged: list[tuple[int, dict]], images_dir: Path, on_progress=None) -> dict[int, str]:
     """flagged: [(row_index, geom), ...]. Renders each distinct source page
     once (flagged rows commonly cluster several-to-a-page) and crops one
-    PNG per row. Returns {row_index: relative_path_to_png}."""
+    PNG per row. Returns {row_index: relative_path_to_png}. `on_progress(done, total)`,
+    if given, is called after each row's image is saved."""
     images_dir.mkdir(parents=True, exist_ok=True)
     by_page: dict[tuple, list[tuple[int, dict]]] = {}
     for idx, geom in flagged:
@@ -86,6 +87,8 @@ def generate_snapshots(flagged: list[tuple[int, dict]], images_dir: Path) -> dic
             name = f"p{page_index}_{idx:06d}.png"
             crop.save(images_dir / name)
             paths[idx] = f"{images_dir.name}/{name}"
+            if on_progress is not None:
+                on_progress(len(paths), len(flagged))
     return paths
 
 
@@ -127,16 +130,18 @@ def page_key_of(record: dict) -> tuple | None:
     return (record.get("source_file", ""), geom["page_index"], geom.get("spread_half"))
 
 
-def generate_page_images(records: list[dict], images_dir: Path, zoom: float = 2.0) -> dict[tuple, dict]:
+def generate_page_images(records: list[dict], images_dir: Path, zoom: float = 2.0, on_progress=None) -> dict[tuple, dict]:
     """Renders every physical page that has records on it ONCE and saves two
     PNGs: the whole corrected page (what a client's report pulls in) and the
     page-number strip (what a reviewer checks the number against). Returns
     {page_key: {"page": relative_path, "strip": relative_path, "geom": geom}},
     pages in first-appearance order. `zoom` is for the saved page image only -
     independent of the zoom the page was OCR'd at, so the image quality isn't
-    tied to how the extractor happened to read it."""
+    tied to how the extractor happened to read it. `on_progress(done, total)`, if given, is
+    called after each page is saved."""
     images_dir.mkdir(parents=True, exist_ok=True)
     result: dict[tuple, dict] = {}
+    total_pages = len({k for k in map(page_key_of, records) if k is not None})
     for r in records:
         key = page_key_of(r)
         if key is None or key in result:
@@ -149,6 +154,8 @@ def generate_page_images(records: list[dict], images_dir: Path, zoom: float = 2.
         page_number_strip(img).save(images_dir / f"{stem}_number.png")
         result[key] = {"page": f"{images_dir.name}/{stem}.png", "strip": f"{images_dir.name}/{stem}_number.png",
                        "geom": r["_geom"]}
+        if on_progress is not None:
+            on_progress(len(result), total_pages)
     return result
 
 

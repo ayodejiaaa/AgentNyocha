@@ -260,7 +260,7 @@ def _process_page(pdf_path: str, page_index: int, zoom: float, verbose: bool) ->
 _BOXED_CIRCUIT_BREAKER = 8
 
 
-def _resolve_boxed_page_numbers(page_data: list[tuple], banner_keys: set[str], verbose: bool):
+def _resolve_boxed_page_numbers(page_data: list[tuple], banner_keys: set[str], verbose: bool, tick=None):
     """Second pass, run once per document after banner detection: for every
     physical page the cheap check (pages._plain_page_number) couldn't read,
     re-renders it and tries the upscaled-band fallback, now armed with
@@ -285,9 +285,16 @@ def _resolve_boxed_page_numbers(page_data: list[tuple], banner_keys: set[str], v
 
     consecutive_failures = 0
     give_up = False
+    needing = sum(1 for _, _, _, _, pm in page_data if pm["raw_page_number"] is None)
+    handled = 0
+    if tick is not None:
+        tick("numbers", 0, needing)   # now the real size of this stage is known
     for _, size, lines, _, pm in page_data:
         if pm["raw_page_number"] is not None:
             continue
+        if tick is not None:
+            tick("numbers", handled, needing)
+        handled += 1
 
         # A page number OCR merged onto the same line as a recurring banner
         # is locatable for free from `lines` (the normal OCR pass), but the
@@ -375,9 +382,75 @@ def _hold_two_number_page(page_meta: dict, page_number, page_status: str):
     return None, "uncertain"
 
 
+# What one PDF page costs in each stage, relative to reading (OCR) one page = 1.0. Measured on
+# real booklets: the page-number pass costs about 0.6 of a page for each page that needs it
+# (OAU: 7.2 s against 12 s to read a page), and parsing is negligible. Only the pages that need
+# the number pass cost anything, and that count is not known until reading has finished, so
+# until then a typical share is assumed and it is corrected the moment it is known. A wrong
+# guess only makes the percentage move unevenly. It never changes a result.
+_COST_OCR, _COST_NUMBERS, _COST_PARSE = 1.0, 0.6, 0.02
+_ASSUMED_NUMBER_PASS_SHARE = 0.5   # until the pages themselves say (see update): between "none do" and "all do"
+_PAGES_BEFORE_TRUSTING_SHARE = 2
+
+
+class FileProgress:
+    """How far along one PDF is, 0..1, from the stage events extract_pdf_with_state raises. Pure
+    (no clock, no I/O) so it can be tested. The fraction never goes backwards: when a stage turns
+    out bigger than assumed, the bar waits for the work to catch up instead of dropping."""
+
+    def __init__(self, n_pages: int):
+        self.n = max(1, n_pages)
+        self.ocr = 0                 # pages read
+        self.numbers_done = 0
+        self.numbers_total = None    # pages needing the number pass; known once reading is finished
+        self.share = _ASSUMED_NUMBER_PASS_SHARE   # of pages that will need it; learned as pages are read
+        self.parse = 0.0             # 0..1
+        self._peak = 0.0
+
+    def update(self, stage: str, done: int, total: int, needing_share: float | None = None) -> float:
+        """`needing_share`, with reading events: what fraction of the pages read so far have no
+        plain page number, so will need the slower number pass. It replaces the assumed share once
+        a couple of pages have been read, which keeps the bar from running ahead on a booklet
+        where every page needs the pass (or lagging on one where none do)."""
+        if stage == "ocr":
+            self.ocr = done
+            if needing_share is not None and done >= _PAGES_BEFORE_TRUSTING_SHARE:
+                self.share = needing_share
+        elif stage == "numbers":
+            self.ocr = self.n                                   # reading is finished before this stage starts
+            self.numbers_done, self.numbers_total = done, total
+        else:
+            self.ocr = self.n
+            self.numbers_done = self.numbers_total = self.numbers_total or 0
+            self.parse = done / total if total else 1.0
+        numbers_total = self.numbers_total if self.numbers_total is not None else self.share * self.n
+        whole = self.n * _COST_OCR + numbers_total * _COST_NUMBERS + self.n * _COST_PARSE
+        got = self.ocr * _COST_OCR + self.numbers_done * _COST_NUMBERS + self.parse * self.n * _COST_PARSE
+        self._peak = max(self._peak, min(1.0, got / whole))
+        return self._peak
+
+
+def _stage_reporter(on_progress, n_pages: int):
+    """Returns tick(stage, done, total): feeds a FileProgress and passes the result on as
+    on_progress(fraction, stage, done, total). A no-op when nobody is listening; a listener that
+    raises never stops the extraction."""
+    if on_progress is None:
+        return lambda stage, done, total, needing_share=None: None
+    progress = FileProgress(n_pages)
+
+    def tick(stage, done, total, needing_share=None):
+        fraction = progress.update(stage, done, total, needing_share)
+        try:
+            on_progress(fraction, stage, done, total)
+        except Exception:  # noqa: BLE001 - progress reporting is never worth losing a booklet over
+            pass
+    return tick
+
+
 def extract_pdf_with_state(pdf_path: str, page_indices: list[int] | None = None, zoom: float = 2.0,
                             verbose: bool = True,
-                            initial_state: "parser.HeaderState | None" = None) -> tuple[list[dict], "parser.HeaderState"]:
+                            initial_state: "parser.HeaderState | None" = None,
+                            on_progress=None) -> tuple[list[dict], "parser.HeaderState"]:
     """Like extract_pdf, but also accepts/returns HeaderState so a caller can
     carry faculty/department/.../year forward across file boundaries - used
     by batch.py to treat a folder of split PDFs (a single booklet scanned
@@ -391,9 +464,10 @@ def extract_pdf_with_state(pdf_path: str, page_indices: list[int] | None = None,
     # it can't be recognized correctly from any single page in isolation.
     # (The same reasoning is why the page-number box fallback is deferred
     # past this point too - see _resolve_boxed_page_numbers.)
+    tick = _stage_reporter(on_progress, len(indices))
     page_data = []  # list of (page_key, corrected_size, lines, rotated_by, page_meta)
     failed_pages = []
-    for page_index in indices:
+    for n, page_index in enumerate(indices):
         # One bad page (a transient OpenCV/Tesseract failure, a corrupt
         # image) must not lose a whole folder's run - that's hours of OCR.
         # Found the hard way: a single "Unknown C++ exception from OpenCV"
@@ -408,6 +482,8 @@ def extract_pdf_with_state(pdf_path: str, page_indices: list[int] | None = None,
                     failed_pages.append(page_index)
                     print(f"[page {page_index}] FAILED after retry ({type(e).__name__}: {e}) - skipped",
                           file=sys.stderr)
+        tick("ocr", n + 1, len(indices),
+             sum(1 for *_, pm in page_data if pm["raw_page_number"] is None) / len(page_data) if page_data else None)
 
     if failed_pages:
         print(f"WARNING: {len(failed_pages)} page(s) could not be processed and are missing "
@@ -418,7 +494,7 @@ def extract_pdf_with_state(pdf_path: str, page_indices: list[int] | None = None,
         print(f"Detected {len(banner_keys)} running banner line(s) to exclude", file=sys.stderr)
 
     _discard_repeated_readings(page_data, verbose)
-    _resolve_boxed_page_numbers(page_data, banner_keys, verbose)
+    _resolve_boxed_page_numbers(page_data, banner_keys, verbose, tick)
     _discard_repeated_readings(page_data, verbose)
     _flag_two_number_pages(page_data, verbose)
 
@@ -440,7 +516,8 @@ def extract_pdf_with_state(pdf_path: str, page_indices: list[int] | None = None,
     state = initial_state or parser.HeaderState()
     skipped_pages = []
 
-    for (page_key, size, lines, rotated_by, page_meta), (page_number, page_status) in zip(page_data, resolved):
+    for n, ((page_key, size, lines, rotated_by, page_meta), (page_number, page_status)) in enumerate(zip(page_data, resolved)):
+        tick("parse", n + 1, len(page_data))
         lines = [l for l in lines if _banner_key(l.text) not in banner_keys]
 
         if not pages.is_content_page(lines):
