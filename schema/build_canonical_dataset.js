@@ -16,7 +16,8 @@ const { normalize: normalizeGrade } = require('./normalize_grades.js');
 const { normalize: normalizeYear } = require('./normalize_years.js');
 
 const EXTRACT_DIR = path.join(__dirname, 'raw_extract');
-const OUT_DIR = path.join(__dirname, '..', 'Canonical Training Data');
+const OUT_DIR = process.env.CANON_OUT_DIR || path.join(__dirname, '..', 'Canonical Training Data');
+const REPORT_PATH = process.env.CANON_REPORT_PATH || path.join(__dirname, 'build_report.json');
 const CANON_FIELDS = ['name','faculty','department','course','degree','grade','distinction_notes','year','year_note','page','programme','affiliated_institution','country'];
 
 function parseCsv(text) {
@@ -53,19 +54,29 @@ if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 
 const files = fs.readdirSync(EXTRACT_DIR).filter(f => f.endsWith('.csv') && f !== '_manifest.csv');
 
-// Manual overrides for cases resolved by hand against the source PDF that the
-// automated normalizer can't (or, for the wide-gap sessions, deliberately
-// won't) resolve on its own.
-const GRADE_OVERRIDES = {
-  // UI 2021 p.253, Faculty of Pharmacy Names/Distinctions table - same
-  // footnote-only-leaked-into-grade pattern as the 5 rows already fixed on
-  // this page; base grade for this table is Pass (professional degree).
-  'UI\\university-of-ibadan-2021.xlsx|253|ESEOLA Oluwapelumi Andrew': 'Pass',
-};
-// Year values confirmed by manual PDF check to be genuinely printed in the
-// source as a wide-gap combined/backlog session, not corruption - don't
-// report these as unresolved even though the generic gap-width heuristic
-// would flag them.
+// Hand-resolved values the normalizers cannot produce on their own, read from
+// manual_overrides.csv (git-ignored: it names individual people). One row each:
+// File, Page, Name, Field (grade | distinction_notes), NewValue, Note.
+// A "grade" override replaces the grade; a "distinction_notes" override is added to
+// any notes already extracted from the grade cell (joined with "; ").
+// Every override must match a row of the extract or the build stops: a fix that
+// silently stops applying is how three distinction notes once went missing.
+const OVERRIDES_PATH = path.join(__dirname, 'manual_overrides.csv');
+const OVERRIDES = new Map(); // "relPath|page|name|field" -> { value, used }
+if (fs.existsSync(OVERRIDES_PATH)) {
+  const orows = parseCsv(fs.readFileSync(OVERRIDES_PATH, 'utf8'));
+  const oh = Object.fromEntries(orows[0].map((h, i) => [h, i]));
+  for (const r of orows.slice(1)) {
+    if (r.length < orows[0].length) continue;
+    OVERRIDES.set(`${r[oh.File]}|${cleanText(r[oh.Page])}|${cleanText(r[oh.Name])}|${r[oh.Field]}`,
+                  { value: r[oh.NewValue], used: 0 });
+  }
+}
+function overrideFor(relPath, page, name, field) {
+  const o = OVERRIDES.get(`${relPath}|${page}|${name}|${field}`);
+  if (o) o.used++;
+  return o ? o.value : undefined;
+}
 const CONFIRMED_WIDE_GAP_YEARS = new Set(['2006/2017']);
 
 const masterRows = [];
@@ -103,11 +114,15 @@ for (const fname of files) {
     const gRes = normalizeGrade(gradeRaw);
     let grade = gRes.canonical;
     let distinction_notes = gRes.notes || '';
-    const overrideKey = `${relPath}|${page}|${name}`;
-    if (GRADE_OVERRIDES[overrideKey]) {
-      grade = GRADE_OVERRIDES[overrideKey];
+    const gradeOverride = overrideFor(relPath, page, name, 'grade');
+    if (gradeOverride !== undefined) {
+      grade = gradeOverride;
     } else if (gRes.flag !== 'ok' && gRes.flag !== 'blank') {
       unresolvedGrade.push({ relPath, name, page, raw: gradeRaw, flag: gRes.flag });
+    }
+    const noteOverride = overrideFor(relPath, page, name, 'distinction_notes');
+    if (noteOverride !== undefined) {
+      distinction_notes = distinction_notes ? `${distinction_notes}; ${noteOverride}` : noteOverride;
     }
 
     const yearRaw = r[idx.year];
@@ -141,6 +156,12 @@ for (const fname of files) {
   perFileReport.push({ relPath, university, inRows: dataRows.length, outRows: outRows.length, dupRemoved: dupCount });
 }
 
+const unusedOverrides = [...OVERRIDES].filter(([, o]) => o.used === 0);
+if (unusedOverrides.length) {
+  console.error(`STOPPING: ${unusedOverrides.length} manual override(s) matched no row of the extract.`);
+  process.exit(1);
+}
+
 // Master combined CSV: canonical fields + traceability columns
 const masterLines = [[...CANON_FIELDS, 'source_university', 'source_file'].join(',')];
 for (const row of masterRows) masterLines.push(row.map(csvEscape).join(','));
@@ -152,6 +173,7 @@ console.log(`Total output rows: ${totalOut}`);
 console.log(`Duplicate rows removed: ${totalDupRemoved}`);
 console.log(`Unresolved grade values remaining: ${unresolvedGrade.length}`);
 console.log(`Unresolved year values remaining: ${unresolvedYear.length}`);
+console.log(`Manual overrides applied: ${OVERRIDES.size}`);
 
 if (unresolvedGrade.length) {
   console.log('\n=== Unresolved grade rows ===');
@@ -162,8 +184,8 @@ if (unresolvedYear.length) {
   unresolvedYear.slice(0, 30).forEach(u => console.log(`  ${u.relPath} p.${u.page} ${u.name}: "${u.raw}" (${u.flag})`));
 }
 
-fs.writeFileSync(path.join(__dirname, 'build_report.json'), JSON.stringify({
-  totalIn, totalOut, totalDupRemoved,
+fs.writeFileSync(REPORT_PATH, JSON.stringify({
+  totalIn, totalOut, totalDupRemoved, overridesApplied: OVERRIDES.size,
   perFileReport, unresolvedGrade, unresolvedYear
 }, null, 1));
 console.log('\nWrote build_report.json');

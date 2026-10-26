@@ -28,3 +28,6 @@ upload_test.pdf
 
 # Internal working notes
 Missing Pages.md
+schema/manual_overrides.csv
+*.zip
+webapp/frontend/.test-build/

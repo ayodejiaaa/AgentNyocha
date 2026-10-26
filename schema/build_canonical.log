@@ -4,6 +4,7 @@ Total output rows: 535288
 Duplicate rows removed: 767
 Unresolved grade values remaining: 0
 Unresolved year values remaining: 0
+Manual overrides applied: 4
 
 Wrote build_report.json
 Canonical dataset written to: C:\Users\User1\Desktop\Dev Projects\Extractor\Canonical Training Data

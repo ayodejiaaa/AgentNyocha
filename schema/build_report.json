@@ -2,6 +2,7 @@
  "totalIn": 536058,
  "totalOut": 535288,
  "totalDupRemoved": 767,
+ "overridesApplied": 4,
  "perFileReport": [
   {
    "relPath": "COVENANT\\covenant-university-2018.xlsx",
