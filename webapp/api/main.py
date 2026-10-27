@@ -88,16 +88,35 @@ async def create_job(university: str, year: str, files: list[UploadFile],
     if not files:
         raise HTTPException(400, "At least one PDF is required")
     st = storage.get_storage()
+    # The job is NOT queued yet: the worker polls every few seconds, and copying a large booklet
+    # into storage takes longer than that, so a queued job whose files are not there yet gets
+    # picked up and fails with NoSuchKey. It is queued only once every file is stored.
     with db.engine.begin() as conn:
         job_id = conn.execute(db.jobs.insert().values(
             university=university, year=year, filenames=[f.filename for f in files],
-            storage_prefix="jobs/pending", status="queued", uploaded_by=user_id,
+            storage_prefix="jobs/pending", status="uploading", uploaded_by=user_id,
         )).inserted_primary_key[0]
         # storage_prefix embeds the real job id once we have one
         conn.execute(update(db.jobs).where(db.jobs.c.id == job_id)
                      .values(storage_prefix=f"jobs/{job_id}"))
-    for f in files:
-        st.put_bytes(f"jobs/{job_id}/source/{f.filename}", await f.read())
+    stored = []
+    try:
+        for f in files:
+            key = f"jobs/{job_id}/source/{f.filename}"
+            st.put_bytes(key, await f.read())
+            stored.append(key)
+    except Exception:
+        # Storing failed part-way: leave nothing behind for a worker to trip over.
+        for key in stored:
+            try:
+                st.delete(key)
+            except Exception:  # noqa: BLE001 - best effort; the job row is what matters
+                pass
+        with db.engine.begin() as conn:
+            conn.execute(db.jobs.delete().where(db.jobs.c.id == job_id))
+        raise
+    with db.engine.begin() as conn:
+        conn.execute(update(db.jobs).where(db.jobs.c.id == job_id).values(status="queued"))
     return {"id": job_id, "status": "queued"}
 
 

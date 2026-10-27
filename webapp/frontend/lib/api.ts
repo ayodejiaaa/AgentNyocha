@@ -52,7 +52,7 @@ export type Job = {
   university: string;
   year: string;
   filenames: string[];
-  status: "queued" | "processing" | "ready" | "failed";
+  status: "uploading" | "queued" | "processing" | "ready" | "failed";
   error_message: string | null;
   progress: number;                // 0-100 while "processing"
   progress_note: string | null;    // what it is doing now, e.g. "Reading page 12 of 80"

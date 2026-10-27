@@ -278,6 +278,49 @@ def test_a_reassigned_job_is_not_written_twice():
 
 # --- storage and database ---------------------------------------------------------
 
+def test_a_job_cannot_be_taken_before_its_files_are_stored():
+    """The worker polls every few seconds. If the API queued a job before storing its files, a worker
+    that looked mid-copy would take it and fail with NoSuchKey (found on a real ~90 MB upload to S3)."""
+    import asyncio
+    import io
+    from starlette.datastructures import UploadFile
+
+    taken_mid_copy = []
+    real_put = storage.LocalStorage.put_bytes
+
+    def put_while_the_worker_looks(self, key, data):
+        taken_mid_copy.append(worker.claim_next_job())      # a worker poll, halfway through storing the file
+        real_put(self, key, data)
+
+    with _Sandbox():
+        storage.LocalStorage.put_bytes = put_while_the_worker_looks
+        try:
+            made = asyncio.run(api.create_job("OAU", "2019", [UploadFile(file=io.BytesIO(b"%PDF-1"), filename="a.pdf")], user_id=1))
+        finally:
+            storage.LocalStorage.put_bytes = real_put
+        check("a worker looking while the files are still being stored finds nothing to take", taken_mid_copy, [None])
+        check("the job is queued once its files are stored", job(made["id"])["status"], "queued")
+        check("...and can then be taken", worker.claim_next_job(), made["id"])
+        check("the stored file is there for it to read", (storage.get_storage().get_bytes(f"jobs/{made['id']}/source/a.pdf")), b"%PDF-1")
+
+    def put_fails(self, key, data):
+        raise OSError("storage is down")
+
+    with _Sandbox():
+        storage.LocalStorage.put_bytes = put_fails
+        try:
+            try:
+                asyncio.run(api.create_job("OAU", "2019", [UploadFile(file=io.BytesIO(b"x"), filename="a.pdf")], user_id=1))
+                got = "no error"
+            except OSError:
+                got = "error reported"
+        finally:
+            storage.LocalStorage.put_bytes = real_put
+        with db.engine.begin() as conn:
+            left = conn.execute(select(db.jobs.c.status)).all()
+        check("a failed store is reported, and leaves no job for the worker to trip over", (got, left, worker.claim_next_job()), ("error reported", [], None))
+
+
 def test_s3_credentials():
     captured = {}
 
@@ -359,7 +402,7 @@ def test_database_without_job_heartbeat_is_upgraded():
 
 
 def main():
-    for t in (test_settings, test_api_docs_are_off_in_production, test_settings_the_rest_of_the_app_reads_exist, test_deploy_check, test_cors_is_wired_to_the_setting, test_health, test_claiming, test_requeue_stale,
+    for t in (test_settings, test_api_docs_are_off_in_production, test_settings_the_rest_of_the_app_reads_exist, test_deploy_check, test_cors_is_wired_to_the_setting, test_health, test_a_job_cannot_be_taken_before_its_files_are_stored, test_claiming, test_requeue_stale,
               test_heartbeat, test_a_reassigned_job_is_not_written_twice, test_s3_credentials,
               test_local_storage_delete, test_older_code_can_still_insert_jobs, test_database_without_job_heartbeat_is_upgraded):
         t()

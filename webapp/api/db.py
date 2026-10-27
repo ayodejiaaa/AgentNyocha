@@ -42,7 +42,8 @@ jobs = Table(
     Column("year", String, nullable=False),
     Column("filenames", JSON, nullable=False),          # original uploaded filenames, in upload order
     Column("storage_prefix", String, nullable=False),    # where this job's files/images live in storage
-    # queued -> processing -> ready -> (failed on error, staying visible with error_message set)
+    # uploading (files still being stored) -> queued -> processing -> ready
+    # -> (failed on error, staying visible with error_message set)
     Column("status", String, nullable=False, default="queued"),
     Column("error_message", Text, nullable=True),
     Column("uploaded_by", Integer, ForeignKey("users.id"), nullable=False),
