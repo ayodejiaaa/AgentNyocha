@@ -102,8 +102,13 @@ export default function JobsPage() {
         <div className="card">
           <h2 style={{ marginTop: 0, fontSize: 16 }}>Upload a booklet</h2>
           <p style={{ fontSize: 13, color: "#666", marginTop: -6 }}>
-            One or more PDFs from the same booklet (a split scan) - they&rsquo;ll be stitched together
-            in the order you select them.
+            One or more PDFs from the same booklet (a split scan). Everything you select here becomes one
+            job. Parts are joined by the page marker in each file name (for example &ldquo;PGS 1 - 120&rdquo;
+            or &ldquo;pg 121&rdquo;), not the order you select them; a file with no marker goes first.
+          </p>
+          <p style={{ fontSize: 13, color: "#a15c00", marginTop: -6 }}>
+            Keep everything in one upload under 100 MB in total. A bigger upload is refused and stops
+            early with &ldquo;The connection was lost&rdquo;.
           </p>
           <form onSubmit={onUpload}>
             <div style={{ display: "flex", gap: 14 }}>
