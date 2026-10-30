@@ -7,7 +7,7 @@ import {
   exportUrl, fileUrl, getJob, getPageImageStatus, getToken, pageImagesUrl, patchRecord, setPageNumber,
   type Job, type PageImageStatus, type PageProblem, type ReviewRecord,
 } from "@/lib/api";
-import { filterRows, rowCounts, type Filter } from "@/lib/rows";
+import { filterRows, rowCounts, rowTags, searchRows, type Filter } from "@/lib/rows";
 
 const EDIT_FIELDS: { key: keyof ReviewRecord; label: string }[] = [
   { key: "faculty", label: "Faculty" },
@@ -235,6 +235,8 @@ export default function ReviewPage() {
   const [records, setRecords] = useState<ReviewRecord[]>([]);
   const [filter, setFilter] = useState<Filter>("flagged");
   const [lastRemoved, setLastRemoved] = useState<number | null>(null);
+  const [find, setFind] = useState("");                       // the whole-job search
+  const [focusId, setFocusId] = useState<number | null>(null);  // one row opened from the search
   const [search, setSearch] = useState("");
   const [lightbox, setLightbox] = useState<string | null>(null);
   const [error, setError] = useState("");
@@ -280,7 +282,17 @@ export default function ReviewPage() {
   }
 
   const counts = useMemo(() => rowCounts(records), [records]);
-  const visible = useMemo(() => filterRows(records, filter, search, pageFilter), [records, filter, search, pageFilter]);
+  const found = useMemo(() => searchRows(records, find), [records, find]);
+  const visible = useMemo(
+    () => (focusId !== null ? records.filter((r) => r.id === focusId) : filterRows(records, filter, search, pageFilter)),
+    [records, filter, search, pageFilter, focusId]);
+
+  // Show one row from the search results, where it can be read against its snapshot and edited.
+  function openRow(id: number) {
+    setFocusId(id);
+    setPageFilter(null);
+    setTimeout(() => document.getElementById("rows-start")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+  }
 
   if (error) {
     return (
@@ -297,6 +309,8 @@ export default function ReviewPage() {
     { key: "medium", label: "Medium", count: counts.medium },
     { key: "high", label: "High", count: counts.high },
     { key: "all", label: "All", count: counts.all },
+    { key: "reviewed", label: "Reviewed", count: counts.reviewed },
+    { key: "edited", label: "Edited", count: counts.edited },
     ...(counts.removed > 0 ? [{ key: "removed" as Filter, label: "Removed", count: counts.removed }] : []),
   ];
 
@@ -343,7 +357,7 @@ export default function ReviewPage() {
             </div>
             {pageStatus.problems.map((p) => (
               <ProblemPage key={p.page_id} problem={p} onOpenImage={setLightbox} onSet={onPageSet}
-                           onShowRows={() => { setPageFilter(p.page_id); setFilter("all"); window.scrollTo({ top: 0 }); }} />
+                           onShowRows={() => { setPageFilter(p.page_id); setFilter("all"); setFocusId(null); window.scrollTo({ top: 0 }); }} />
             ))}
           </div>
         )}
@@ -355,9 +369,41 @@ export default function ReviewPage() {
           </div>
         )}
 
+        <div className="card find-card">
+          <label className="find-label" htmlFor="find-anywhere">Find a name anywhere in this job</label>
+          <input id="find-anywhere" className="find-input" value={find} onChange={(e) => setFind(e.target.value)}
+                 placeholder="e.g. Samuel. Searches every row: high confidence, reviewed, edited and removed." autoComplete="off" />
+          {find.trim() && (
+            <div className="find-results">
+              <div className="find-count">
+                {found.total === 0 ? "No row in this job has that name."
+                  : `${found.total} row${found.total === 1 ? "" : "s"} match${found.total === 1 ? "es" : ""}`
+                    + (found.total > found.matches.length ? ` - showing the first ${found.matches.length}; type more of the name to narrow it` : "")}
+              </div>
+              {found.matches.map((r) => (
+                <div className="find-row" key={r.id}>
+                  <span className="find-idx">#{r.row_index}</span>
+                  <span className="find-name">{r.name}</span>
+                  <span className="find-page">{r.page ? `page ${r.page}` : ""}</span>
+                  <span className={`badge ${r.confidence}`}>{r.confidence}</span>
+                  {rowTags(r).map((t) => <span key={t} className={`tag tag-${t.toLowerCase()}`}>{t}</span>)}
+                  <button type="button" className="link-btn find-open" onClick={() => openRow(r.id)}>Open row</button>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {focusId !== null && (
+          <div className="card" style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <span style={{ fontSize: 13 }}>Showing one row, opened from the search.</span>
+            <button type="button" className="btn secondary" onClick={() => setFocusId(null)}>Show all rows</button>
+          </div>
+        )}
+
         <div className="filters" style={{ marginBottom: 12 }}>
           {filters.map((f) => (
-            <button key={f.key} className={filter === f.key ? "active" : ""} onClick={() => setFilter(f.key)}>
+            <button key={f.key} className={filter === f.key ? "active" : ""} onClick={() => { setFilter(f.key); setFocusId(null); }}>
               {f.label} ({f.count})
             </button>
           ))}
@@ -369,6 +415,7 @@ export default function ReviewPage() {
           />
         </div>
 
+        <div id="rows-start" />
         {lastRemoved !== null && (
           <div className="card removed-notice" role="status">
             Row #{records.find((r) => r.id === lastRemoved)?.row_index} is out of the export.{" "}

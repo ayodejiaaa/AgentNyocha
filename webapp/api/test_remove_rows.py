@@ -112,6 +112,16 @@ def test_the_review_screen_still_gets_removed_rows():
         got = {r["id"]: r["removed"] for r in api.get_job(1, user_id=1)["records"]}
         check("the screen is sent every row with its removed flag, so it can show and restore them", got, {1: False, 2: True})
         check("a row that was never removed says so", all(isinstance(v, bool) for v in got.values()), True)
+        # the screen's Edited and Reviewed views are worked out from these two fields, so they must be sent
+        rec = api.get_job(1, user_id=1)["records"][0]
+        check("every row carries what extraction first produced and who last changed it",
+              ("original_fields" in rec, "updated_by" in rec, rec["updated_by"]), (True, True, None))
+        patch(1, reviewed=True)
+        check("ticking a row as reviewed records who did it", api.get_job(1, user_id=1)["records"][0]["updated_by"], 1)
+        patch(1, name="ADEYEMI Olufemi Samuel")
+        edited = api.get_job(1, user_id=1)["records"][0]
+        check("an edit leaves the original beside the new value, so the screen can tell it was edited",
+              (edited["name"], edited["original_fields"]["name"]), ("ADEYEMI Olufemi Samuel", "ADEYEMI Olufemi"))
 
 
 def test_removed_rows_no_longer_hold_up_the_page_images():

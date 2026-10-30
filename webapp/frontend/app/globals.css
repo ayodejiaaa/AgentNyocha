@@ -137,3 +137,17 @@ table.jobs a.job-link:hover { text-decoration: underline; }
 .remove-btn { color: #b02a2a; margin-left: 14px; margin-top: 8px; }
 .removed-row { background: #fafafa; opacity: .85; }
 .removed-notice { background: #f4f5f7; border-color: #d9dbe0; font-size: 13px; padding: 10px 14px; }
+
+.find-card { padding: 14px 16px; }
+.find-label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+.find-input { width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; }
+.find-results { margin-top: 10px; border-top: 1px solid #eee; padding-top: 8px; }
+.find-count { font-size: 12px; color: #666; margin-bottom: 6px; }
+.find-row { display: flex; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px solid #f1f1f1; font-size: 13px; flex-wrap: wrap; }
+.find-idx { color: #999; font-size: 11px; width: 42px; flex: none; }
+.find-name { font-weight: 600; flex: 1 1 200px; min-width: 0; overflow-wrap: anywhere; }
+.find-page { color: #888; font-size: 12px; width: 70px; flex: none; }
+.find-open { margin-bottom: 0; font-size: 12px; }
+.tag { font-size: 11px; padding: 1px 7px; border-radius: 10px; background: #eef1ff; color: #3a4ba0; }
+.tag-edited { background: #fff4e0; color: #a15c00; }
+.tag-removed { background: #f1f1f1; color: #666; }

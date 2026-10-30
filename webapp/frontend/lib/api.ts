@@ -91,6 +91,7 @@ export type ReviewRecord = {
   // processed before these were kept.
   pageno_image: string | null;
   reviewed: boolean;
+  updated_by: number | null;   // who last changed the row; null if nobody has (a high-confidence row starts "reviewed" with nobody's mark)
   removed: boolean;   // taken out of the export by a reviewer; hidden, can be put back
 };
 
