@@ -7,6 +7,7 @@ import {
   exportUrl, fileUrl, getJob, getPageImageStatus, getToken, pageImagesUrl, patchRecord, setPageNumber,
   type Job, type PageImageStatus, type PageProblem, type ReviewRecord,
 } from "@/lib/api";
+import { filterRows, rowCounts, type Filter } from "@/lib/rows";
 
 const EDIT_FIELDS: { key: keyof ReviewRecord; label: string }[] = [
   { key: "faculty", label: "Faculty" },
@@ -21,8 +22,6 @@ const EDIT_FIELDS: { key: keyof ReviewRecord; label: string }[] = [
   { key: "affiliated_institution", label: "Affiliated institution" },
   { key: "country", label: "Country" },
 ];
-
-type Filter = "flagged" | "low" | "medium" | "high" | "all";
 
 function Row({ rec, onSaved, onOpenImage }: {
   rec: ReviewRecord;
@@ -71,6 +70,21 @@ function Row({ rec, onSaved, onOpenImage }: {
       Upload it again to get them.
     </div>
   ) : null;
+
+  if (rec.removed) {
+    return (
+      <div className="review-row removed-row">
+        <div className="idx">#{rec.row_index}</div>
+        <div className="fields">
+          <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+            <span style={{ textDecoration: "line-through", color: "#888", fontWeight: 600 }}>{rec.name}</span>
+            <span className="reason">Removed: not in the export</span>
+            <button type="button" className="btn secondary" onClick={() => save("removed", false)}>Put it back</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="review-row">
@@ -121,6 +135,11 @@ function Row({ rec, onSaved, onOpenImage }: {
         <button type="button" className="link" style={{ fontSize: 11, color: "#888", background: "none", border: "none", cursor: "pointer", padding: 0, marginTop: 8 }}
                 onClick={() => setExpanded((v) => !v)}>
           {expanded ? "Hide other fields" : "Edit other fields (faculty, degree, grade, ...)"}
+        </button>
+        <button type="button" className="link-btn remove-btn"
+                title="Takes this row out of the export. For a leftover piece of a name that is already on another row. You can put it back."
+                onClick={() => save("removed", true)}>
+          Remove this row
         </button>
         {expanded && (
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 10px" }}>
@@ -215,6 +234,7 @@ export default function ReviewPage() {
   const [pageFilter, setPageFilter] = useState<number | null>(null); // show only the rows on this page
   const [records, setRecords] = useState<ReviewRecord[]>([]);
   const [filter, setFilter] = useState<Filter>("flagged");
+  const [lastRemoved, setLastRemoved] = useState<number | null>(null);
   const [search, setSearch] = useState("");
   const [lightbox, setLightbox] = useState<string | null>(null);
   const [error, setError] = useState("");
@@ -237,7 +257,21 @@ export default function ReviewPage() {
   function onSaved(id: number, patch: Partial<ReviewRecord>) {
     setRecords((prev) => prev.map((r) => (r.id === id ? { ...r, ...patch } : r)));
     if ("page" in patch) refreshPageStatus(); // a single row's page value can create or clear a problem
+    if ("removed" in patch) {
+      refreshPageStatus();                     // taking a row out (or back) can clear or create a page-number problem
+      setLastRemoved(patch.removed ? id : null);
+    }
   }
+
+  // Undo for the row just removed. The notice goes away by itself after a while.
+  function undoRemove(id: number) {
+    patchRecord(id, { removed: false }).then(() => onSaved(id, { removed: false })).catch(() => {});
+  }
+  useEffect(() => {
+    if (lastRemoved === null) return;
+    const t = setTimeout(() => setLastRemoved(null), 15000);
+    return () => clearTimeout(t);
+  }, [lastRemoved]);
 
   // A page-level number was set on the server for every row of the page - mirror it here.
   function onPageSet(pageId: number, page: string) {
@@ -245,28 +279,8 @@ export default function ReviewPage() {
     refreshPageStatus();
   }
 
-  const counts = useMemo(() => ({
-    high: records.filter((r) => r.confidence === "high").length,
-    medium: records.filter((r) => r.confidence === "medium").length,
-    low: records.filter((r) => r.confidence === "low").length,
-    // "Needs review" is the actionable worklist, not just a confidence
-    // slice - a row a DES has ticked "reviewed" (whether or not they
-    // changed it) is done, and should visibly leave the list rather than
-    // sit there forever at the same count. The Low/Medium/High/All views
-    // stay complete regardless - those are for browsing everything, not
-    // tracking what's left to do.
-    needsReview: records.filter((r) => r.confidence !== "high" && !r.reviewed).length,
-  }), [records]);
-
-  const visible = useMemo(() => {
-    return records.filter((r) => {
-      if (pageFilter !== null) return r.page_id === pageFilter && (!search || r.name.toLowerCase().includes(search.toLowerCase()));
-      if (filter === "flagged") return r.confidence !== "high" && !r.reviewed;
-      if (filter !== "all" && r.confidence !== filter) return false;
-      if (search && !r.name.toLowerCase().includes(search.toLowerCase())) return false;
-      return true;
-    });
-  }, [records, filter, search, pageFilter]);
+  const counts = useMemo(() => rowCounts(records), [records]);
+  const visible = useMemo(() => filterRows(records, filter, search, pageFilter), [records, filter, search, pageFilter]);
 
   if (error) {
     return (
@@ -282,7 +296,8 @@ export default function ReviewPage() {
     { key: "low", label: "Low", count: counts.low },
     { key: "medium", label: "Medium", count: counts.medium },
     { key: "high", label: "High", count: counts.high },
-    { key: "all", label: "All", count: records.length },
+    { key: "all", label: "All", count: counts.all },
+    ...(counts.removed > 0 ? [{ key: "removed" as Filter, label: "Removed", count: counts.removed }] : []),
   ];
 
   return (
@@ -353,6 +368,13 @@ export default function ReviewPage() {
             style={{ float: "right", padding: "6px 10px", border: "1px solid #ccc", borderRadius: 6, width: 220 }}
           />
         </div>
+
+        {lastRemoved !== null && (
+          <div className="card removed-notice" role="status">
+            Row #{records.find((r) => r.id === lastRemoved)?.row_index} is out of the export.{" "}
+            <button type="button" className="link-btn" style={{ marginBottom: 0, fontSize: 13 }} onClick={() => undoRemove(lastRemoved)}>Undo</button>
+          </div>
+        )}
 
         {visible.length === 0 ? (
           <div className="card" style={{ textAlign: "center", color: "#888" }}>No rows match.</div>

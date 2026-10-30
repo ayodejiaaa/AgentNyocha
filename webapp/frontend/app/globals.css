@@ -133,3 +133,7 @@ table.jobs a.job-link:hover { text-decoration: underline; }
 .job-progress-text { font-size: 11px; color: #666; margin-top: 3px; }
 .job-progress-text b { color: #3a4ba0; }
 @media (prefers-reduced-motion: reduce) { .job-progress .bar > span { transition: none; } }
+
+.remove-btn { color: #b02a2a; margin-left: 14px; margin-top: 8px; }
+.removed-row { background: #fafafa; opacity: .85; }
+.removed-notice { background: #f4f5f7; border-color: #d9dbe0; font-size: 13px; padding: 10px 14px; }

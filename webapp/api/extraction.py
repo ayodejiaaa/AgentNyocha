@@ -142,6 +142,7 @@ def export_clean_rows(job_id: int) -> list[dict]:
     (possibly DES-corrected) field values, not the original extraction."""
     with db.engine.begin() as conn:
         rows = conn.execute(
-            select(db.records).where(db.records.c.job_id == job_id).order_by(db.records.c.row_index)
+            select(db.records).where(db.records.c.job_id == job_id, db.records.c.removed.is_(False))
+            .order_by(db.records.c.row_index)
         ).mappings().all()
     return [{f: r[f] for f in CANON_FIELDS} for r in rows]

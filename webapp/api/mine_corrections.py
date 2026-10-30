@@ -66,7 +66,7 @@ def booklet_key(university: str, year: str) -> str:
 
 
 def find_corrections(job_id: int | None = None, since: datetime | None = None, engine=None) -> list[dict]:
-    query = select(db.records)
+    query = select(db.records).where(db.records.c.removed.is_(False))   # a removed row teaches nothing
     if job_id is not None:
         query = query.where(db.records.c.job_id == job_id)
     if since is not None:

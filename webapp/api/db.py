@@ -121,6 +121,10 @@ records = Table(
     Column("flag_reason", String, nullable=False, default=""),
     Column("review_image", String, nullable=True),       # storage key, not a public URL - see api/main.py's /files route
     Column("reviewed", Boolean, nullable=False, default=False),
+    # A row taken out by a reviewer (a leftover fragment of a name that wrapped onto another line, a
+    # stray line...). Hidden, not deleted: it is left out of the export, the page-number checks and the
+    # corrections report, and can be put back. updated_by / updated_at say who and when.
+    Column("removed", Boolean, nullable=False, default=False, server_default=text("false")),
     Column("page_id", Integer, ForeignKey("pages.id"), nullable=True),   # NULL for jobs processed before pages existed
     Column("updated_by", Integer, ForeignKey("users.id"), nullable=True),
     Column("updated_at", DateTime, nullable=True),
@@ -168,7 +172,8 @@ engine = create_engine(config.DATABASE_URL, connect_args=(
 # Columns added to a table after a database may already have been created from
 # an older version of this file. create_all() only ever adds whole missing
 # tables, never a column on an existing one, so each is added here if absent.
-_ADDED_COLUMNS = [("jobs", "progress", "INTEGER NOT NULL DEFAULT 0"), ("jobs", "progress_note", "VARCHAR"),
+_ADDED_COLUMNS = [("records", "removed", "BOOLEAN NOT NULL DEFAULT FALSE"),
+                  ("jobs", "progress", "INTEGER NOT NULL DEFAULT 0"), ("jobs", "progress_note", "VARCHAR"),
                   ("jobs", "heartbeat_at", "TIMESTAMP"), ("jobs", "attempts", "INTEGER NOT NULL DEFAULT 0"),
                   ("records", "page_id", "INTEGER"),
                   ("pages", "page_note", "VARCHAR"), ("pages", "seen_numbers", "TEXT"),

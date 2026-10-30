@@ -25,6 +25,7 @@ python -m webapp.api.test_mine_corrections
 python -m webapp.api.test_page_export
 python -m webapp.api.test_deploy
 python -m webapp.api.test_progress
+python -m webapp.api.test_remove_rows
 ```
 
 Local development needs none of the above: with nothing set it uses SQLite and a local

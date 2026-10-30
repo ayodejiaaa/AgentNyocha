@@ -91,6 +91,7 @@ export type ReviewRecord = {
   // processed before these were kept.
   pageno_image: string | null;
   reviewed: boolean;
+  removed: boolean;   // taken out of the export by a reviewer; hidden, can be put back
 };
 
 // A page that is holding up the page-image download.

@@ -123,7 +123,7 @@ async def create_job(university: str, year: str, files: list[UploadFile],
 def _load_pages(conn, job_id: int):
     pages = [dict(p) for p in conn.execute(select(db.pages).where(db.pages.c.job_id == job_id)).mappings()]
     recs = conn.execute(select(db.records.c.id, db.records.c.page, db.records.c.page_id)
-                         .where(db.records.c.job_id == job_id)).mappings().all()
+                         .where(db.records.c.job_id == job_id, db.records.c.removed.is_(False))).mappings().all()
     by_page: dict[int, list[dict]] = {}
     for r in recs:
         if r["page_id"] is not None:
@@ -170,8 +170,8 @@ def export_job(job_id: int, request: Request, token: Optional[str] = Query(defau
         job = conn.execute(select(db.jobs).where(db.jobs.c.id == job_id)).mappings().first()
         if not job:
             raise HTTPException(404, "Job not found")
-        recs = conn.execute(select(db.records).where(db.records.c.job_id == job_id)
-                             .order_by(db.records.c.row_index)).mappings().all()
+        recs = conn.execute(select(db.records).where(db.records.c.job_id == job_id, db.records.c.removed.is_(False))
+                             .order_by(db.records.c.row_index)).mappings().all()   # a removed row is not exported
     buf = io.StringIO()
     writer = csv.DictWriter(buf, fieldnames=CANON_FIELDS)
     writer.writeheader()
@@ -299,12 +299,13 @@ class RecordUpdate(BaseModel):
     affiliated_institution: Optional[str] = None
     country: Optional[str] = None
     reviewed: Optional[bool] = None
+    removed: Optional[bool] = None   # True takes the row out of the export; False puts it back
 
 
 @app.patch("/records/{record_id}")
 def update_record(record_id: int, body: RecordUpdate, user_id: int = Depends(security.current_user_id)):
     values = {k: v for k, v in body.model_dump(exclude_unset=True).items()
-              if k == "reviewed" or (k in _EDITABLE_FIELDS and v is not None)}
+              if (k in ("reviewed", "removed") and v is not None) or (k in _EDITABLE_FIELDS and v is not None)}
     if not values:
         raise HTTPException(400, "Nothing to update")
     values["updated_by"] = user_id
